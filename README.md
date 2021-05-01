@@ -4,7 +4,7 @@ This software has been developed for OCSILY - for more details, please contact O
 #### Installation
 ```
 $ git clone https://github.com/Zyzonix/MGFieldPy.git
-$ cd MGField/
+$ cd MGFieldPy/
 ```
 To install the service type:
 ```
