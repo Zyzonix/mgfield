@@ -100,7 +100,7 @@ class Core(object):
     def calculateAverage(self, temp_list, mgfield_list):
         temp = 0.0
         for item in temp_list:
-            temp = temp + item
+            temp = float(temp) + float(item)
         result_temp = temp/float(len(temp_list))
 
         mgfield = 0.0
