@@ -113,13 +113,16 @@ class Core(object):
     # data retrieving
     def MGFieldCore(self):
         threading.Timer(self.MES_TIME, Core.MGFieldCore, [self]).start()
-        mgfield_values.append(self.inputMethod(self))
-        temp_values.append(dataHandler.getTemperature())
-        # checking if the max limit has been reached
-        if len(mgfield_values) == self.average:
-            Core.calculateAverage(self, temp_values, mgfield_values)
-            temp_values.clear()
-            mgfield_values.clear()
+        try:
+            mgfield_values.append(self.inputMethod(self))
+            temp_values.append(dataHandler.getTemperature())
+            # checking if the max limit has been reached
+            if len(mgfield_values) == self.average:
+                Core.calculateAverage(self, temp_values, mgfield_values)
+                temp_values.clear()
+                mgfield_values.clear()
+        except Exception as e:
+            print(e)
 
     # initiation function
     def __init__(self):
