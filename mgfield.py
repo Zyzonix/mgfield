@@ -81,7 +81,7 @@ class Core(object):
         self.MES_TIME = float(confPars["CONFIGURATION"]["MES_TIME"])
         self.baseFilePath = confPars["CONFIGURATION"]["basefilepath"]
         self.log = confPars["CONFIGURATION"].getboolean("log")
-        self.input = confPars["CONFIGURATION"]["input"]
+        self.input = int(confPars["CONFIGURATION"]["input"])
         self.average = int(confPars["CONFIGURATION"]["average"])
 
     # static lists
