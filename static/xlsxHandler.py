@@ -8,7 +8,7 @@
 # -
 # file      | static/xlsxHandler.py
 # project   | MGFieldPy
-# project-v | 0.1
+# project-v | 0.2
 # 
 from datetime import date, datetime
 import openpyxl

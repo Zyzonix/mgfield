@@ -8,7 +8,7 @@
 # -
 # file      | mgfield.py
 # project   | MGFieldPy
-# project-v | 0.1
+# project-v | 0.2
 # 
 import os
 import sys
@@ -67,7 +67,6 @@ class Core(object):
         xlsxFile = xlsxHandler.prepareXLSXFile(self, sheetName)
         # saving file data globally
         self.xlsxFileData = [xlsxFile, sheetName]
-        # CONTINUE HERE
 
     # importing all required values from static/config.ini
     def importConfig(self):
@@ -92,23 +91,31 @@ class Core(object):
     
     # collecting all required data
     def collectData(self, mgfield_value, temp_value):
-        row_content = [self.getFDate(), self.getFTime(), mgfield_value, temp_value, dataHandler.getSystemStatistics()]
-        # writing data to file
-        xlsxHandler.writeToXLSXFile(self, row_content)
+        try:
+            row_content = [self.getFDate(), self.getFTime(), mgfield_value, temp_value, dataHandler.getSystemStatistics()]
+            # writing data to file
+            xlsxHandler.writeToXLSXFile(self, row_content)
+        except Exception as e:
+            print(self.getCTime(), "something went wrong ERR: 2")
+            print(e)
 
     # calculating average values from the two given lists
     def calculateAverage(self, temp_list, mgfield_list):
-        temp = 0.0
-        for item in temp_list:
-            temp = float(temp) + float(item)
-        result_temp = temp/float(len(temp_list))
+        try:
+            temp = 0.0
+            for item in temp_list:
+                temp = float(temp) + float(item)
+            result_temp = temp/float(len(temp_list))
 
-        mgfield = 0.0
-        for item in mgfield_list:
-            mgfield = mgfield + item
-        result_mgfield = mgfield/len(mgfield_list)
-        # starting collecting process
-        Core.collectData(self, result_mgfield, result_temp)
+            mgfield = 0.0
+            for item in mgfield_list:
+                mgfield = mgfield + item
+            result_mgfield = mgfield/len(mgfield_list)
+            # starting collecting process
+            Core.collectData(self, result_mgfield, result_temp)
+        except Exception as e:
+            print(self.getCTime(), "something went wrong ERR: 1")
+            print(e)
 
     # data retrieving
     def MGFieldCore(self):
@@ -122,6 +129,7 @@ class Core(object):
                 temp_values.clear()
                 mgfield_values.clear()
         except Exception as e:
+            print(self.getCTime(), "something went wrong ERR: 0")
             print(e)
 
     # initiation function
