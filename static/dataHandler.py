@@ -38,12 +38,15 @@ class inputMethods():
     def importDataFromSensor(self):
         i2c = busio.I2C(board.SCL, board.SDA)                          
         # creating the ADC object using the I2C bus
+        # analog digital converter
         ads = ADS.ADS1115(i2c) 
-        # creating single-ended input on channel 0
+        # creating input for x,y,z axis located at P0, P1, P2
         x = AnalogIn(ads, ADS.P0)
         y = AnalogIn(ads, ADS.P1)
         z = AnalogIn(ads, ADS.P2)
-        # calculating value
+        # calculating value 
+         
+        #Formula for calculating the magnitude of the earth's magnetic field
         result = (((x.value * x.value) + (y.value * y.value) + (z.value * z.value)) ** 0.5)          ##
         print(mgfield.Core.getCTime(self), "got", result, "as value")
         return result
@@ -52,6 +55,7 @@ class inputMethods():
 def getTemperature():
     # opening file that contains the temperature
     try:
+        # unique ID for DS18B20 sensor
         sensor = open('/sys/bus/w1/devices/28-01193a114ec3/w1_slave')
         temp_raw = sensor.read()
         sensor.close()
@@ -61,7 +65,7 @@ def getTemperature():
         temp = float(temp_string[2:]) / 1000
         value = str('%6.2f' % temp)
     except:
-        value = 1.00
+        value = 1.00 #
     return value
 
 # retrieving ram utilisation
