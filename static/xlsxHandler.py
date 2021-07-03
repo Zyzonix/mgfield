@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 # written by @author ZyzonixDev
-# published by ZyzonixDevelopments 
+# published by OCISLY and ZyzonixDevelopments
 # -
 # date      | 25/04/2021
 # python-v  | 3.5.3
@@ -13,35 +13,35 @@
 from datetime import date, datetime
 import openpyxl
 
-# preparing the xlsx-file
+# Vorbereiten der Excel-Datei
 def prepareXLSXFile(self, sheetName):
+    # Setzt den Dateipfad
     file = self.baseFilePath + str(date.today()) + "/" + str(date.today()) + "_" + datetime.now().strftime("%H-%M-%S") + ".xlsx"
     row = 1
+    # Initialisiert die notwendige Bibliothek zum schreiben/lesen von Excel-Dateien
     workBook = openpyxl.Workbook()
+    # Aktiviert die zu bearbeitende Tabelle
     workSheet = workBook.active
-    # sheet name
+    # Setzt den Tabellennamen
     workSheet.title = sheetName
-    # columnnames
+    # Variable für die Spaltenbezeichnung (Zeile 1)
     values = ["Date", "Time", "MGField Value1","MGField Value2", "Temperature", "Ram-Utilisation"]
-    # inserting columnnames
+    # Schreibt die vorher behannten Bezeichnungen in die erste Zeile
     for column, item in enumerate(values, start=1):
         workSheet.cell(row, column, item)
-    # writing all changes to file
+    # Speichert die Datei
     workBook.save(filename=file)
-    # returning filename/path
+    # Gibt den Dateinamen für zukünftige Schreibzyklen zurück
     return file
 
-# writing data to file
+# Schreiben von Daten in die Datei
 def writeToXLSXFile(self, data):
-    # retrieving workbook, sheet and row
+    # Öffnen der Datei und aktivieren der Tabelle
     workBook = openpyxl.load_workbook(self.xlsxFileData[0])
     workSheet = workBook[self.xlsxFileData[1]]
     currentRow = workBook.active.max_row + 1
-    # inserting data per column
+    # Schreibt Daten in die Zeile
     for column, item in enumerate(data, start=1):
         workSheet.cell(currentRow, column, item)
-    # saving changes
+    # Speichert die Datei
     workBook.save(filename=self.xlsxFileData[0])
-
-
-
