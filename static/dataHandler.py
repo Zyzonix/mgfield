@@ -34,12 +34,29 @@ class inputMethods():
         print(mgfield.Core.getCTime(self), "got", result, "as value")
         return float(result)
 
-    # input from sensor
-    def importDataFromSensor(self):
+    # input from sensor1
+    def importDataFromSensor1(self):
         i2c = busio.I2C(board.SCL, board.SDA)                          
-        # creating the ADC object using the I2C bus
+        # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 1
         # analog digital converter
-        ads = ADS.ADS1115(i2c) 
+        ads = ADS.ADS1115(i2c, adress=0x48) 
+        # creating input for x,y,z axis located at P0, P1, P2
+        x = AnalogIn(ads, ADS.P0)
+        y = AnalogIn(ads, ADS.P1)
+        z = AnalogIn(ads, ADS.P2)
+        # calculating value 
+         
+        #Formula for calculating the magnitude of the earth's magnetic field
+        result = (((x.value * x.value) + (y.value * y.value) + (z.value * z.value)) ** 0.5)          ##
+        print(mgfield.Core.getCTime(self), "got", result, "as value")
+        return result
+    
+    #input from sensor2
+    def importDataFromSensor2(self):
+        i2c = busio.I2C(board.SCL, board.SDA)                          
+        # creating the ADC object using the I2C bus located at 0x49 for fluxgate sensor 2
+        # analog digital converter
+        ads = ADS.ADS1115(i2c, adress=0x49) 
         # creating input for x,y,z axis located at P0, P1, P2
         x = AnalogIn(ads, ADS.P0)
         y = AnalogIn(ads, ADS.P1)
