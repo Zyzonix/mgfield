@@ -39,7 +39,7 @@ class inputMethods():
         i2c = busio.I2C(board.SCL, board.SDA)                          
         # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 1
         # analog digital converter
-        ads = ADS.ADS1115(i2c, adress=0x48) 
+        ads1 = ADS.ADS1115(i2c, adress=0x48) 
         # creating input for x,y,z axis located at P0, P1, P2
         x = AnalogIn(ads, ADS.P0)
         y = AnalogIn(ads, ADS.P1)
@@ -56,7 +56,7 @@ class inputMethods():
         i2c = busio.I2C(board.SCL, board.SDA)                          
         # creating the ADC object using the I2C bus located at 0x49 for fluxgate sensor 2
         # analog digital converter
-        ads = ADS.ADS1115(i2c, adress=0x49) 
+        ads2 = ADS.ADS1115(i2c, adress=0x49) 
         # creating input for x,y,z axis located at P0, P1, P2
         x = AnalogIn(ads, ADS.P0)
         y = AnalogIn(ads, ADS.P1)
