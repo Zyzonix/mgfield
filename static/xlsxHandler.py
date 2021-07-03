@@ -22,7 +22,7 @@ def prepareXLSXFile(self, sheetName):
     # sheet name
     workSheet.title = sheetName
     # columnnames
-    values = ["Date", "Time", "MGField Value", "Temperature", "Ram-Utilisation"]
+    values = ["Date", "Time", "MGField Value1","MGField Value2", "Temperature", "Ram-Utilisation"]
     # inserting columnnames
     for column, item in enumerate(values, start=1):
         workSheet.cell(row, column, item)
