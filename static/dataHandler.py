@@ -101,6 +101,8 @@ def getSystemStatistics():
 # Sucht die aktuelle Inputmethode aus (wird durch die Config-Datei bestimmt)
 def handleInputMethod(self):
     if self.input == 1:
-        self.inputMethod = getattr(inputMethods, "importDataFromSensor")
+        self.inputMethod = getattr(inputMethods, "importDataFromSensor1")
+        self.inputMethod2 = getattr(inputMethods, "importDataFromSensor2")
     else:
         self.inputMethod = getattr(inputMethods, "importDataFromFile")
+        self.inputMethod2 = getattr(inputMethods, "importDataFromFile")
