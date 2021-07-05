@@ -32,10 +32,11 @@ print("\n[" + str(datetime.now().strftime("%H:%M:%S")) + "] running " + "\033[91
 
 thread = threading.Thread(target=loadingAnimation)
 thread.start()
+print("started thread")
 # Core importieren
 from mgfield import Core
 loaded = True
-
+print("import complete")
 thread.join()
 print("\n")
 # Starting MGFIeldPy
