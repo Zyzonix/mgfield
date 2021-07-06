@@ -42,7 +42,7 @@ class inputMethods():
         # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 1
         # analog digital converter
         # Konfiguriert den Input vom I2C-Gerät mit der ID 0x48
-        ads1 = ADS.ADS1115(i2c, adress=0x48) 
+        ads1 = ADS.ADS1115(i2c, address=0x48) 
         # creating input for x,y,z axis located at P0, P1, P2
         # Fragt die x,y,z-Werte ab
         x = AnalogIn(ads, ADS.P0)
@@ -62,7 +62,7 @@ class inputMethods():
         # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 2
         # analog digital converter
         # Konfiguriert den Input vom I2C-Gerät mit der ID 0x49
-        ads1 = ADS.ADS1115(i2c, adress=0x49) 
+        ads1 = ADS.ADS1115(i2c, address=0x49) 
         # creating input for x,y,z axis located at P0, P1, P2
         # Fragt die x,y,z-Werte ab
         x = AnalogIn(ads, ADS.P0)
