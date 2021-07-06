@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 # written by @author ZyzonixDev
-# published by OCISLY and ZyzonixDevelopments 
+# published by OCISLY-ds and ZyzonixDevelopments 
 # -
 # date      | 25/04/2021
 # python-v  | 3.5.3
