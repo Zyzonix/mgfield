@@ -45,9 +45,9 @@ class inputMethods():
         ads1 = ADS.ADS1115(i2c, address=0x48) 
         # creating input for x,y,z axis located at P0, P1, P2
         # Fragt die x,y,z-Werte ab
-        x = AnalogIn(ads, ADS.P0)
-        y = AnalogIn(ads, ADS.P1)
-        z = AnalogIn(ads, ADS.P2)
+        x = AnalogIn(ads1, ADS.P0)
+        y = AnalogIn(ads1, ADS.P1)
+        z = AnalogIn(ads1, ADS.P2)
          
         # Formula for calculating the magnitude of the earth's magnetic field
         # Berechnung des Wertes
@@ -62,12 +62,12 @@ class inputMethods():
         # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 2
         # analog digital converter
         # Konfiguriert den Input vom I2C-Gerät mit der ID 0x49
-        ads1 = ADS.ADS1115(i2c, address=0x49) 
+        ads2 = ADS.ADS1115(i2c, address=0x49) 
         # creating input for x,y,z axis located at P0, P1, P2
         # Fragt die x,y,z-Werte ab
-        x = AnalogIn(ads, ADS.P0)
-        y = AnalogIn(ads, ADS.P1)
-        z = AnalogIn(ads, ADS.P2)
+        x = AnalogIn(ads2, ADS.P0)
+        y = AnalogIn(ads2, ADS.P1)
+        z = AnalogIn(ads2, ADS.P2)
          
         # Formula for calculating the magnitude of the earth's magnetic field
         # Berechnung des Wertes
