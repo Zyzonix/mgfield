@@ -1,5 +1,6 @@
 # MGFieldPy - Magnetic field measurement
-This software has been developed with OCISLY-ds to measure magnetic fields with an Raspberry Pi - for more details, please contact OCISLY-ds.
+This software has been developed with OCISLY-ds to measure magnetic fields with an Raspberry Pi 
+- for more details, please contact OCISLY-ds.
 
 #### Installation
 ```
