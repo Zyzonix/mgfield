@@ -95,8 +95,8 @@ def getTemperature():
 
 # Sammelt die aktuelle RAM-Auslastung
 def getSystemStatistics():
-    ram_percent = float(psutil.virtual_memory().percent)
-    return ram_percent
+    ram_available = float(psutil.virtual_memory().available * 100 / psutil.virtual_memory().total)
+    return ram_available
 
 # Sucht die aktuelle Inputmethode aus (wird durch die Config-Datei bestimmt)
 def handleInputMethod(self):
