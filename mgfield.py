@@ -8,7 +8,7 @@
 # -
 # file      | mgfield.py
 # project   | MGFieldPy
-# project-v | 1.1
+# project-v | 1.11
 # 
 #
 # Required packages (pip3)
@@ -45,7 +45,7 @@ class Core(object):
     # Zeitservice für die Consolenausgabe
     def getCTime(self):
         time = datetime.now().strftime("%H:%M:%S.%f")
-        timeFormatted = time[:-4]
+        timeFormatted = time[:-5]
         curTime = "[" + str(timeFormatted) + "]"
         return curTime
 
@@ -175,6 +175,8 @@ class Core(object):
         print(self.getCTime(), "running version:", self.version)
         # Überprüft ob das Logschreiben aktiviert ist, wenn ja --> initialisiert das Logschreiben
         if self.log:
+            if not (os.path.exists(os.getcwd() + "/logs")):
+                os.mkdir(os.getcwd() + "/logs")
             print(self.getCTime(), "initializing logwriter")
             self.writeLog()
         
