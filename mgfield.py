@@ -8,14 +8,21 @@
 # -
 # file      | mgfield.py
 # project   | MGFieldPy
-# project-v | 0.2
+# project-v | 1.1
 # 
+#
+# Required packages (pip3)
+# pip3 install board
+# pip3 install openpyxl
+#
 import os
 import sys
 import threading
 from configparser import ConfigParser
 from datetime import date, datetime
-from static import dataHandler, xlsxHandler
+from static import xlsxHandler
+from static import dataHandler
+from static import csvHandler
 
 # Schreibt eine Log-Datei
 class LogWriter(object):
@@ -37,7 +44,9 @@ class Core(object):
 
     # Zeitservice für die Consolenausgabe
     def getCTime(self):
-        curTime = "[" + str(datetime.now().strftime("%H:%M:%S")) + "]"
+        time = datetime.now().strftime("%H:%M:%S.%f")
+        timeFormatted = time[:-4]
+        curTime = "[" + str(timeFormatted) + "]"
         return curTime
 
     # Zeitservice für die Excel-Datei
@@ -57,17 +66,6 @@ class Core(object):
         sys.stdout = LogWriter(sys.stdout, logFile)
                     
 
-    # Bereitet die Arbeitsumgebung vor
-    def setupEnvironment(self, sheetName=str(date.today())):
-        print(self.getCTime(), "performing environment setup")
-        # Erstellt einen Ordner mit dem aktuellen Datum
-        if not os.path.exists(self.baseFilePath + str(date.today()) +"/"):
-            os.mkdir(self.baseFilePath + str(date.today()) +"/")
-        # Initialisiert die Excel-Datei
-        xlsxFile = xlsxHandler.prepareXLSXFile(self, sheetName)
-        # Speichert den Pfad zur Excel-Datei global
-        self.xlsxFileData = [xlsxFile, sheetName]
-
     # Liest die Konfiguration aus static/config.ini
     def importConfig(self):
         print(self.getCTime(), "importing configuration")
@@ -76,10 +74,13 @@ class Core(object):
         confPars.read(configFile)
         # Speichert alle notwendigen Werte global
         self.MES_TIME = float(confPars["CONFIGURATION"]["MES_TIME"])
-        self.baseFilePath = confPars["CONFIGURATION"]["basefilepath"]
+        self.baseFilePath = os.getcwd() + "/output"
         self.log = confPars["CONFIGURATION"].getboolean("log")
         self.input = int(confPars["CONFIGURATION"]["input"])
         self.average = int(confPars["CONFIGURATION"]["average"])
+        self.output = int(confPars["CONFIGURATION"]["output"])
+        self.sensors = int(confPars["CONFIGURATION"]["sensors"])
+        self.version = float(confPars["CONFIGURATION"]["version"])
 
     # Statische/globale Listen
     global mgfield_values 
@@ -91,13 +92,33 @@ class Core(object):
     
     # Sammelt und schreibt alle notwendigen Daten in die Datei
     def collectData(self, mgfield_value, temp_value, mgfield_value2):
+        # Sammeln der Daten
         try:
             row_content = [self.getFDate(), self.getFTime(), mgfield_value, mgfield_value2, temp_value, dataHandler.getSystemStatistics()]
-            # Schreibt Daten in die Excel-Datei
-            xlsxHandler.writeToXLSXFile(self, row_content)
         except Exception as e:
-            print(self.getCTime(), "something went wrong ERR: 2")
+            print("\n" + self.getCTime(), "something went wrong ERR: 4")
             print(e)
+            print("\n")
+            exit()
+
+        try:
+            # Auswahl der Outputdatei
+            # 0 = CSV
+            if self.output == 0:
+                # Schreibt Daten in die CSV-Datei
+                csvHandler.writeToCSVFile(self, row_content)
+                print("\n" + self.getCTime(), "wrote data to csv-file \n")
+            elif self.output == 1:
+                # Schreibt Daten in die Excel-Datei
+                xlsxHandler.writeToXLSXFile(self, row_content)
+                print("\n" + self.getCTime(), "wrote data to xlsx-file \n")
+            else:
+                print("\n" + self.getCTime(), "something went wrong ERR: 3 [no output file selected]\n")
+
+        except Exception as e:
+            print("\n" + self.getCTime(), "something went wrong ERR: 2")
+            print(e)
+            print("\n")
 
     # Berechnet den Durchschnittswert von Temperatur und den beiden Magnetfeldsensoren
     def calculateAverage(self, temp_list, mgfield_list, mgfield_list2):
@@ -116,11 +137,13 @@ class Core(object):
             for item in mgfield_list2:
                 mgfield2 = mgfield2 + item
             result_mgfield2 = mgfield2/len(mgfield_list2)
+
             # Startet das Schreiben in die Datei
             Core.collectData(self, result_mgfield, result_temp, result_mgfield2)
         except Exception as e:
-            print(self.getCTime(), "something went wrong ERR: 1")
+            print("\n" + self.getCTime(), "something went wrong ERR: 1")
             print(e)
+            print("\n")
 
     # Core-Funktion
     def MGFieldCore(self):
@@ -128,7 +151,11 @@ class Core(object):
         threading.Timer(self.MES_TIME, Core.MGFieldCore, [self]).start()
         try:
             mgfield_values.append(self.inputMethod(self))
-            mgfield_values2.append(self.inputMethod2(self))
+            # Überprüfung der Sensoranzahl
+            if not self.sensors == 1:
+                mgfield_values2.append(self.inputMethod2(self))
+            else:
+                mgfield_values2.append(1)
             temp_values.append(dataHandler.getTemperature())
             # Überprüfen ob der Durchschnittswert berechnet werden muss
             if len(mgfield_values) == self.average:
@@ -145,14 +172,14 @@ class Core(object):
     def __init__(self):
         print(self.getCTime(), "starting MGFieldPy")
         self.importConfig()
+        print(self.getCTime(), "running version:", self.version)
         # Überprüft ob das Logschreiben aktiviert ist, wenn ja --> initialisiert das Logschreiben
         if self.log:
             print(self.getCTime(), "initializing logwriter")
             self.writeLog()
-        # Zeilen-Indikator für die Excel-Tabelle
-        self.xlsxRow = 1
+        
         # Initialisiert das Erstellen der Arbeitsumgebung
-        self.setupEnvironment()
+        dataHandler.performSetup(self)
         # Sucht die Eingabemethode aus (abhängig von der Konfiguration)
         dataHandler.handleInputMethod(self)  
         print("\n" + self.getCTime(), "starting measurement - " + str(date.today()) + "\n")

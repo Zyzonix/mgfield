@@ -8,15 +8,13 @@
 # -
 # file      | static/xlsxHandler.py
 # project   | MGFieldPy
-# project-v | 0.2
+# project-v | 1.1
 # 
 from datetime import date, datetime
 import openpyxl
 
 # Vorbereiten der Excel-Datei
-def prepareXLSXFile(self, sheetName):
-    # Setzt den Dateipfad
-    file = self.baseFilePath + str(date.today()) + "/" + str(date.today()) + "_" + datetime.now().strftime("%H-%M-%S") + ".xlsx"
+def prepareXLSXFile(filePath, sheetName, fileName):
     row = 1
     # Initialisiert die notwendige Bibliothek zum schreiben/lesen von Excel-Dateien
     workBook = openpyxl.Workbook()
@@ -30,18 +28,18 @@ def prepareXLSXFile(self, sheetName):
     for column, item in enumerate(values, start=1):
         workSheet.cell(row, column, item)
     # Speichert die Datei
-    workBook.save(filename=file)
-    # Gibt den Dateinamen für zukünftige Schreibzyklen zurück
-    return file
+    workBook.save(filename=filePath)
+    # Dateiname als self.-Variable gesichert
+    return fileName
 
 # Schreiben von Daten in die Datei
 def writeToXLSXFile(self, data):
     # Öffnen der Datei und aktivieren der Tabelle
-    workBook = openpyxl.load_workbook(self.xlsxFileData[0])
-    workSheet = workBook[self.xlsxFileData[1]]
+    workBook = openpyxl.load_workbook(self.fileData[2])
+    workSheet = workBook[self.fileData[1]]
     currentRow = workBook.active.max_row + 1
     # Schreibt Daten in die Zeile
     for column, item in enumerate(data, start=1):
         workSheet.cell(currentRow, column, item)
     # Speichert die Datei
-    workBook.save(filename=self.xlsxFileData[0])
+    workBook.save(filename=self.fileData[2])

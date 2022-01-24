@@ -8,72 +8,59 @@
 # -
 # file      | static/dataHandler.py
 # project   | MGFieldPy
-# project-v | 0.2
+# project-v | 1.1
 # 
-from datetime import datetime
-import random
+from datetime import datetime, date
 import psutil
-import board    
 import os                                   
-import busio                                       
-import adafruit_ads1x15.ads1115 as ADS         
-from adafruit_ads1x15.analog_in import AnalogIn 
 import mgfield
+from static import xlsxHandler
+from static import csvHandler
 
-# Klasse für die Inputmöglichkeiten
-class inputMethods():
-    # Funktion für den Input aus einer virtuellen Umgebung (ohne Sensor --> aus Datei)
-    def importDataFromFile(self):
-        value_list = []
-        input_file = open(os.getcwd() + "/static/data.txt", "r")
-        for line in input_file:
-            value_list.append(str(line))
-        # Pickt eine zufällige Zahl aus dem Dokument
-        result = value_list[random.randint(1, len(value_list) - 1)]
-        result = result.rstrip(result[-1])
-        result = result.rstrip(result[-1])
-        print(mgfield.Core.getCTime(self), "got", result, "as value")
-        return float(result)
+# preparing environment + required files
+def performSetup(self):
+    print(mgfield.Core.getCTime(self), "performing environment setup")
+    # Erstellt ggf. den "output"-Ordner
+    if not os.path.exists(self.baseFilePath):
+        os.mkdir(self.baseFilePath)
+    
+    # Erstellt einen Ordner mit dem aktuellen Datum
+    if not os.path.exists(self.baseFilePath + "/" + str(date.today()) +"/"):
+        os.mkdir(self.baseFilePath+ "/" + str(date.today()) +"/")
+        
+    self.baseFilePath = self.baseFilePath + "/" + str(date.today()) +"/"
+    
+    # Name der Datei und Tabelle
+    fileName = str(date.today()) + "_" + str(datetime.now().strftime("%H-%M-%S"))
+    self.sheetName = str(date.today())
+    filePath = self.baseFilePath + "/" + fileName
 
-    # Funktion für den Input vom Sensor
-    def importDataFromSensor1(self):
-        # Initialisiert die I2C-Schnittstelle
-        i2c = busio.I2C(board.SCL, board.SDA)                          
-        # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 1
-        # analog digital converter
-        # Konfiguriert den Input vom I2C-Gerät mit der ID 0x48
-        ads1 = ADS.ADS1115(i2c, address=0x48) 
-        # creating input for x,y,z axis located at P0, P1, P2
-        # Fragt die x,y,z-Werte ab
-        x = AnalogIn(ads1, ADS.P0)
-        y = AnalogIn(ads1, ADS.P1)
-        z = AnalogIn(ads1, ADS.P2)
-         
-        # Formula for calculating the magnitude of the earth's magnetic field
-        # Berechnung des Wertes
-        result = (((x.value * x.value) + (y.value * y.value) + (z.value * z.value)) ** 0.5)         
-        print(mgfield.Core.getCTime(self), "got", result, "as value")
-        return result
-    
-    
-    def importDataFromSensor2(self):
-        # Initialisiert die I2C-Schnittstelle
-        i2c = busio.I2C(board.SCL, board.SDA)                          
-        # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 2
-        # analog digital converter
-        # Konfiguriert den Input vom I2C-Gerät mit der ID 0x49
-        ads2 = ADS.ADS1115(i2c, address=0x49) 
-        # creating input for x,y,z axis located at P0, P1, P2
-        # Fragt die x,y,z-Werte ab
-        x = AnalogIn(ads2, ADS.P0)
-        y = AnalogIn(ads2, ADS.P1)
-        z = AnalogIn(ads2, ADS.P2)
-         
-        # Formula for calculating the magnitude of the earth's magnetic field
-        # Berechnung des Wertes
-        result = (((x.value * x.value) + (y.value * y.value) + (z.value * z.value)) ** 0.5)         
-        print(mgfield.Core.getCTime(self), "got", result, "as value")
-        return result
+    # Output --> CSV
+    if self.output == 0:
+        # Hinzufügen der Dateiendung
+        fileName += ".csv"
+        filePath += ".csv"
+        # Initialisiert die CSV-Datei
+        self.fileName = csvHandler.prepareCSVFile(filePath, fileName)        
+        # Speichert den Pfad zur CSV-Datei global (sheetName unused)
+        self.fileData = [self.fileName, self.sheetName, filePath]
+
+    # Output --> XLSX
+    elif self.output == 1:
+        # Zeilen-Indikator für die Excel-Tabelle
+        self.xlsxRow = 1
+        # Hinzufügen der Dateiendung
+        fileName += ".xlsx"
+        filePath += ".xlsx"
+        # Initialisiert die Excel-Datei
+        self.fileName = xlsxHandler.prepareXLSXFile(filePath, self.sheetName, fileName)
+        # Speichert den Pfad zur Excel-Datei global
+        self.fileData = [self.fileName, self.sheetName, filePath]
+
+    else:
+        print(mgfield.Core.getCTime(self), "something when wrong, please check the config [input method not found]")    
+        exit()
+
 
 # Abfrage des noch zusätzlich angeschlossenen Temperatursensors (OneWire)
 def getTemperature():
@@ -101,8 +88,10 @@ def getSystemStatistics():
 # Sucht die aktuelle Inputmethode aus (wird durch die Config-Datei bestimmt)
 def handleInputMethod(self):
     if self.input == 1:
-        self.inputMethod = getattr(inputMethods, "importDataFromSensor1")
-        self.inputMethod2 = getattr(inputMethods, "importDataFromSensor2")
+        from static.input.sensor import inputFromSensor
+        self.inputMethod = getattr(inputFromSensor, "importDataFromSensor1")
+        self.inputMethod2 = getattr(inputFromSensor, "importDataFromSensor2")
     else:
-        self.inputMethod = getattr(inputMethods, "importDataFromFile")
-        self.inputMethod2 = getattr(inputMethods, "importDataFromFile")
+        from static.input.venv import inputFromFile
+        self.inputMethod = getattr(inputFromFile, "importDataFromFile")
+        self.inputMethod2 = getattr(inputFromFile, "importDataFromFile")

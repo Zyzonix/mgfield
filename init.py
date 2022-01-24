@@ -8,7 +8,7 @@
 # -
 # file      | init.py
 # project   | MGFieldPy
-# project-v | 0.2
+# project-v | 1.1
 # 
 from datetime import datetime
 import sys
@@ -34,10 +34,10 @@ thread = threading.Thread(target=loadingAnimation)
 thread.start()
 print("started thread")
 # Core importieren
-from mgfield import Core
+import mgfield
 loaded = True
 print("import complete")
 thread.join()
 print("\n")
 # Starting MGFIeldPy
-Core()    
+mgfield.Core()    
