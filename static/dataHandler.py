@@ -67,7 +67,7 @@ def getTemperature():
     # Öffnen der Datei für den Datensatz
     try:
         # unique ID for DS18B20 sensor
-        sensor = open('/sys/bus/w1/devices/28-01193a114ec3/w1_slave')
+        sensor = open('/sys/bus/w1/devices/28-01204b515089/w1_slave')
         temp_raw = sensor.read()
         sensor.close()
 
