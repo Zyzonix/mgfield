@@ -37,4 +37,4 @@ class inputFromSensor():
         # Berechnung des Wertes
         result = (((x.value * x.value) + (y.value * y.value) + (z.value * z.value)) ** 0.5)         
         print(mgfield.Core.getCTime(self), "got", result, "as value [1]")
-        return x,y,z,result
+        return x.value,y.value,z.value,result
