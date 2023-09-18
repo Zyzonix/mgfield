@@ -27,4 +27,7 @@ class inputFromFile():
         result = result.rstrip(result[-1])
         result = result.rstrip(result[-1])
         print(mgfield.Core.getCTime(self), "got", result, "as value")
-        return float(result)
+        x1 = 0.1
+        y1 = 0.2
+        z1 = 0.3
+        return x1,y1,z1,float(result)

@@ -90,7 +90,6 @@ def handleInputMethod(self):
     if self.input == 1:
         from static.input.sensor import inputFromSensor
         self.inputMethod = getattr(inputFromSensor, "importDataFromSensor1")
-        self.inputMethod2 = getattr(inputFromSensor, "importDataFromSensor2")
     else:
         from static.input.venv import inputFromFile
         self.inputMethod = getattr(inputFromFile, "importDataFromFile")

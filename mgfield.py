@@ -85,16 +85,20 @@ class Core(object):
     # Statische/globale Listen
     global mgfield_values 
     mgfield_values = []
-    global mgfield_values2 
-    mgfield_values2 = []
+    global x1_values
+    x1_values = []
+    global y1_values
+    y1_values = []
+    global z1_values
+    z1_values = []
     global temp_values
     temp_values = []
     
     # Sammelt und schreibt alle notwendigen Daten in die Datei
-    def collectData(self, mgfield_value, temp_value, mgfield_value2):
+    def collectData(self, x1, y1, z1, mgfield_value, temp_value, x2, y2, z2):
         # Sammeln der Daten
         try:
-            row_content = [self.getFDate(), self.getFTime(), mgfield_value, mgfield_value2, temp_value, dataHandler.getSystemStatistics()]
+            row_content = [self.getFDate(), self.getFTime(), x1, y1, z1, mgfield_value, x2, y2, z2, temp_value, dataHandler.getSystemStatistics()]
         except Exception as e:
             print("\n" + self.getCTime(), "something went wrong ERR: 4")
             print(e)
@@ -121,25 +125,36 @@ class Core(object):
             print("\n")
 
     # Berechnet den Durchschnittswert von Temperatur und den beiden Magnetfeldsensoren
-    def calculateAverage(self, temp_list, mgfield_list, mgfield_list2):
+    def calculateAverage(self, temp_list, x1_list, y1_list, z1_list, mgfield_list):
         try:
             temp = 0.0
             for item in temp_list:
                 temp = float(temp) + float(item)
             result_temp = temp/float(len(temp_list))
 
+            x1 = 0.0
+            for item in x1_list:
+                x1 = x1 + item
+            result_x1 = x1/len(x1_list)
+
+            y1 = 0.0
+            for item in y1_list:
+                y1 = y1 + item
+            result_y1 = y1/len(y1_list)
+
+            z1 = 0.0
+            for item in z1_list:
+                z1 = z1 + item
+            result_z1 = z1/len(z1_list)        
+
             mgfield = 0.0
             for item in mgfield_list:
                 mgfield = mgfield + item
             result_mgfield = mgfield/len(mgfield_list)
-            
-            mgfield2 = 0.0
-            for item in mgfield_list2:
-                mgfield2 = mgfield2 + item
-            result_mgfield2 = mgfield2/len(mgfield_list2)
 
             # Startet das Schreiben in die Datei
-            Core.collectData(self, result_mgfield, result_temp, result_mgfield2)
+            Core.collectData(self, result_x1, result_y1, result_z1, result_mgfield, result_temp)
+
         except Exception as e:
             print("\n" + self.getCTime(), "something went wrong ERR: 1")
             print(e)
@@ -147,23 +162,24 @@ class Core(object):
 
     # Core-Funktion
     def MGFieldCore(self):
-        # Planen des nächsten durchlaufs
+        # Planen des nächsten Durchlaufs
         threading.Timer(self.MES_TIME, Core.MGFieldCore, [self]).start()
         try:
-            mgfield_values.append(self.inputMethod(self))
-            # Überprüfung der Sensoranzahl
-            if not self.sensors == 1:
-                mgfield_values2.append(self.inputMethod2(self))
-            else:
-                mgfield_values2.append(1)
+            mgfield_values.append(self.inputMethod(self)[3])
             temp_values.append(dataHandler.getTemperature())
+            x1_values.append(self.inputMethod(self)[0])
+            y1_values.append(self.inputMethod(self)[1])
+            z1_values.append(self.inputMethod(self)[2])
             # Überprüfen ob der Durchschnittswert berechnet werden muss
             if len(mgfield_values) == self.average:
                 # Berechnen des Durchschnittswertes
-                Core.calculateAverage(self, temp_values, mgfield_values, mgfield_values2)
+                Core.calculateAverage(self, temp_values, x1_values, y1_values, z1_values, mgfield_values)
                 temp_values.clear()
                 mgfield_values.clear()
-                mgfield_values2.clear()
+                x1_values.clear()
+                y1_values.clear()
+                z1_values.clear()
+
         except Exception as e:
             print(self.getCTime(), "something went wrong ERR: 0")
             print(e)

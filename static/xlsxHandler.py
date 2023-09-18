@@ -23,7 +23,7 @@ def prepareXLSXFile(filePath, sheetName, fileName):
     # Setzt den Tabellennamen
     workSheet.title = sheetName
     # Variable für die Spaltenbezeichnung (Zeile 1)
-    values = ["Date", "Time", "MGField Value1","MGField Value2", "Temperature", "Ram-Available"]
+    values = ["Date", "Time", "x1", "y1", "z1", "MGField Value1", "x2", "y2", "z2", "Temperature", "Ram-Available"]
     # Schreibt die vorher behannten Bezeichnungen in die erste Zeile
     for column, item in enumerate(values, start=1):
         workSheet.cell(row, column, item)
