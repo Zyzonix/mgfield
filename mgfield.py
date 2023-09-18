@@ -95,10 +95,10 @@ class Core(object):
     temp_values = []
     
     # Sammelt und schreibt alle notwendigen Daten in die Datei
-    def collectData(self, x1, y1, z1, mgfield_value, temp_value, x2, y2, z2):
+    def collectData(self, x1, y1, z1, mgfield_value, temp_value):
         # Sammeln der Daten
         try:
-            row_content = [self.getFDate(), self.getFTime(), x1, y1, z1, mgfield_value, x2, y2, z2, temp_value, dataHandler.getSystemStatistics()]
+            row_content = [self.getFDate(), self.getFTime(), x1, y1, z1, mgfield_value, temp_value, dataHandler.getSystemStatistics()]
         except Exception as e:
             print("\n" + self.getCTime(), "something went wrong ERR: 4")
             print(e)
