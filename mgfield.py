@@ -173,6 +173,7 @@ class Core(object):
             # Überprüfen ob der Durchschnittswert berechnet werden muss
             if len(mgfield_values) == self.average:
                 # Berechnen des Durchschnittswertes
+                print("\n\n" +str(x1_values) + "\n\n" + str(y1_values) + "\n\n" + str(z1_values) + "\n\n")
                 Core.calculateAverage(self, temp_values, x1_values, y1_values, z1_values, mgfield_values)
                 temp_values.clear()
                 mgfield_values.clear()
