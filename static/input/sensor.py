@@ -21,6 +21,8 @@ class inputFromSensor():
 
     # Funktion für den Input vom Sensor
     def importDataFromSensor1(self):
+        print(mgfield.Core.getCTime(self), "requesting data from sensor")
+
         # Initialisiert die I2C-Schnittstelle
         i2c = busio.I2C(board.SCL, board.SDA)                          
         # creating the ADC object using the I2C bus located at 0x48 for fluxgate sensor 1
