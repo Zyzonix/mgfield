@@ -81,9 +81,13 @@ def getTemperature():
     return value
 
 # Sammelt die aktuelle RAM-Auslastung
+# returns list of system statistics
 def getSystemStatistics():
-    ram_available = float(psutil.virtual_memory().available * 100 / psutil.virtual_memory().total)
-    return ram_available
+    total_memory, used_memory, free_memory, shared_memory, cached_memory, available_memory = map(int, os.popen('free -t -m').readlines()[1].split()[1:])
+    free_withcache_percent = round((free_memory+cached_memory)/(total_memory/100), 2)
+    free_withoutcache_percent = round(free_memory/(total_memory/100), 2)
+    datalist = ["Total-RAM: " + str(total_memory) + " MB", "Free-RAM %: " + str(free_withoutcache_percent) + "%", "Free-RAM (with Cache): " + str(free_withcache_percent) + " MB", "Used-RAM: " + str(used_memory) + " MB", "Cached-RAM: " + str(cached_memory) + " MB", "Free-RAM: " + str(free_memory) + " MB"]
+    return str(datalist)
 
 # Sucht die aktuelle Inputmethode aus (wird durch die Config-Datei bestimmt)
 def handleInputMethod(self):
@@ -93,4 +97,3 @@ def handleInputMethod(self):
     else:
         from static.input.venv import inputFromFile
         self.inputMethod = getattr(inputFromFile, "importDataFromFile")
-        self.inputMethod2 = getattr(inputFromFile, "importDataFromFile")
