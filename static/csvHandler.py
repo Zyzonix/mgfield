@@ -17,7 +17,7 @@ def prepareCSVFile(filePath, fileName):
     # öffnen der Datei
     csvFile = open(filePath, mode="w")
     # Variable für die Spaltenbezeichnung (Zeile 1)
-    values = ["Date","Time","x1","y1","z1","MGField Value1","x2","y2","z2", "Temperature", "RAM-Available %"]
+    values = ["Date","Time","x1","y1","z1","MGField Value1", "Temperature", "RAM-Available %"]
     # Initialisiert den Csv-Schreiber
     csvWriter = csv.writer(csvFile, dialect=csv.excel)
     # Schreibt die vorher behannten Bezeichnungen in die erste Zeile
