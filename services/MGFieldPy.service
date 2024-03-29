@@ -1,0 +1,17 @@
+[Unit]
+Description=MGFieldPy (/opt/earlybird) - Magnetic field measurement
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+WorkingDirectory=/opt/MGFieldPy
+
+ExecStart=
+
+StandardOutput=append:/var/log/MGFieldPy/webclient.log
+StandardError=append:/var/log/MGFieldPy/webclient.log
+
+[Install]
+WantedBy=multi-user.target
