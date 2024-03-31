@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 31, 2024 at 08:19 PM
+-- Generation Time: Mar 31, 2024 at 08:25 PM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -40,11 +40,12 @@ CREATE TABLE `mgfield` (
 
 CREATE TABLE `mgfieldraw` (
   `time` date NOT NULL,
-  `x_value` int(11) NOT NULL,
-  `y_value` int(11) NOT NULL,
-  `z_value` int(11) NOT NULL,
-  `measurement_result` int(11) NOT NULL,
-  `time_delta` int(11) NOT NULL
+  `x_value` text NOT NULL,
+  `y_value` text NOT NULL,
+  `z_value` text NOT NULL,
+  `measurement_result` text NOT NULL,
+  `measurement_duration` text NOT NULL,
+  `time_delta` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
