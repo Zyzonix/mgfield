@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 31, 2024 at 08:25 PM
+-- Generation Time: Mar 31, 2024 at 09:32 PM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `mgfield` (
-  `time` date NOT NULL,
-  `avg_result` text NOT NULL
+  `time` datetime NOT NULL,
+  `avg_result` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -39,13 +39,13 @@ CREATE TABLE `mgfield` (
 --
 
 CREATE TABLE `mgfieldraw` (
-  `time` date NOT NULL,
-  `x_value` text NOT NULL,
-  `y_value` text NOT NULL,
-  `z_value` text NOT NULL,
-  `measurement_result` text NOT NULL,
-  `measurement_duration` text NOT NULL,
-  `time_delta` text NOT NULL
+  `time` datetime NOT NULL,
+  `x_value` float NOT NULL,
+  `y_value` float NOT NULL,
+  `z_value` float NOT NULL,
+  `measurement_result` float NOT NULL,
+  `measurement_duration` float NOT NULL,
+  `time_delta` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,7 +55,7 @@ CREATE TABLE `mgfieldraw` (
 --
 
 CREATE TABLE `netstats` (
-  `time` date NOT NULL,
+  `time` datetime NOT NULL,
   `hostname` text NOT NULL,
   `local_ip` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -67,15 +67,15 @@ CREATE TABLE `netstats` (
 --
 
 CREATE TABLE `sysstats` (
-  `time` date NOT NULL,
-  `cpu_speed` text NOT NULL,
-  `cpu_usage` text NOT NULL,
-  `ram_total` text NOT NULL,
-  `ram_free` text NOT NULL,
-  `ram_used` text NOT NULL,
-  `ram_cached` text NOT NULL,
-  `ram_free_wcache_perc` text NOT NULL,
-  `ram_free_wocache_perc` text NOT NULL
+  `time` datetime NOT NULL,
+  `cpu_speed` float NOT NULL,
+  `cpu_usage` float NOT NULL,
+  `ram_total` int(11) NOT NULL,
+  `ram_free` int(11) NOT NULL,
+  `ram_used` int(11) NOT NULL,
+  `ram_cached` int(11) NOT NULL,
+  `ram_free_wcache_perc` float NOT NULL,
+  `ram_free_wocache_perc` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -85,8 +85,8 @@ CREATE TABLE `sysstats` (
 --
 
 CREATE TABLE `temperature` (
-  `time` date NOT NULL,
-  `tempeature_value` text NOT NULL
+  `time` datetime NOT NULL,
+  `temperature_value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
