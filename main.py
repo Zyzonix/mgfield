@@ -24,8 +24,10 @@ from scripts.mysqlHandler import mySQLHandler
 
 # static public storage
 dataArray = {}
+# temp storage for temperature and SysStats, to save it when saving MGField data; prevents complications with mySQL connection
+dataArrayOther = {}
+# storage for threads
 tasks = {}
-runCounter = {}
 
 # storage for sql-Table names
 class sqlTableNames():
@@ -57,8 +59,40 @@ class mgfield():
             valueCount += 1
         avg_result = calculator/valueCount
         return avg_result
+    
+    # check and store values of temperature and sysstats if unsaved data is stored in dataArrayOther
+    def checkUnsavedDataAndSave(self):
+        sqlCommandsToExecute = {}
+        finishedSavings = []
 
-    # prepare data storing for system statistics
+        # get keys (is data so to save)
+        for key in dataArrayOther.keys():
+            if dataArrayOther[key]: sqlCommandsToExecute[key] = dataArrayOther[key]
+
+        # execute commands
+        if sqlCommandsToExecute:
+            commandsBeforeSave = str(len(sqlCommandsToExecute.keys()))
+            logging.writeDebug("[SQLHandler] Found remaining data to save, commands to execute: " + str(len(sqlCommandsToExecute)))
+            for data in sqlCommandsToExecute.keys():
+                
+                try:
+                    self.mySQLCursor.execute(sqlCommandsToExecute[data])
+                    # when executed successfully remove data from global tmp storage and local dict
+                    dataArrayOther.pop(data)
+                    finishedSavings.append(data)
+                except:
+                    logging.writeError("[SQLHandler] Failed to save remaining data")
+                    logging.writeError("[SQLHandler] Failed command: " + sqlCommandsToExecute[data])
+                    logging.writeExecError(traceback.format_exc())
+
+            # remove from local tmp storage to verify successful write
+            for data in finishedSavings: sqlCommandsToExecute.pop(data)
+
+            logging.writeDebug("[SQLHandler] Saved remaining data, before: " + commandsBeforeSave + ", after: " + str(len(sqlCommandsToExecute.keys())))
+            logging.writeDebugHigh("[SQLHandler] remaining keys: " + str(sqlCommandsToExecute.keys()))
+            
+
+    # prepare data storing for system statistics --> save it to dataArray; make it storeable later
     def storeSysStatsData(self, measurementTime, sysData, netData):
         formattedTimestamp = mySQLHandler.formatDate(measurementTime)
         
@@ -77,25 +111,25 @@ class mgfield():
             sysStatsSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.sysstats, formattedTimestamp, sysDataString)
             netStatsSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.netstats, formattedTimestamp, netDataString)
 
-            self.mySQLCursor.execute(sysStatsSQLCommand, multi=True)
-            self.mySQLCursor.execute(netStatsSQLCommand, multi=True)
-            self.mySQLConnection.commit()
-            logging.writeDebugHigh("[SysStats] wrote data successfully to SQL server")
+            # save SQL commands
+            dataArrayOther["sysstats_" + str(formattedTimestamp)] = sysStatsSQLCommand
+            dataArrayOther["netstats_" + str(formattedTimestamp)] = netStatsSQLCommand
+
+            logging.writeDebugHigh("[SysStats] Saved SQL commands of SysStats and NetStats")
         except:
-            logging.writeError("[SysStats] Failed to store data to SQL server")
+            logging.writeError("[SysStats] Failed to build SQL commands for SysStats and NetStats")
             logging.writeExecError(traceback.format_exc())
 
     # prepare data storing for temperature values
     def storeTemperatureData(self, measurementTime, temperatureValue):
         formattedTimestamp = mySQLHandler.formatDate(measurementTime)
         try:
-            sqlCommand = mySQLHandler.commandBuilder(sqlTableNames.temperature, formattedTimestamp, str(temperatureValue))
+            temperatureSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.temperature, formattedTimestamp, str(temperatureValue))
         
-            self.mySQLCursor.execute(sqlCommand, multi=True)
-            self.mySQLConnection.commit()
-            logging.writeDebugHigh("[Temperature] wrote data successfully to SQL server")
+            dataArrayOther["temperature_" + str(formattedTimestamp)] = temperatureSQLCommand
+            logging.writeDebugHigh("[Temperature] Saved SQL commands of Temperature")
         except:
-            logging.writeError("[Temperature] Failed to store data to SQL server")
+            logging.writeError("[Temperature] Failed to SQL command for temperature")
             logging.writeExecError(traceback.format_exc())
 
     # prepare data storing and calculation for MGField values
@@ -143,6 +177,13 @@ class mgfield():
             logging.writeError("[MGField] (ERR: 2) Failed to store complete measurement data to SQL server")
             logging.writeExecError(traceback.format_exc())
 
+        # before committing everything check for unsaved SysStats and Temperature data
+        try:
+            mgfield.checkUnsavedDataAndSave(self)
+        except:
+            logging.writeError("[SQLHandler] Failed to save temperature/SysStats data to SQL server")
+            logging.writeExecError(traceback.format_exc())
+        
         # commit data 
         try: self.mySQLConnection.commit()
         except:
