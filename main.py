@@ -154,7 +154,7 @@ class mgfield():
         dataString = str(avg_result) + "__" + str(dataArray[startTime]["time_delta"])
         try:
             mgfieldSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfield, formattedTimestamp, dataString)
-            self.mySQLCursor.execute(mgfieldSQLCommand, multi=True)
+            self.mySQLCursor.execute(mgfieldSQLCommand)
         except:
             logging.writeError("[MGField] (ERR: 1) Failed to store average measurement data to SQL server")
             logging.writeExecError(traceback.format_exc())
@@ -171,8 +171,8 @@ class mgfield():
                 dataString += str(dataArray[startTime][timestamp]["measurement_result"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_duration"])
                 mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfieldraw, formattedTimestampLong, dataString)
-                self.mySQLCursor.execute(mgfieldrawSQLCommand, multi=True)
-            
+                self.mySQLCursor.execute(mgfieldrawSQLCommand)
+
         except:
             logging.writeError("[MGField] (ERR: 2) Failed to store complete measurement data to SQL server")
             logging.writeExecError(traceback.format_exc())

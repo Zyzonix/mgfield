@@ -77,5 +77,5 @@ class mySQLHandler():
         valueContent = time + valueSeparator + dataString.replace("__", valueSeparator)
         sqlCommand = insertInto + mysqlTableTemplates[table] + values + valueBegin + valueContent + valueEnd
         
-        logging.writeDebugHigh("Build SQL command for " + str(time) + " and table: " + table + " successfully")
+        logging.writeDebugHigh("[SQLHandler] Build SQL command for " + str(time) + " and table: " + table + " successfully")
         return sqlCommand
