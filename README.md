@@ -2,6 +2,9 @@
 This software has been developed with OCISLY-ds to measure magnetic fields with a Raspberry Pi.
 For more details, please contact OCISLY-ds.
 
+[![OS-Type](https://img.shields.io/badge/OS%20Type-Linux-blue)]()
+[![Python-Version](https://img.shields.io/badge/Python-3.9.2-blue)]()
+
 ### Installation
 **This software is designed to be run on a Debian machine!**
 ```
