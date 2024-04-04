@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 31, 2024 at 09:32 PM
+-- Generation Time: Apr 04, 2024 at 08:26 AM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mgfield`
+-- Database: `mgfieldpy`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `mgfield` (
-  `time` datetime NOT NULL,
-  `avg_result` float NOT NULL
+  `time_utc` datetime NOT NULL,
+  `time_local` datetime NOT NULL,
+  `avg_result` float NOT NULL,
+  `time_delta` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -39,13 +41,13 @@ CREATE TABLE `mgfield` (
 --
 
 CREATE TABLE `mgfieldraw` (
-  `time` datetime NOT NULL,
+  `time_utc` datetime(3) NOT NULL,
+  `time_local` datetime(3) NOT NULL,
   `x_value` float NOT NULL,
   `y_value` float NOT NULL,
   `z_value` float NOT NULL,
   `measurement_result` float NOT NULL,
-  `measurement_duration` float NOT NULL,
-  `time_delta` float NOT NULL
+  `measurement_duration` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,7 +57,8 @@ CREATE TABLE `mgfieldraw` (
 --
 
 CREATE TABLE `netstats` (
-  `time` datetime NOT NULL,
+  `time_utc` datetime NOT NULL,
+  `time_local` datetime NOT NULL,
   `hostname` text NOT NULL,
   `local_ip` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -67,7 +70,8 @@ CREATE TABLE `netstats` (
 --
 
 CREATE TABLE `sysstats` (
-  `time` datetime NOT NULL,
+  `time_utc` datetime NOT NULL,
+  `time_local` datetime NOT NULL,
   `cpu_speed` float NOT NULL,
   `cpu_usage` float NOT NULL,
   `ram_total` int(11) NOT NULL,
@@ -85,7 +89,8 @@ CREATE TABLE `sysstats` (
 --
 
 CREATE TABLE `temperature` (
-  `time` datetime NOT NULL,
+  `time_utc` datetime NOT NULL,
+  `time_local` datetime NOT NULL,
   `temperature_value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
