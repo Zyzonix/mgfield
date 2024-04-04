@@ -49,6 +49,13 @@ The software can be configured through the config-file named ```config.py```. Al
 
 
 ### SQL Value Meanings
+**Each table contains two rows:**
+Value Name | Meaning/Use type
+---|---
+```time_utc```|Timestamp of value in **UTC**
+```time_local```|Timestamp of value in local time (```Europe/Berlin```/ ```+02:00```)
+
+**All other values are table-specific:**
 Table | Value Name | Meaning/Use type
 ---|---|---
 ```mgfield```|```avg_result```|Calculated average value from configured measurement interval
