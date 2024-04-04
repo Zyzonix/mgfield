@@ -13,7 +13,7 @@
 #
 import time
 import threading
-from datetime import datetime
+from datetime import datetime, timezone
 import traceback
 
 # import custom scripts
@@ -93,27 +93,24 @@ class mgfield():
             
 
     # prepare data storing for system statistics --> save it to dataArray; make it storeable later
-    def storeSysStatsData(self, measurementTime, sysData, netData):
-        formattedTimestamp = mySQLHandler.formatDate(measurementTime)
+    def storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, sysData, netData):
+        formattedTimestampUTC = mySQLHandler.formatDate(measurementTimeUTC)
+        formattedTimestampLocal = mySQLHandler.formatDate(measurementTimeLocal)
         
         # build dataString for sqlCommand builder
-        sysDataString = ""
-        for key in sysData.keys():
-            if not sysDataString: sysDataString = str(sysData[key])
-            else: sysDataString += "__" + str(sysData[key])
+        sysDataString = str(measurementTimeLocal)
+        for key in sysData.keys(): sysDataString += "__" + str(sysData[key])
 
-        netDataString = ""
-        for key in netData.keys():
-            if not netDataString: netDataString = str(netData[key])
-            else: netDataString += "__" + str(netData[key])
+        netDataString = str(measurementTimeLocal)
+        for key in netData.keys(): netDataString += "__" + str(netData[key])
         
         try:
-            sysStatsSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.sysstats, formattedTimestamp, sysDataString)
-            netStatsSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.netstats, formattedTimestamp, netDataString)
+            sysStatsSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.sysstats, formattedTimestampUTC, sysDataString)
+            netStatsSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.netstats, formattedTimestampUTC, netDataString)
 
             # save SQL commands
-            dataArrayOther["sysstats_" + str(formattedTimestamp)] = sysStatsSQLCommand
-            dataArrayOther["netstats_" + str(formattedTimestamp)] = netStatsSQLCommand
+            dataArrayOther["sysstats_" + str(formattedTimestampUTC)] = sysStatsSQLCommand
+            dataArrayOther["netstats_" + str(formattedTimestampUTC)] = netStatsSQLCommand
 
             logging.writeDebugHigh("[SysStats] Saved SQL commands of SysStats and NetStats")
         except:
@@ -121,19 +118,20 @@ class mgfield():
             logging.writeExecError(traceback.format_exc())
 
     # prepare data storing for temperature values
-    def storeTemperatureData(self, measurementTime, temperatureValue):
-        formattedTimestamp = mySQLHandler.formatDate(measurementTime)
+    def storeTemperatureData(self, measurementTimeUTC, measurementTimeLocal, temperatureValue):
+        formattedTimestampUTC = mySQLHandler.formatDate(measurementTimeUTC)
+        formattedTimestampLocal = mySQLHandler.formatDate(measurementTimeLocal)
         try:
-            temperatureSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.temperature, formattedTimestamp, str(temperatureValue))
+            temperatureSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.temperature, formattedTimestampUTC, str(formattedTimestampLocal) + "__" + str(temperatureValue))
         
-            dataArrayOther["temperature_" + str(formattedTimestamp)] = temperatureSQLCommand
+            dataArrayOther["temperature_" + str(formattedTimestampUTC)] = temperatureSQLCommand
             logging.writeDebugHigh("[Temperature] Saved SQL commands of Temperature")
         except:
             logging.writeError("[Temperature] Failed to SQL command for temperature")
             logging.writeExecError(traceback.format_exc())
 
     # prepare data storing and calculation for MGField values
-    def storeMGFieldData(self, numberOfValuesToCollect, startTime):
+    def storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal):
         logging.write("[MGField] storing data for timestamp: " + str(startTime))
 
         measuredValuesList = []
@@ -147,11 +145,12 @@ class mgfield():
         
         # format timestamp
         formattedTimestamp = mySQLHandler.formatDate(startTime)
+        formattedTimestampLocal = mySQLHandler.formatDate(startTimeLocal)
         
         avg_result = mgfield.calcAvg(startTime, measuredValuesList)
 
         # build dataString for mgfield table
-        dataString = str(avg_result) + "__" + str(dataArray[startTime]["time_delta"])
+        dataString = formattedTimestampLocal + "__" + str(avg_result) + "__" + str(dataArray[startTime]["time_delta"])
         try:
             mgfieldSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfield, formattedTimestamp, dataString)
             self.mySQLCursor.execute(mgfieldSQLCommand)
@@ -164,7 +163,7 @@ class mgfield():
             for timestamp in measuredValuesList:
 
                 formattedTimestampLong = mySQLHandler.formatDateLong(timestamp)
-                dataString = ""
+                dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
@@ -219,12 +218,15 @@ class mgfield():
         startTimeThreadRaw = time.time()
 
         # time when this thread will is started
-        startTimeThread = datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f")
+        startTimeThread = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S.%f")
+        startTimeThreadLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f")
+
         # get data
         dataFromSensor = self.dataSource()
 
         # extract data and save it to correct locations
         dataArray[startTime][startTimeThread] = {} 
+        dataArray[startTime][startTimeThread]["startTimeThreadLocal"] = str(startTimeThreadLocal)
         dataArray[startTime][startTimeThread]["x_value"] = dataFromSensor[0]
         dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
         dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
@@ -246,7 +248,8 @@ class mgfield():
 
         startTimeRaw = time.time()
         # time when one measurement interval is started
-        startTime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f")
+        startTime = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S.%f")
+        startTimeLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f")
         dataArray[startTime] = {}
         logging.write("[MGField] started interval at " + startTime)
 
@@ -268,26 +271,28 @@ class mgfield():
         time_delta = round(finishedTimeRaw - startTimeRaw - rerunInterval, 5)
         dataArray[startTime]["time_delta"] = time_delta
         logging.writeDebug("[MGField] collecting data for " + str(startTime) + " took " + str(finishedTimeRaw - startTimeRaw) + " s, expected: " + str(rerunInterval) + " (delta: " + str(time_delta) + ")\n")
-        mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime)
+        mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal)
 
 
     # collects system and network data
     def sysStatsDataCollector(self):
-        measurementTime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        measurementTimeUTC = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S")
+        measurementTimeLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         sysData = self.sysStatsSource()
         netData = self.netStatsSource()
         logging.write("[SysStats] collected system statistics successfully")
 
-        mgfield.storeSysStatsData(self, measurementTime, sysData, netData)
+        mgfield.storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, sysData, netData)
 
 
     # collects data from temperature sensor
     def temperatureDataCollector(self):
-        measurementTime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        measurementTimeUTC = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S")
+        measurementTimeLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         temperatureValue = self.temperatureSource()
         logging.write("[Temperature] got " + str(temperatureValue) + "°C as value")
 
-        mgfield.storeTemperatureData(self, measurementTime, temperatureValue)
+        mgfield.storeTemperatureData(self, measurementTimeUTC, measurementTimeLocal, temperatureValue)
 
     
     # function that will automatically be started as thread 

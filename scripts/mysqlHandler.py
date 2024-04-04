@@ -20,11 +20,11 @@ from scripts.logHandler import logging
 
 
 mysqlTableTemplates = {
-    "mgfield" : "`mgfield`(`time`, `avg_result`, `time_delta`) ",
-    "mgfieldraw" : "`mgfieldraw`(`time`, `x_value`, `y_value`, `z_value`, `measurement_result`, `measurement_duration`) ",
-    "netstats" : "`netstats`(`time`, `hostname`, `local_ip`) ",
-    "sysstats" : "`sysstats`(`time`, `cpu_speed`, `cpu_usage`, `ram_total`, `ram_free`, `ram_used`, `ram_cached`, `ram_free_wcache_perc`, `ram_free_wocache_perc`) ",
-    "temperature" : "`temperature`(`time`, `temperature_value`) "
+    "mgfield" : "`mgfield`(`time_utc`, `time_local`, `avg_result`, `time_delta`) ",
+    "mgfieldraw" : "`mgfieldraw`(`time_utc`, `time_local`, `x_value`, `y_value`, `z_value`, `measurement_result`, `measurement_duration`) ",
+    "netstats" : "`netstats`(`time_utc`, `time_local`, `hostname`, `local_ip`) ",
+    "sysstats" : "`sysstats`(`time_utc`, `time_local`, `cpu_speed`, `cpu_usage`, `ram_total`, `ram_free`, `ram_used`, `ram_cached`, `ram_free_wcache_perc`, `ram_free_wocache_perc`) ",
+    "temperature" : "`temperature`(`time_utc`, `time_local`, `temperature_value`) "
 }
 
 # connection handler
