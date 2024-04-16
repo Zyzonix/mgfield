@@ -10,8 +10,8 @@ WorkingDirectory=/opt/MGFieldPy
 
 ExecStart=
 
-StandardOutput=append:/var/log/MGFieldPy/webclient.log
-StandardError=append:/var/log/MGFieldPy/webclient.log
+StandardOutput=append:/var/log/MGFieldPy/mgfieldpy.log
+StandardError=append:/var/log/MGFieldPy/error.log
 
 [Install]
 WantedBy=multi-user.target
