@@ -1,5 +1,5 @@
 [Unit]
-Description=MGFieldPy (/opt/earlybird) - Magnetic field measurement
+Description=MGFieldPy (/opt/MGFieldPy) - Magnetic field measurement
 After=network.target
 
 [Service]
