@@ -10,14 +10,14 @@
 # project       | MGFieldPy
 # file version  | 1.0
 #
-VERSION = 2.0
+VERSION = 2.1
 
 # set intervall of measurements (in seconds)
 measurementInterval = 0.5
 
 # number of values after calculating average value 
 # (measurementInterval*numberOfValuesToCollect = seconds after restart of collecting process)
-numberOfValuesToCollect = 20
+numberOfValuesToCollect = 60
 
 # when enabled data will be sourced from virtual sensor
 useVirtualEnvironment = True
@@ -40,6 +40,9 @@ temperatureCollectionInterval = 120
 # path to temperature sensor
 temperatureSensorPath = "/sys/bus/w1/devices/28-01204b515089/w1_slave"
 
+# store raw measurement data (x-,y-,z-values)
+storeAllRawData = False
+
 # mysql server ip/hostname
 mysqlServerIP = ""
 
@@ -50,7 +53,7 @@ mysqlUsername = ""
 mysqlPassword = ""
 
 # mysql database name
-mysqlDatabaseName = "mgfieldpy"
+mysqlDatabaseName = ""
 
 # ip's to ping as list of string, separated with comma
 # not developed yet!
