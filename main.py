@@ -32,8 +32,9 @@ tasks = {}
 # storage for sql-Table names
 class sqlTableNames():
     # sql table names
-    mgfield = "mgfield"
-    mgfieldraw = "mgfieldraw"
+    main = "main"
+    allmeasurements = "allmeasurements"
+    allmeasurementsraw = "allmeasurements.raw"
     sysstats = "sysstats"
     netstats = "netstats"
     temperature = "temperature"
@@ -131,7 +132,7 @@ class mgfield():
             logging.writeExecError(traceback.format_exc())
 
     # prepare data storing and calculation for MGField values
-    def storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal):
+    def storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal, storeAllRawData):
         logging.write("[MGField] storing data for timestamp: " + str(startTime))
 
         measuredValuesList = []
@@ -152,29 +153,45 @@ class mgfield():
         # build dataString for mgfield table
         dataString = formattedTimestampLocal + "__" + str(avg_result) + "__" + str(dataArray[startTime]["time_delta"])
         try:
-            mgfieldSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfield, formattedTimestamp, dataString)
+            mgfieldSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.main, formattedTimestamp, dataString)
             self.mySQLCursor.execute(mgfieldSQLCommand)
         except:
             logging.writeError("[MGField] (ERR: 1) Failed to store average measurement data to SQL server")
             logging.writeExecError(traceback.format_exc())
 
+        # store data of each single measurement
         try:
             # for each measurement collect all required data and format it to make it storeable
             for timestamp in measuredValuesList:
 
                 formattedTimestampLong = mySQLHandler.formatDateLong(timestamp)
                 dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
-                dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
-                dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
-                dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_result"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_duration"])
-                mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfieldraw, formattedTimestampLong, dataString)
+                mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.allmeasurements, formattedTimestampLong, dataString)
                 self.mySQLCursor.execute(mgfieldrawSQLCommand)
 
         except:
             logging.writeError("[MGField] (ERR: 2) Failed to store complete measurement data to SQL server")
             logging.writeExecError(traceback.format_exc())
+
+        # if enabled store also all x-,y- and z-values from each measurement in an extra table
+        if storeAllRawData:
+            try:
+                # for each measurement collect all required data and format it to make it storeable
+                for timestamp in measuredValuesList:
+
+                    formattedTimestampLong = mySQLHandler.formatDateLong(timestamp)
+                    dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
+                    dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
+                    dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
+                    dataString += str(dataArray[startTime][timestamp]["z_value"])
+                    mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.allmeasurementsraw, formattedTimestampLong, dataString)
+                    self.mySQLCursor.execute(mgfieldrawSQLCommand)
+
+            except:
+                logging.writeError("[MGField] (ERR: 3) Failed to store complete single measurement data (x-,y-,-z-values) to SQL server")
+                logging.writeExecError(traceback.format_exc())
 
         # before committing everything check for unsaved SysStats and Temperature data
         try:
@@ -213,7 +230,7 @@ class mgfield():
 
 
     # will be started as thread, collects data and saves to global var
-    def mgFieldDataCollectorThread(self, startTime):
+    def mgFieldDataCollectorThread(self, startTime, storeAllRawData):
 
         startTimeThreadRaw = time.time()
 
@@ -227,9 +244,10 @@ class mgfield():
         # extract data and save it to correct locations
         dataArray[startTime][startTimeThread] = {} 
         dataArray[startTime][startTimeThread]["startTimeThreadLocal"] = str(startTimeThreadLocal)
-        dataArray[startTime][startTimeThread]["x_value"] = dataFromSensor[0]
-        dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
-        dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
+        if storeAllRawData:
+            dataArray[startTime][startTimeThread]["x_value"] = dataFromSensor[0]
+            dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
+            dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
 
         # formula for calculating the magnitude of the earth's magnetic field
         measurement_result = (((dataFromSensor[0] * dataFromSensor[0]) + (dataFromSensor[1] * dataFromSensor[1]) + (dataFromSensor[2] * dataFromSensor[2])) ** 0.5)         
@@ -244,7 +262,7 @@ class mgfield():
 
     
     # collects data from MGField sensor
-    def mgFieldDataCollector(self, rerunInterval, measurementInterval, numberOfValuesToCollect):
+    def mgFieldDataCollector(self, rerunInterval, measurementInterval, numberOfValuesToCollect, storeAllRawData):
 
         startTimeRaw = time.time()
         # time when one measurement interval is started
@@ -256,7 +274,7 @@ class mgfield():
         for task in range(numberOfValuesToCollect):
             loopStartTime = time.time()
             tasks[startTime] = {}
-            tasks[startTime][str(task) + "-" + str(startTime)] = threading.Thread(target=mgfield.mgFieldDataCollectorThread, args=(self,startTime))
+            tasks[startTime][str(task) + "-" + str(startTime)] = threading.Thread(target=mgfield.mgFieldDataCollectorThread, args=(self,startTime,storeAllRawData))
             tasks[startTime][str(task) + "-" + str(startTime)].start()
             loopEndTime = time.time()
             time.sleep(measurementInterval - int(loopEndTime - loopStartTime))
@@ -271,7 +289,7 @@ class mgfield():
         time_delta = round(finishedTimeRaw - startTimeRaw - rerunInterval, 5)
         dataArray[startTime]["time_delta"] = time_delta
         logging.writeDebug("[MGField] collecting data for " + str(startTime) + " took " + str(finishedTimeRaw - startTimeRaw) + " s, expected: " + str(rerunInterval) + " (delta: " + str(time_delta) + ")\n")
-        mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal)
+        mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal, storeAllRawData)
 
 
     # collects system and network data
@@ -302,8 +320,13 @@ class mgfield():
         # initialize rerun of this thread
         threading.Timer(rerunInterval, mgfield.runnerMGField, [self, rerunInterval, measurementInterval, numberOfValuesToCollect]).start()
 
+        # check if x-,y- and z-values should be stored
+        storeAllRawData = config.storeAllRawData
+        if storeAllRawData: logging.writeDebugHigh("[MGField] Storing of all raw values enabled")
+        else: logging.writeDebugHigh("[MGField] Storing of all raw values disabled") 
+
         logging.writeDebug("[MGField] registered rerun of MGField in " + str(rerunInterval) + " seconds")
-        threading.Thread(target=mgfield.mgFieldDataCollector, args=(self, rerunInterval, measurementInterval, numberOfValuesToCollect)).start()
+        threading.Thread(target=mgfield.mgFieldDataCollector, args=(self, rerunInterval, measurementInterval, numberOfValuesToCollect, storeAllRawData)).start()
         
 
     # function that will automatically be started as thread 
