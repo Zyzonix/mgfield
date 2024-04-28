@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mgfield`
+-- Table structure for table `main`
 --
 
-CREATE TABLE `mgfield` (
+CREATE TABLE `main` (
   `time_utc` datetime NOT NULL,
   `time_local` datetime NOT NULL,
   `avg_result` float NOT NULL,
@@ -37,17 +37,28 @@ CREATE TABLE `mgfield` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mgfieldraw`
+-- Table structure for table `allmeasurements`
 --
 
-CREATE TABLE `mgfieldraw` (
+CREATE TABLE `allmeasurements` (
+  `time_utc` datetime(3) NOT NULL,
+  `time_local` datetime(3) NOT NULL,
+  `measurement_result` float NOT NULL,
+  `measurement_duration` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `allmeasurements.raw`
+--
+
+CREATE TABLE `allmeasurements.raw` (
   `time_utc` datetime(3) NOT NULL,
   `time_local` datetime(3) NOT NULL,
   `x_value` float NOT NULL,
   `y_value` float NOT NULL,
-  `z_value` float NOT NULL,
-  `measurement_result` float NOT NULL,
-  `measurement_duration` float NOT NULL
+  `z_value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
