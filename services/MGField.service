@@ -10,8 +10,8 @@ WorkingDirectory=/opt/MGFieldPy
 
 ExecStart=/usr/bin/python3 main.py
 
-StandardOutput=append:/var/log/MGFieldPy/MGFieldPy.log
-StandardError=append:/var/log/MGFieldPy/error.log
+StandardOutput=append:/var/log/MGField/MGField.log
+StandardError=append:/var/log/MGField/error.log
 
 [Install]
 WantedBy=multi-user.target

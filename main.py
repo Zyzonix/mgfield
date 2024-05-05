@@ -9,7 +9,7 @@
 # 
 # file          | main.py
 # project       | MGFieldPy
-# file version  | 1.0.0
+# version       | 1.1.0
 #
 import time
 import threading
@@ -223,6 +223,7 @@ class mgfield():
         else:
             logging.writeDebug("Using physical sensors")
             from scripts.physicalSensor import physicalSensor
+            from scripts.virtualSensor import virtualSensor
             self.dataSource = getattr(physicalSensor, "sensor")
             self.temperatureSource = getattr(physicalSensor, "temperatureSensor")
             self.sysStatsSource = getattr(virtualSensor, "sysStatsSensor")
