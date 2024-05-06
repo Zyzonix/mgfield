@@ -27,11 +27,11 @@ mkdir -p /var/log/MGFieldPy/
 **A working mySQL server is required! MariaDB is recommended.**
 
 Install module board.
-ˋˋˋ
+```
 sudo apt-get install -y i2c-tools libgpiod-dev python3-libgpiod
 pip3 install --upgrade RPi.GPIO
 pip3 install --upgrade adafruit-blinka
-ˋˋˋ
+```
 ### Execution
 Directly over the console (the programm will interrupt when the window will be closed)
 ```
