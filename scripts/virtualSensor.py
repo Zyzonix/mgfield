@@ -27,10 +27,11 @@ class virtualSensor():
         x1 = random.random()
         y1 = random.random()
         z1 = random.random()
-        logging.writeDebugHigh("[MGField] got the following values: x=" + str(x1) + ", y=" + str(y1) + ", z=" + str(z1))
+        out1 = random.random()
+        logging.writeDebugHigh("[MGField] got the following values: x=" + str(x1) + ", y=" + str(y1) + ", z=" + str(z1) + ", out=" + str(out1))
         time.sleep(0.2)
 
-        return x1, y1, z1
+        return x1, y1, z1, out1
 
     def temperatureSensor():
         # return zero 

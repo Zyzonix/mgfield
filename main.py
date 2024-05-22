@@ -185,7 +185,8 @@ class mgfield():
                     dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
                     dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
                     dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
-                    dataString += str(dataArray[startTime][timestamp]["z_value"])
+                    dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
+                    dataString += str(dataArray[startTime][timestamp]["out_value"])
                     mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.rawmeasurements, formattedTimestampLong, dataString)
                     self.mySQLCursor.execute(mgfieldrawSQLCommand)
 
@@ -249,6 +250,7 @@ class mgfield():
             dataArray[startTime][startTimeThread]["x_value"] = dataFromSensor[0]
             dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
             dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
+            dataArray[startTime][startTimeThread]["out_value"] = dataFromSensor[3]
 
         # formula for calculating the magnitude of the earth's magnetic field
         measurement_result = (((dataFromSensor[0] * dataFromSensor[0]) + (dataFromSensor[1] * dataFromSensor[1]) + (dataFromSensor[2] * dataFromSensor[2])) ** 0.5)         

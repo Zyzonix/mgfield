@@ -34,9 +34,10 @@ class physicalSensor():
         x = physicalSensor.AnalogIn(ads1, physicalSensor.ADS.P0)
         y = physicalSensor.AnalogIn(ads1, physicalSensor.ADS.P1)
         z = physicalSensor.AnalogIn(ads1, physicalSensor.ADS.P2)
-        logging.writeDebugHigh("[MGField] got the following values: x=" + str(x.value) + ", y=" + str(y.value) + ", z=" + str(z.value))
+        out = physicalSensor.AnalogIn(ads1, physicalSensor.ADS.P3)
+        logging.writeDebugHigh("[MGField] got the following values: x=" + str(x.value) + ", y=" + str(y.value) + ", z=" + str(z.value) + ", out=" + str(out.value))
 
-        return float(x.value), float(y.value), float(z.value)
+        return float(x.value), float(y.value), float(z.value), float(out.value)
 
     def temperatureSensor():
         # open data

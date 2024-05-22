@@ -58,7 +58,8 @@ CREATE TABLE `rawmeasurements` (
   `time_local` datetime(3) NOT NULL,
   `x_value` float NOT NULL,
   `y_value` float NOT NULL,
-  `z_value` float NOT NULL
+  `z_value` float NOT NULL,
+  `out_value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
