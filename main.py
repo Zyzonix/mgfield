@@ -34,7 +34,7 @@ class sqlTableNames():
     # sql table names
     main = "main"
     allmeasurements = "allmeasurements"
-    allmeasurementsraw = "allmeasurements.raw"
+    rawmeasurements = "rawmeasurements"
     sysstats = "sysstats"
     netstats = "netstats"
     temperature = "temperature"
@@ -186,7 +186,7 @@ class mgfield():
                     dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
                     dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
                     dataString += str(dataArray[startTime][timestamp]["z_value"])
-                    mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.allmeasurementsraw, formattedTimestampLong, dataString)
+                    mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.rawmeasurements, formattedTimestampLong, dataString)
                     self.mySQLCursor.execute(mgfieldrawSQLCommand)
 
             except:

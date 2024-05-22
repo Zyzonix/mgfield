@@ -50,10 +50,10 @@ CREATE TABLE `allmeasurements` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `allmeasurements.raw`
+-- Table structure for table `rawmeasurements`
 --
 
-CREATE TABLE `allmeasurements.raw` (
+CREATE TABLE `rawmeasurements` (
   `time_utc` datetime(3) NOT NULL,
   `time_local` datetime(3) NOT NULL,
   `x_value` float NOT NULL,

@@ -10,7 +10,7 @@
 # project       | MGFieldPy
 # file version  | 1.0
 #
-VERSION = 2.1
+VERSION = 2.2
 
 # set intervall of measurements (in seconds)
 measurementInterval = 0.5
