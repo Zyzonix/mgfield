@@ -3,6 +3,7 @@ Description=MGFieldPy (/opt/MGFieldPy) - Magnetic field measurement
 After=network.target
 
 [Service]
+User=pi
 Type=simple
 Restart=always
 RestartSec=1
