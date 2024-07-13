@@ -42,7 +42,8 @@ sudo pip3 install mysql-connector
 ```
 Install additional python packages for physical sensor:
 ```
-sudo pip3 install --upgrade RPi.GPIO adafruit-blinka
+pip3 install --upgrade RPi.GPIO adafruit-blinka
+pip3 install adafruit-circuitpython-ads1x15
 ```
 And  finally create the logfile directory:
 ```
