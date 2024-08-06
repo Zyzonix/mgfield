@@ -375,10 +375,13 @@ class mgfield():
         self.mySQLCursor = self.mySQLConnection.cursor()
         logging.write("Connected successfully to mySQL server and database")
 
-        # start data collection
-        mgfield.runnerMGField(self, rerunInterval, config.measurementInterval, config.numberOfValuesToCollect)
-        mgfield.runnerSysStats(self, config.sysstatsCollectionInterval)
-        if config.temperatureCollectionEnabled: mgfield.runnerTemperature(self, config.temperatureCollectionInterval)
+        # wait until timestamp xx:xx:xx.000 is reached --> to make data more easy comparable with other stations
+        while True:
+            if datetime.now().microsecond == 0:
+                # start data collection
+                threading.Thread(target=mgfield.runnerMGField, args=[self, rerunInterval, config.measurementInterval, config.numberOfValuesToCollect]).start()
+                threading.Thread(target=mgfield.runnerSysStats, args=[self, config.sysstatsCollectionInterval]).start()
+                if config.temperatureCollectionEnabled: mgfield.runnerTemperature(self, config.temperatureCollectionInterval)
 
 # initilize script
 if __name__ == "__main__":
