@@ -70,8 +70,6 @@ class logging():
         print(message)
         logging.toFile(message)
 
-
-    
     def writeNix(self):
         logging.toFile(self, "")
         print()
