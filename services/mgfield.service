@@ -1,0 +1,18 @@
+[Unit]
+Description=MGFieldPy (/opt/mgfield) - Magnetic field measurement
+After=network.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=1
+WorkingDirectory=/opt/mgfield
+
+ExecStart=/usr/bin/python3 main.py
+
+StandardOutput=append:/var/log/mgfield/mgfield.log
+StandardError=append:/var/log/mgfield/error.log
+
+[Install]
+WantedBy=multi-user.target
