@@ -7,7 +7,7 @@
 # date created  | 16-02-2024 11:35:08
 # 
 # file          | scripts/hostinformationHandler.py
-# project       | MGFieldPy
+# project       | mgfield
 # file version  | 1.0
 #
 import platform

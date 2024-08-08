@@ -8,7 +8,7 @@
 # date created  | 29-03-2024 14:45:57
 # 
 # file          | main.py
-# project       | MGFieldPy
+# project       | mgfield
 # version       | 1.1.0
 #
 import time

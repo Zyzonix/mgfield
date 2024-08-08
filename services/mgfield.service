@@ -1,5 +1,5 @@
 [Unit]
-Description=MGFieldPy (/opt/mgfield) - Magnetic field measurement
+Description=MGField (/opt/mgfield) - Magnetic field measurement
 After=network.target
 
 [Service]

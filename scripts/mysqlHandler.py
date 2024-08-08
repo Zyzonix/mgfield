@@ -8,7 +8,7 @@
 # date created  | 29-03-2024 15:08:27
 # 
 # file          | scripts/mysqlHandler.py
-# project       | MGFieldPy
+# project       | mgfield
 # file version  | 1.0
 #
 import mysql.connector

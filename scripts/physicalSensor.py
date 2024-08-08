@@ -8,7 +8,7 @@
 # date created  | 29-03-2024 16:56:44
 # 
 # file          | scripts/physicalSensor.py
-# project       | MGFieldPy
+# project       | mgfield
 # file version  | 1.0
 #
 from scripts.logHandler import logging

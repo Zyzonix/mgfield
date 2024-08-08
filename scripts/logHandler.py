@@ -7,7 +7,7 @@
 # date created  | 16-02-2024 11:34:01
 # 
 # file          | scripts/logHandler.py
-# project       | MGFieldPy
+# project       | mgfield
 # file version  | 1.0
 #
 from datetime import datetime

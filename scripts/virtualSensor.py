@@ -8,7 +8,7 @@
 # date created  | 29-03-2024 16:56:55
 # 
 # file          | scripts/virtualSensor.py
-# project       | MGFieldPy
+# project       | mgfield
 # file version  | 2.0
 #
 from scripts.logHandler import logging

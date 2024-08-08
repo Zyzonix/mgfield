@@ -8,7 +8,7 @@
 # date created  | 06-08-2024 14:57:58
 # 
 # file          | scripts/systemMonitoring.py
-# project       | MGFieldPy
+# project       | mgfield
 # file version  | 1.0.0
 #
 from scripts.logHandler import logging
