@@ -17,7 +17,7 @@ sudo apt install mariadb-server git
 ```
 If required, also install ```phpmyadmin``` and ```libapache2-mod-php``` to make PHP work with Apache. After that clone the repository:
 ```
-git clone https://github.com/Zyzonix/MGFieldPy.git
+git clone https://github.com/Zyzonix/mgfield.git
 cd mgfield/
 ```
 Now all required software is downloaded.
