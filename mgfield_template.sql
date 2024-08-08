@@ -72,7 +72,16 @@ CREATE TABLE `netstats` (
   `time_utc` datetime NOT NULL,
   `time_local` datetime NOT NULL,
   `hostname` text NOT NULL,
-  `local_ip` text NOT NULL
+  `local_ip` text NOT NULL,
+  `packets_sent` text NOT NULL,
+  `packets_recv` text NOT NULL,
+  `errin` int(11) NOT NULL,
+  `errout` int(11) NOT NULL,
+  `dropin` int(11) NOT NULL,
+  `dropout` int(11) NOT NULL,
+  `target1` float NOT NULL,
+  `target2` float NOT NULL,
+  `target3` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -86,12 +95,16 @@ CREATE TABLE `sysstats` (
   `time_local` datetime NOT NULL,
   `cpu_speed` float NOT NULL,
   `cpu_usage` float NOT NULL,
+  `cpu_ctx_switches` float NOT NULL,
+  `cpu_interrupts` float NOT NULL,
+  `cpu_soft_interrupts` float NOT NULL,
   `ram_total` int(11) NOT NULL,
   `ram_free` int(11) NOT NULL,
   `ram_used` int(11) NOT NULL,
   `ram_cached` int(11) NOT NULL,
   `ram_free_wcache_perc` float NOT NULL,
-  `ram_free_wocache_perc` float NOT NULL
+  `ram_free_wocache_perc` float NOT NULL,
+  `cpu_thermal` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

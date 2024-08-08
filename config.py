@@ -10,7 +10,7 @@
 # project       | MGFieldPy
 # file version  | 1.0
 #
-VERSION = 2.2
+VERSION = 2.3
 
 # set intervall of measurements (in seconds)
 measurementInterval = 0.5
@@ -23,13 +23,13 @@ numberOfValuesToCollect = 60
 useVirtualEnvironment = True
 
 # dis- or enable debugging
-debuggingEnabled = False
+debuggingEnabled = True
 
 # set higher debug level when True (requires debuggingEnabled to be True)
 higherDebugLevelEnabled = False
 
 # interval for collecting sysstats
-sysstatsCollectionInterval = 60
+sysstatsCollectionInterval = 30
 
 # temperature sensor en-/disabling switch
 temperatureCollectionEnabled = True
@@ -38,7 +38,7 @@ temperatureCollectionEnabled = True
 temperatureCollectionInterval = 120
 
 # path to temperature sensor
-temperatureSensorPath = "/sys/bus/w1/devices/28-01204b515089/w1_slave"
+temperatureSensorPath = ""
 
 # store raw measurement data (x-,y-,z-values)
 storeAllRawData = False
@@ -55,6 +55,10 @@ mysqlPassword = ""
 # mysql database name
 mysqlDatabaseName = ""
 
-# ip's to ping as list of string, separated with comma
-# not developed yet!
-ipsToPing = ["8.8.8.8"]
+# ip's to ping 
+# vpn-server
+target1 = ""
+# sql-server
+target2 = ""
+# any server on the internet
+target3 = ""

@@ -94,14 +94,17 @@ class mgfield():
             
 
     # prepare data storing for system statistics --> save it to dataArray; make it storeable later
-    def storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, sysData, netData):
+    def storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, cpuData, memData, netData, sensData):
         formattedTimestampUTC = mySQLHandler.formatDate(measurementTimeUTC)
-        formattedTimestampLocal = mySQLHandler.formatDate(measurementTimeLocal)
         
         # build dataString for sqlCommand builder
+        # sysData table
         sysDataString = str(measurementTimeLocal)
-        for key in sysData.keys(): sysDataString += "__" + str(sysData[key])
+        for key in cpuData.keys(): sysDataString += "__" + str(cpuData[key])
+        for key in memData.keys(): sysDataString += "__" + str(memData[key])
+        for key in sensData.keys(): sysDataString += "__" + str(sensData[key])
 
+        # netData table
         netDataString = str(measurementTimeLocal)
         for key in netData.keys(): netDataString += "__" + str(netData[key])
         
@@ -218,8 +221,6 @@ class mgfield():
             from scripts.virtualSensor import virtualSensor
             self.dataSource = getattr(virtualSensor, "sensor")
             self.temperatureSource = getattr(virtualSensor, "temperatureSensor")
-            self.sysStatsSource = getattr(virtualSensor, "sysStatsSensor")
-            self.netStatsSource = getattr(virtualSensor, "netStatsSensor")
 
         else:
             logging.writeDebug("Using physical sensors")
@@ -227,8 +228,12 @@ class mgfield():
             from scripts.virtualSensor import virtualSensor
             self.dataSource = getattr(physicalSensor, "sensor")
             self.temperatureSource = getattr(physicalSensor, "temperatureSensor")
-            self.sysStatsSource = getattr(virtualSensor, "sysStatsSensor")
-            self.netStatsSource = getattr(virtualSensor, "netStatsSensor")
+        
+        from scripts.systemMonitoring import systemMonitoring
+        self.memStatsSource = getattr(systemMonitoring, "mem")
+        self.cpuStatsSource = getattr(systemMonitoring, "cpu")
+        self.netStatsSource = getattr(systemMonitoring, "net")
+        self.sensStatsSource = getattr(systemMonitoring, "internalTemperatureSensors")
 
 
     # will be started as thread, collects data and saves to global var
@@ -236,7 +241,7 @@ class mgfield():
 
         startTimeThreadRaw = time.time()
 
-        # time when this thread will is started
+        # time when this thread is started
         startTimeThread = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S.%f")
         startTimeThreadLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f")
 
@@ -297,13 +302,16 @@ class mgfield():
 
     # collects system and network data
     def sysStatsDataCollector(self):
+        targets = {"target1":config.target1, "target2":config.target2, "target3":config.target3}
         measurementTimeUTC = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S")
         measurementTimeLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        sysData = self.sysStatsSource()
-        netData = self.netStatsSource()
+        cpuData = self.cpuStatsSource()
+        memData = self.memStatsSource()
+        netData = self.netStatsSource(targets)
+        sensData = self.sensStatsSource()
         logging.write("[SysStats] collected system statistics successfully")
 
-        mgfield.storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, sysData, netData)
+        mgfield.storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, cpuData, memData, netData, sensData)
 
 
     # collects data from temperature sensor
@@ -382,6 +390,7 @@ class mgfield():
                 threading.Thread(target=mgfield.runnerMGField, args=[self, rerunInterval, config.measurementInterval, config.numberOfValuesToCollect]).start()
                 threading.Thread(target=mgfield.runnerSysStats, args=[self, config.sysstatsCollectionInterval]).start()
                 if config.temperatureCollectionEnabled: mgfield.runnerTemperature(self, config.temperatureCollectionInterval)
+                break
 
 # initilize script
 if __name__ == "__main__":
