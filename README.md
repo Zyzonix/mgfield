@@ -6,7 +6,7 @@ For more details, please contact OCISLY-ds.
 [![Python-Version](https://img.shields.io/badge/Python-3.9.2-blue)]()
 
 ### Installation
-**This software is designed to be run on a Debian machine (e.g. Raspberry Pi)!**
+**This software is designed to be run on a Raspberry Pi!**
 First navigate to ```/opt/```:
 ```
 cd /opt
@@ -18,18 +18,18 @@ sudo apt install mariadb-server git
 If required, also install ```phpmyadmin``` and ```libapache2-mod-php``` to make PHP work with Apache. After that clone the repository:
 ```
 git clone https://github.com/Zyzonix/MGFieldPy.git
-cd MGFieldPy/
+cd mgfield/
 ```
 Now all required software is downloaded.
 
 To install the service type:
 ```
-sudo cp services/MGField.service /etc/systemd/system/
+sudo cp services/mgfield.service /etc/systemd/system/
 ```
 
 Enable the service with:
 ```
-sudo systemctl enable MGField.service
+sudo systemctl enable mgfield.service
 ```
 
 Install required python packages:
@@ -45,9 +45,14 @@ Install additional python packages for physical sensor:
 pip3 install --upgrade RPi.GPIO adafruit-blinka
 pip3 install adafruit-circuitpython-ads1x15
 ```
-And  finally create the logfile directory:
+Create config directory and move config file:
 ```
-sudo mkdir -p /var/log/MGField/
+sudo mkdir -p /home/root/.config/
+cp config.json /home/root/.config/
+```
+And finally create the logfile directory:
+```
+sudo mkdir -p /var/log/mgfield/
 ```
 
 
@@ -58,11 +63,11 @@ python3 main.py
 ```
 Or via the system service
 ```
-sudo systemctl start MGField.service
+sudo systemctl start mgfield.service
 ```
 To view the current status use:
 ```
-sudo systemctl status MGField.service
+sudo systemctl status mgfield.service
 ```
 To view the log/consoleout in realtime use:
 ```
@@ -70,7 +75,7 @@ sudo journalctl -u MGField.service
 ```
 
 ### Settings
-The software can be configured through the config-file named ```config.py```. All values are described with comments above each setting!
+The software can be configured through the config-file named ```config.json```. 
 
 - Thereby that collecting all values from each measurement (x, y, z and out) might be to heavy for a Raspberry Pi, there's a switch called ```storeAllRawData``` in the config that can be used to en-/disable the storing of this data.
 - Also a specific path to the temperature sensor must be provided config. If the device can't be opened the return value of the sensor will be 0.00. The right format of the sensor's path is for example: ```/sys/bus/w1/devices/28-01204b515089/w1_slave```
@@ -96,12 +101,25 @@ Table | Value Name | Meaning/Use type
 ```allmeasurements```|```measurement_duration```|Time delta of the single measurement
 ```netstats```|```hostname```|Local hostname from ```/etc/hosts```
 ```netstats```|```local_ip```|Local IP
+```netstats```|```packets_sent```|Packets sent
+```netstats```|```packets_recv```|Packets received
+```netstats```|```errin```|Incoming packets with errors
+```netstats```|```errout```|Outgoing packets with errors
+```netstats```|```dropin```|Dropped incoming packets
+```netstats```|```dropout```|Dropped outgoing packets
+```netstats```|```target1```|Any target configured to be pinged
+```netstats```|```target2```|Any target configured to be pinged
+```netstats```|```target3```|Any target configured to be pinged
 ```sysstats```|```cpu_speed```|CPU Speed in MHz
 ```sysstats```|```cpu_usage```|Current CPU usage in %
+```sysstats```|```cpu_ctx_switches```| CPU CTX Switches
+```sysstats```|```cpu_interrupts```| CPU interrupts since last boot
+```sysstats```|```cpu_soft_interrupts```| CPU soft interrupts since last boot
 ```sysstats```|```ram_total```|Total RAM in MB
 ```sysstats```|```ram_free```|Free RAM in MB
 ```sysstats```|```ram_used```|Used RAM in MB
 ```sysstats```|```ram_cached```|Cached RAM in MB
 ```sysstats```|```ram_free_wcache_perc```|Free RAM in % with cache
 ```sysstats```|```ram_free_wocache_perc```|Free RAM in % without cache
+```sysstats```|```cpu_thermal```|Raspberry Pi's CPU Temperature
 ```temperature```|```temperature_value```|Current temperature in °C

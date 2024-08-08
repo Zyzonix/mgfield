@@ -15,12 +15,15 @@ import time
 import threading
 from datetime import datetime, timezone
 import traceback
+import json
 
 # import custom scripts
-import config
 from scripts.logHandler import logging
 from scripts.mysqlHandler import mySQLHandler
+from scripts.logHandler import globalVars
 
+# default path to config
+CONFIG = "/root/.config/mgfield/config.json"
 
 # static public storage
 dataArray = {}
@@ -216,7 +219,7 @@ class mgfield():
 
     # selects and sets data sources
     def setDataSources(self):
-        if config.useVirtualEnvironment:
+        if self.useVirtualEnvironment:
             logging.writeDebug("Using virtual sensors")
             from scripts.virtualSensor import virtualSensor
             self.dataSource = getattr(virtualSensor, "sensor")
@@ -302,7 +305,7 @@ class mgfield():
 
     # collects system and network data
     def sysStatsDataCollector(self):
-        targets = {"target1":config.target1, "target2":config.target2, "target3":config.target3}
+        targets = {"target1":self.target1, "target2":self.target2, "target3":self.target3}
         measurementTimeUTC = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S")
         measurementTimeLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         cpuData = self.cpuStatsSource()
@@ -318,7 +321,7 @@ class mgfield():
     def temperatureDataCollector(self):
         measurementTimeUTC = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H-%M-%S")
         measurementTimeLocal = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        temperatureValue = self.temperatureSource()
+        temperatureValue = self.temperatureSource(self)
         logging.write("[Temperature] got " + str(temperatureValue) + "°C as value")
 
         mgfield.storeTemperatureData(self, measurementTimeUTC, measurementTimeLocal, temperatureValue)
@@ -332,7 +335,7 @@ class mgfield():
         threading.Timer(rerunInterval, mgfield.runnerMGField, [self, rerunInterval, measurementInterval, numberOfValuesToCollect]).start()
 
         # check if x-,y- and z-values should be stored
-        storeAllRawData = config.storeAllRawData
+        storeAllRawData = self.storeAllRawData
         if storeAllRawData: logging.writeDebugHigh("[MGField] Storing of all raw values enabled")
         else: logging.writeDebugHigh("[MGField] Storing of all raw values disabled") 
 
@@ -369,20 +372,58 @@ class mgfield():
             logging.writeDebugHigh("Type | Thread-Name | is_stopped | ident | native_id")
             for thread in threadInfoList:
                 logging.writeDebugHigh("[ThreadWatcher] " + thread.__class__.__name__ + ", " + str(vars(thread)["_name"]) + ", " + str(vars(thread)["_is_stopped"]) + ", " + str(vars(thread)["_ident"]) + ", " + str(vars(thread)["_native_id"]))
-            time.sleep(config.threadWatcherInterval)
+            time.sleep(self.threadWatcherInterval)
 
-    
+    # import config from file
+    def importConfig(self):
+        try:
+            configFile = open(CONFIG)
+            configContent = json.load(configFile)
+            self.version = configContent["version"]
+            self.measurementInterval = configContent["measurement"]["measurementInterval"]
+            self.numberOfValuesToCollect = configContent["measurement"]["numberOfValuesToCollect"]
+            self.useVirtualEnvironment = bool(configContent["measurement"]["useVirtualEnvironment"])
+            self.temperatureCollectionEnabled = bool(configContent["measurement"]["temperatureCollectionEnabled"])
+            self.temperatureCollectionInterval = configContent["measurement"]["temperatureCollectionInterval"]
+            self.temperatureSensorPath = configContent["measurement"]["temperatureSensorPath"]
+            self.storeAllRawData = bool(configContent["measurement"]["storeAllRawData"])
+            self.sysstatsCollectionInterval = configContent["monitoring"]["sysstats"]["sysstatsCollectionInterval"]
+            self.threadWatcherInterval = configContent["monitoring"]["sysstats"]["threadWatcherInterval"]
+            self.target1 = configContent["monitoring"]["network"]["target1"]
+            self.target2 = configContent["monitoring"]["network"]["target2"]
+            self.target3 = configContent["monitoring"]["network"]["target3"]
+            debugSetting = bool(configContent["logging"]["debuggingEnabled"])
+            debugHighSetting = bool(configContent["logging"]["higherDebugLevelEnabled"])
+            # set both log variables globally
+            globalVars(debugSetting, debugHighSetting)
+            self.mysqlServerIP = configContent["mysql"]["mysqlServerIP"]
+            self.mysqlUsername = configContent["mysql"]["mysqlUsername"]
+            self.mysqlPassword = configContent["mysql"]["mysqlPassword"]
+            self.mysqlDatabaseName = configContent["mysql"]["mysqlDatabaseName"]
+
+            configFile.close()
+        except:
+            logging.writeError("Failed to load config file from: " + CONFIG)
+            logging.writeExecError(traceback.print_exc())
+            return False
+        return True
+
     def __init__(self):
         logging.write("Starting MGFieldPy data collection")
-        logging.writeDebug("Running version: " + str(config.VERSION))
+        
+        # load config, return if fails
+        logging.write("Reading config...")
+        configResult = mgfield.importConfig(self)
+        if not configResult: return
+        logging.writeDebug("Running version: " + str(self.version))
         logging.write("Setting datasource...")
         mgfield.setDataSources(self)
 
         # calculate interval of seconds until rerun
-        rerunInterval = config.measurementInterval*config.numberOfValuesToCollect
+        rerunInterval = self.measurementInterval*self.numberOfValuesToCollect
 
         # open mySQL connection
-        self.mySQLConnection = mySQLHandler.openConnection()
+        self.mySQLConnection = mySQLHandler.openConnection(self)
         
         # if connection fails, return
         if not self.mySQLConnection: 
@@ -397,12 +438,12 @@ class mgfield():
         while True:
             if datetime.now().microsecond == 0:
                 # start data collection
-                threading.Thread(target=mgfield.runnerMGField, args=[self, rerunInterval, config.measurementInterval, config.numberOfValuesToCollect]).start()
-                threading.Thread(target=mgfield.runnerSysStats, args=[self, config.sysstatsCollectionInterval]).start()
-                if config.temperatureCollectionEnabled: mgfield.runnerTemperature(self, config.temperatureCollectionInterval)
+                threading.Thread(target=mgfield.runnerMGField, args=[self, rerunInterval, self.measurementInterval, self.numberOfValuesToCollect]).start()
+                threading.Thread(target=mgfield.runnerSysStats, args=[self, self.sysstatsCollectionInterval]).start()
+                if self.temperatureCollectionEnabled: mgfield.runnerTemperature(self, self.temperatureCollectionInterval)
                 mgfield.threadWatcher(self)
                 break
 
-# initilize script
+# initialize script
 if __name__ == "__main__":
     mgfield()   

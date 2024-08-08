@@ -15,10 +15,7 @@ from scripts.logHandler import logging
 from scripts.hostinformationHandler import getFullHostname
 
 import time
-import os
-import random     
-import psutil   
-import socket
+import random    
 
 class virtualSensor():     
 
@@ -33,7 +30,7 @@ class virtualSensor():
 
         return x1, y1, z1, out1
 
-    def temperatureSensor():
+    def temperatureSensor(self):
         # return zero 
         logging.writeDebugHigh("[Temperature] Accessing virtual temperature sensor")
         return 0.00

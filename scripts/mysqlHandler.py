@@ -15,7 +15,6 @@ import mysql.connector
 import traceback
 
 # custom scripts
-import config
 from scripts.logHandler import logging
 
 
@@ -32,15 +31,15 @@ mysqlTableTemplates = {
 class mySQLHandler():
 
     # create db connection
-    def openConnection():
+    def openConnection(self):
         
         try:
             # try creating a connection
             serverConnection = mysql.connector.connect(
-                host = config.mysqlServerIP,
-                user = config.mysqlUsername,
-                password = config.mysqlPassword,
-                database = config.mysqlDatabaseName
+                host = self.mysqlServerIP,
+                user = self.mysqlUsername,
+                password = self.mysqlPassword,
+                database = self.mysqlDatabaseName
             )
 
         except:

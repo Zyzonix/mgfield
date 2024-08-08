@@ -1,0 +1,33 @@
+{
+    "version" : 2.4,
+    "measurement" : {
+        "measurementInterval" : 1,
+        "numberOfValuesToCollect" : 60,
+        "useVirtualEnvironment" : true,
+        "temperatureCollectionEnabled" : true,
+        "temperatureCollectionInterval" : 120,
+        "temperatureSensorPath" : "",
+        "storeAllRawData" : true
+    },
+    "monitoring" : {
+        "sysstats" : {
+            "sysstatsCollectionInterval" : 60,
+            "threadWatcherInterval" : 10
+        },
+        "network" : {
+            "target1" : "",
+            "target2" : "",
+            "target3" : ""
+        }
+    },
+    "logging" : {
+        "debuggingEnabled" : false,
+        "higherDebugLevelEnabled" : false
+    },
+    "mysql" : {
+        "mysqlServerIP" : "",
+        "mysqlUsername" : "",
+        "mysqlPassword" : "",
+        "mysqlDatabaseName" : ""
+    }
+}

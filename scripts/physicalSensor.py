@@ -12,7 +12,6 @@
 # file version  | 1.0
 #
 from scripts.logHandler import logging
-import config
 
 class physicalSensor():
     from datetime import datetime
@@ -39,11 +38,11 @@ class physicalSensor():
 
         return float(x.value), float(y.value), float(z.value), float(out.value)
 
-    def temperatureSensor():
+    def temperatureSensor(self):
         # open data
         try:
             # unique ID for DS18B20 sensor
-            sensor = open(config.temperatureSensorPath)
+            sensor = open(self.temperatureSensorPath)
             temp_raw = sensor.read()
             sensor.close()
 

@@ -12,9 +12,6 @@
 #
 from datetime import datetime
 
-# import custom scripts
-import config
-
 # time for logging / console out
 class ctime():
     def getTime():
@@ -24,6 +21,13 @@ class ctime():
     def getTimeLong():
         curTime = "" + str(datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f"))
         return curTime
+
+def globalVars(debugSetting, debugHighSetting):
+    # static debug variables
+    global debug
+    debug = debugSetting
+    global debugHigh
+    debugHigh = debugHighSetting
 
 
 class logging():
@@ -53,13 +57,13 @@ class logging():
         logging.toFile(message)
 
     def writeDebug(msg):
-        if config.debuggingEnabled:
+        if debug:
             message = str(ctime.getTime() + " DEBUG  | " + msg)
             print(message)
             logging.toFile(message)
 
     def writeDebugHigh(msg):
-        if config.higherDebugLevelEnabled and config.debuggingEnabled:
+        if debug and debugHigh:
             message = str(ctime.getTime() + " DEBUG  | " + msg)
             print(message)
             logging.toFile(message)
@@ -70,6 +74,6 @@ class logging():
         print(message)
         logging.toFile(message)
 
-    def writeNix(self):
-        logging.toFile(self, "")
+    def writeNix():
+        logging.toFile("")
         print()
