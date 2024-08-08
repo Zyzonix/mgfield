@@ -1,4 +1,4 @@
-# MGFieldPy - Magnetic field measurement
+# mgfield - Magnetic field measurement
 This software has been developed with OCISLY-ds to measure magnetic fields with a Raspberry Pi.
 For more details, please contact OCISLY-ds.
 
@@ -123,3 +123,6 @@ Table | Value Name | Meaning/Use type
 ```sysstats```|```ram_free_wocache_perc```|Free RAM in % without cache
 ```sysstats```|```cpu_thermal```|Raspberry Pi's CPU Temperature
 ```temperature```|```temperature_value```|Current temperature in °C
+
+-----
+This software was earlier named ```MGFieldPy```.
