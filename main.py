@@ -338,7 +338,7 @@ class mgfield():
 
         logging.writeDebug("[MGField] registered rerun of MGField in " + str(rerunInterval) + " seconds")
         threading.Thread(target=mgfield.mgFieldDataCollector, args=(self, rerunInterval, measurementInterval, numberOfValuesToCollect, storeAllRawData)).start()
-        
+
 
     # function that will automatically be started as thread 
     # to collect sysStats data
@@ -360,6 +360,16 @@ class mgfield():
         
         logging.writeDebug("[Temperature] registered rerun of temperatureCollection in " + str(temperatureCollectionInterval) + " seconds")
         threading.Thread(target=mgfield.temperatureDataCollector, args=(self,)).start()
+
+    # monitor running threads for debugging purposes
+    def threadWatcher(self):
+        while True: 
+            threadInfoList = threading.enumerate()
+            logging.writeDebug("[ThreadWatcher] Currently running threads/timers: " + str(len(threadInfoList)))
+            logging.writeDebugHigh("Type | Thread-Name | is_stopped | ident | native_id")
+            for thread in threadInfoList:
+                logging.writeDebugHigh("[ThreadWatcher] " + thread.__class__.__name__ + ", " + str(vars(thread)["_name"]) + ", " + str(vars(thread)["_is_stopped"]) + ", " + str(vars(thread)["_ident"]) + ", " + str(vars(thread)["_native_id"]))
+            time.sleep(config.threadWatcherInterval)
 
     
     def __init__(self):
@@ -390,6 +400,7 @@ class mgfield():
                 threading.Thread(target=mgfield.runnerMGField, args=[self, rerunInterval, config.measurementInterval, config.numberOfValuesToCollect]).start()
                 threading.Thread(target=mgfield.runnerSysStats, args=[self, config.sysstatsCollectionInterval]).start()
                 if config.temperatureCollectionEnabled: mgfield.runnerTemperature(self, config.temperatureCollectionInterval)
+                mgfield.threadWatcher(self)
                 break
 
 # initilize script

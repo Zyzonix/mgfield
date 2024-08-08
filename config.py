@@ -43,6 +43,9 @@ temperatureSensorPath = ""
 # store raw measurement data (x-,y-,z-values)
 storeAllRawData = False
 
+# interval for thread watcher (in s)
+threadWatcherInterval = 10
+
 # mysql server ip/hostname
 mysqlServerIP = ""
 
