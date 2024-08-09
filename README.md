@@ -91,14 +91,12 @@ Value Name | Meaning/Use type
 **All other values are table-specific:**
 Table | Value Name | Meaning/Use type
 ---|---|---
-```main```|```avg_result```|Calculated average value from configured measurement interval
-```main```|```time_delta```|Time delta of the whole measurement interval, calculating interval: ```finishedTime - startTime - expectedIntervalRunningTime```. This value is actually expected to be ```0```.
-```rawmeasurements```|```x_value```|X-Value per measurement
-```rawmeasurements```|```y_value```|Y-Value per measurement
-```rawmeasurements```|```z_value```|Z-Value per measurement
-```rawmeasurements```|```out_value```|OUT-Value per measurement
-```allmeasurements```|```measurement_result```|Calculated average value from the single measurement (calculated from x-,y-, and z-values)
-```allmeasurements```|```measurement_duration```|Time delta of the single measurement
+```mgfield```|```x_value```|X-Value per measurement
+```mgfield```|```y_value```|Y-Value per measurement
+```mgfield```|```z_value```|Z-Value per measurement
+```mgfield```|```out_value```|OUT-Value per measurement
+```mgfield```|```measurement_result```|Calculated average value from the single measurement (calculated from x-,y-, and z-values)
+```mgfield```|```measurement_duration```|Time delta of the single measurement
 ```netstats```|```hostname```|Local hostname from ```/etc/hosts```
 ```netstats```|```local_ip```|Local IP
 ```netstats```|```packets_sent```|Packets sent
