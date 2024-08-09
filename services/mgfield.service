@@ -9,6 +9,7 @@ Restart=always
 RestartSec=1
 WorkingDirectory=/opt/mgfield
 
+ExecStartPre=/bin/sleep 30
 ExecStart=/usr/bin/python3 main.py
 
 StandardOutput=append:/var/log/mgfield/mgfield.log
