@@ -368,6 +368,7 @@ class mgfield():
         return True
 
     def __init__(self):
+        logging.write("--------[INITIALIZING]--------")
         logging.write("Starting MGFieldPy data collection")
         
         # load config, return if fails
