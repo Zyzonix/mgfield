@@ -136,7 +136,7 @@ class mgfield():
             logging.writeExecError(traceback.format_exc())
 
     # prepare data storing and calculation for MGField values
-    def storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal, storeAllRawData):
+    def storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal):
         logging.write("[MGField] storing data for timestamp: " + str(startTime))
 
         measuredValuesList = []
@@ -207,7 +207,7 @@ class mgfield():
 
 
     # will be started as thread, collects data and saves to global var
-    def mgFieldDataCollectorThread(self, startTime, storeAllRawData):
+    def mgFieldDataCollectorThread(self, startTime):
 
         startTimeThreadRaw = time.time()
 
@@ -221,11 +221,10 @@ class mgfield():
         # extract data and save it to correct locations
         dataArray[startTime][startTimeThread] = {} 
         dataArray[startTime][startTimeThread]["startTimeThreadLocal"] = str(startTimeThreadLocal)
-        if storeAllRawData:
-            dataArray[startTime][startTimeThread]["x_value"] = dataFromSensor[0]
-            dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
-            dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
-            dataArray[startTime][startTimeThread]["out_value"] = dataFromSensor[3]
+        dataArray[startTime][startTimeThread]["x_value"] = dataFromSensor[0]
+        dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
+        dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
+        dataArray[startTime][startTimeThread]["out_value"] = dataFromSensor[3]
 
         # formula for calculating the magnitude of the earth's magnetic field
         measurement_result = (((dataFromSensor[0] * dataFromSensor[0]) + (dataFromSensor[1] * dataFromSensor[1]) + (dataFromSensor[2] * dataFromSensor[2])) ** 0.5)         
@@ -240,7 +239,7 @@ class mgfield():
 
     
     # collects data from MGField sensor
-    def mgFieldDataCollector(self, rerunInterval, measurementInterval, numberOfValuesToCollect, storeAllRawData):
+    def mgFieldDataCollector(self, rerunInterval, measurementInterval, numberOfValuesToCollect):
 
         startTimeRaw = time.time()
         # time when one measurement interval is started
@@ -252,7 +251,7 @@ class mgfield():
         for task in range(numberOfValuesToCollect):
             loopStartTime = time.time()
             tasks[startTime] = {}
-            tasks[startTime][str(task) + "-" + str(startTime)] = threading.Thread(target=mgfield.mgFieldDataCollectorThread, args=(self,startTime,storeAllRawData))
+            tasks[startTime][str(task) + "-" + str(startTime)] = threading.Thread(target=mgfield.mgFieldDataCollectorThread, args=(self,startTime))
             tasks[startTime][str(task) + "-" + str(startTime)].start()
             loopEndTime = time.time()
             time.sleep(measurementInterval - int(loopEndTime - loopStartTime))
@@ -266,7 +265,7 @@ class mgfield():
 
         time_delta = round(finishedTimeRaw - startTimeRaw - rerunInterval, 5)
         logging.writeDebug("[MGField] collecting data for " + str(startTime) + " took " + str(finishedTimeRaw - startTimeRaw) + " s, expected: " + str(rerunInterval) + " (delta: " + str(time_delta) + ")\n")
-        mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal, storeAllRawData)
+        mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal)
 
 
     # collects system and network data
@@ -300,13 +299,8 @@ class mgfield():
         # initialize rerun of this thread
         threading.Timer(rerunInterval, mgfield.runnerMGField, [self, rerunInterval, measurementInterval, numberOfValuesToCollect]).start()
 
-        # check if x-,y- and z-values should be stored
-        storeAllRawData = self.storeAllRawData
-        if storeAllRawData: logging.writeDebugHigh("[MGField] Storing of all raw values enabled")
-        else: logging.writeDebugHigh("[MGField] Storing of all raw values disabled") 
-
         logging.writeDebug("[MGField] registered rerun of MGField in " + str(rerunInterval) + " seconds")
-        threading.Thread(target=mgfield.mgFieldDataCollector, args=(self, rerunInterval, measurementInterval, numberOfValuesToCollect, storeAllRawData)).start()
+        threading.Thread(target=mgfield.mgFieldDataCollector, args=(self, rerunInterval, measurementInterval, numberOfValuesToCollect)).start()
 
 
     # function that will automatically be started as thread 
