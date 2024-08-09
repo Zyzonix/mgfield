@@ -35,9 +35,7 @@ tasks = {}
 # storage for sql-Table names
 class sqlTableNames():
     # sql table names
-    main = "main"
-    allmeasurements = "allmeasurements"
-    rawmeasurements = "rawmeasurements"
+    mgfield = "mgfield"
     sysstats = "sysstats"
     netstats = "netstats"
     temperature = "temperature"
@@ -142,63 +140,32 @@ class mgfield():
         logging.write("[MGField] storing data for timestamp: " + str(startTime))
 
         measuredValuesList = []
-        # validate that enough data has been collected, therefore select only measured values, skip time_delta etc.
-        for key in dataArray[startTime].keys():
-            if key != "time_delta": measuredValuesList.append(key)
+        # validate that enough data has been collected
+        for key in dataArray[startTime].keys(): measuredValuesList.append(key)
         
         if not len(measuredValuesList) == numberOfValuesToCollect:
             logging.writeError("[MGField] data set: " + str(startTime) + " is malformed - expected " + str(numberOfValuesToCollect) + " values, got " + str(len(dataArray[startTime].keys())))
             return
-        
-        # format timestamp
-        formattedTimestamp = mySQLHandler.formatDate(startTime)
-        formattedTimestampLocal = mySQLHandler.formatDate(startTimeLocal)
-        
-        avg_result = mgfield.calcAvg(startTime, measuredValuesList)
 
-        # build dataString for mgfield table
-        dataString = formattedTimestampLocal + "__" + str(avg_result) + "__" + str(dataArray[startTime]["time_delta"])
-        try:
-            mgfieldSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.main, formattedTimestamp, dataString)
-            self.mySQLCursor.execute(mgfieldSQLCommand)
-        except:
-            logging.writeError("[MGField] (ERR: 1) Failed to store average measurement data to SQL server")
-            logging.writeExecError(traceback.format_exc())
-
-        # store data of each single measurement
+        # store all x-,y- and z-values from each measurement
         try:
             # for each measurement collect all required data and format it to make it storeable
             for timestamp in measuredValuesList:
 
                 formattedTimestampLong = mySQLHandler.formatDateLong(timestamp)
                 dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
+                dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
+                dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
+                dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
+                dataString += str(dataArray[startTime][timestamp]["out_value"])+ "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_result"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_duration"])
-                mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.allmeasurements, formattedTimestampLong, dataString)
+                mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfield, formattedTimestampLong, dataString)
                 self.mySQLCursor.execute(mgfieldrawSQLCommand)
 
         except:
-            logging.writeError("[MGField] (ERR: 2) Failed to store complete measurement data to SQL server")
+            logging.writeError("[MGField] Failed to store measurement data (x-,y-,-z-values) to SQL server")
             logging.writeExecError(traceback.format_exc())
-
-        # if enabled store also all x-,y- and z-values from each measurement in an extra table
-        if storeAllRawData:
-            try:
-                # for each measurement collect all required data and format it to make it storeable
-                for timestamp in measuredValuesList:
-
-                    formattedTimestampLong = mySQLHandler.formatDateLong(timestamp)
-                    dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
-                    dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
-                    dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
-                    dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
-                    dataString += str(dataArray[startTime][timestamp]["out_value"])
-                    mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.rawmeasurements, formattedTimestampLong, dataString)
-                    self.mySQLCursor.execute(mgfieldrawSQLCommand)
-
-            except:
-                logging.writeError("[MGField] (ERR: 3) Failed to store complete single measurement data (x-,y-,-z-values) to SQL server")
-                logging.writeExecError(traceback.format_exc())
 
         # before committing everything check for unsaved SysStats and Temperature data
         try:
@@ -298,7 +265,6 @@ class mgfield():
         finishedTimeRaw = time.time()
 
         time_delta = round(finishedTimeRaw - startTimeRaw - rerunInterval, 5)
-        dataArray[startTime]["time_delta"] = time_delta
         logging.writeDebug("[MGField] collecting data for " + str(startTime) + " took " + str(finishedTimeRaw - startTimeRaw) + " s, expected: " + str(rerunInterval) + " (delta: " + str(time_delta) + ")\n")
         mgfield.storeMGFieldData(self, numberOfValuesToCollect, startTime, startTimeLocal, storeAllRawData)
 
@@ -386,7 +352,6 @@ class mgfield():
             self.temperatureCollectionEnabled = bool(configContent["measurement"]["temperatureCollectionEnabled"])
             self.temperatureCollectionInterval = configContent["measurement"]["temperatureCollectionInterval"]
             self.temperatureSensorPath = configContent["measurement"]["temperatureSensorPath"]
-            self.storeAllRawData = bool(configContent["measurement"]["storeAllRawData"])
             self.sysstatsCollectionInterval = configContent["monitoring"]["sysstats"]["sysstatsCollectionInterval"]
             self.threadWatcherInterval = configContent["monitoring"]["sysstats"]["threadWatcherInterval"]
             self.target1 = configContent["monitoring"]["network"]["target1"]

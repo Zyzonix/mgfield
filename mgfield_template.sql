@@ -18,48 +18,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mgfieldpy`
+-- Database: `mgfield`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `main`
+-- Table structure for table `mgfield`
 --
 
-CREATE TABLE `main` (
-  `time_utc` datetime NOT NULL,
-  `time_local` datetime NOT NULL,
-  `avg_result` float NOT NULL,
-  `time_delta` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `allmeasurements`
---
-
-CREATE TABLE `allmeasurements` (
-  `time_utc` datetime(3) NOT NULL,
-  `time_local` datetime(3) NOT NULL,
-  `measurement_result` float NOT NULL,
-  `measurement_duration` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rawmeasurements`
---
-
-CREATE TABLE `rawmeasurements` (
+CREATE TABLE `mgfield` (
   `time_utc` datetime(3) NOT NULL,
   `time_local` datetime(3) NOT NULL,
   `x_value` float NOT NULL,
   `y_value` float NOT NULL,
   `z_value` float NOT NULL,
-  `out_value` float NOT NULL
+  `out_value` float NOT NULL,
+  `measurement_result` float NOT NULL,
+  `measurement_duration` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

@@ -6,8 +6,7 @@
         "useVirtualEnvironment" : true,
         "temperatureCollectionEnabled" : true,
         "temperatureCollectionInterval" : 120,
-        "temperatureSensorPath" : "",
-        "storeAllRawData" : true
+        "temperatureSensorPath" : ""
     },
     "monitoring" : {
         "sysstats" : {
