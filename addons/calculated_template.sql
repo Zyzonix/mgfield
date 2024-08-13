@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 11, 2024 at 05:25 PM
+-- Generation Time: Aug 13, 2024 at 02:07 PM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.18
 
@@ -24,17 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `calculateAverage_template`
+-- Table structure for table `database-calculated`
 --
 
-CREATE TABLE `calculateAverage_template` (
+CREATE TABLE `database-calculated` (
   `time_utc` datetime(3) NOT NULL,
   `time_local` datetime(3) NOT NULL,
-  `time_utc_start` datetime(3) NOT NULL,
-  `time_utc_end` datetime(3) NOT NULL,
-  `calculated` float NOT NULL,
-  `avg_out_value` float NOT NULL,
-  `count_of_avg` int(11) NOT NULL
+  `measurement_result` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
