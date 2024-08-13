@@ -50,17 +50,6 @@ class mgfield():
         dataArray.pop(startTime)
         remainingDataSets = str(len(dataArray.keys()))
         logging.writeDebugHigh("[MGField] remaining dataSets in dataArray: " + remainingDataSets + " (" + str(list(dataArray.keys())) + ")")
-
-    # calculate average value from timestamp and return it
-    def calcAvg(startTime, measuredValuesList):
-        # first calculate average value and save it to sql
-        calculator = 0.0
-        valueCount = 0
-        for key in measuredValuesList:
-            calculator += dataArray[startTime][key]["measurement_result"]
-            valueCount += 1
-        avg_result = calculator/valueCount
-        return avg_result
     
     # check and store values of temperature and sysstats if unsaved data is stored in dataArrayOther
     def checkUnsavedDataAndSave(self):
@@ -160,7 +149,6 @@ class mgfield():
                 dataString += str(dataArray[startTime][timestamp]["y_value"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["out_value"])+ "__"
-                dataString += str(dataArray[startTime][timestamp]["measurement_result"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_duration"]) + "__"
                 dataString += str(firstValueNotWritten) 
                 mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfield, formattedTimestampLong, dataString)
@@ -229,12 +217,6 @@ class mgfield():
         dataArray[startTime][startTimeThread]["y_value"] = dataFromSensor[1]
         dataArray[startTime][startTimeThread]["z_value"] = dataFromSensor[2]
         dataArray[startTime][startTimeThread]["out_value"] = dataFromSensor[3]
-
-        # formula for calculating the magnitude of the earth's magnetic field
-        measurement_result = (((dataFromSensor[0] * dataFromSensor[0]) + (dataFromSensor[1] * dataFromSensor[1]) + (dataFromSensor[2] * dataFromSensor[2])) ** 0.5)         
-        logging.writeDebug("[MGField] got " + str(measurement_result) + " as value")
-
-        dataArray[startTime][startTimeThread]["measurement_result"] = measurement_result
         
         # save endTimeThread to calculate 
         endTimeThreadRaw = time.time()
