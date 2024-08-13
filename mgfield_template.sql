@@ -35,7 +35,8 @@ CREATE TABLE `mgfield` (
   `z_value` float NOT NULL,
   `out_value` float NOT NULL,
   `measurement_result` float NOT NULL,
-  `measurement_duration` float NOT NULL
+  `measurement_duration` float NOT NULL,
+  `start_avg` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

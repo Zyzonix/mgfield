@@ -147,11 +147,13 @@ class mgfield():
             logging.writeError("[MGField] data set: " + str(startTime) + " is malformed - expected " + str(numberOfValuesToCollect) + " values, got " + str(len(dataArray[startTime].keys())))
             return
 
+        # mySQL boolean 0(false)/1(true)
+        firstValueNotWritten = 1
         # store all x-,y- and z-values from each measurement
         try:
             # for each measurement collect all required data and format it to make it storeable
             for timestamp in measuredValuesList:
-
+                
                 formattedTimestampLong = mySQLHandler.formatDateLong(timestamp)
                 dataString = str(dataArray[startTime][timestamp]["startTimeThreadLocal"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["x_value"]) + "__"
@@ -159,9 +161,11 @@ class mgfield():
                 dataString += str(dataArray[startTime][timestamp]["z_value"]) + "__"
                 dataString += str(dataArray[startTime][timestamp]["out_value"])+ "__"
                 dataString += str(dataArray[startTime][timestamp]["measurement_result"]) + "__"
-                dataString += str(dataArray[startTime][timestamp]["measurement_duration"])
+                dataString += str(dataArray[startTime][timestamp]["measurement_duration"]) + "__"
+                dataString += str(firstValueNotWritten) 
                 mgfieldrawSQLCommand = mySQLHandler.commandBuilder(sqlTableNames.mgfield, formattedTimestampLong, dataString)
                 self.mySQLCursor.execute(mgfieldrawSQLCommand)
+                firstValueNotWritten = 0
 
         except:
             logging.writeError("[MGField] Failed to store measurement data (x-,y-,-z-values) to SQL server")
