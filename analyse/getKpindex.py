@@ -13,10 +13,11 @@ to run getKpindex function run:  from getKpindex import getKpindex
 
 from datetime import datetime
 import json, urllib.request
+import csv
 
 # Zeitraum
 starttime = '2024-12-01'
-endtime = '2024-12-02'
+endtime = '2024-12-05'
 index = 'Kp'
 status = 'all'
 
@@ -42,14 +43,8 @@ def __addstatus__(url, status):
 
 def getKpindex(starttime, endtime, index, status='all'):
     """
-    ---------------------------------------------------------------------------------
-    download 'Kp', 'ap', 'Ap', 'Cp', 'C9', 'Hp30', 'Hp60', 'ap30', 'ap60', 'SN', 'Fobs' or 'Fadj' index data from kp.gfz-potsdam.de
+    Download 'Kp', 'ap', 'Ap', 'Cp', 'C9', 'Hp30', 'Hp60', 'ap30', 'ap60', 'SN', 'Fobs' or 'Fadj' index data from kp.gfz-potsdam.de
     date format for starttime and endtime is 'yyyy-mm-dd' or 'yyyy-mm-ddTHH:MM:SSZ'
-    optional 'def' parameter to get only definitve values (only available for 'Kp', 'ap', 'Ap', 'Cp', 'C9', 'SN')
-    Hpo index and Fobs/Fadj does not have the status info
-    example: (time, index, status) = getKpindex('2021-09-29', '2021-10-01','Ap','def')
-    example: (time, index, status) = getKpindex('2021-09-29T12:00:00Z', '2021-10-01T12:00:00Z','Kp')
-    ---------------------------------------------------------------------------------
     """
     result_t = 0
     result_index = 0
@@ -98,5 +93,23 @@ def getKpindex(starttime, endtime, index, status='all'):
     finally:
         return result_t, result_index, result_s
 
+# Daten abrufen
 time, index_values, status_values = getKpindex(starttime, endtime, index, status)
+
+# Ergebnisse in CSV-Datei schreiben
+output_file = "Kpindex_output.csv"
+
+try:
+    with open(output_file, mode="w", newline="") as file:
+        writer = csv.writer(file)
+        # Header schreiben
+        writer.writerow(["datetime", index, "status"])
+        # Daten schreiben
+        for t, i, s in zip(time, index_values, status_values):
+            writer.writerow([t, i, s])
+    print(f"Daten erfolgreich in {output_file} gespeichert.")
+except Exception as e:
+    print(f"Fehler beim Schreiben der CSV-Datei: {e}")
+
+# Ergebnis anzeigen
 print(time, index_values, status_values)
