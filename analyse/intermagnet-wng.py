@@ -1,3 +1,5 @@
+#Copyright: 2019- R.S. Weigel, 2025 - F. von Bargen
+#as posted here: https://github.com/hapi-server/client-python
 import os
 import numpy as np
 import matplotlib.pyplot as plt
