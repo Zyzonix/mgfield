@@ -14,7 +14,20 @@ def main():
 
 def wng_demo():
     server = 'https://imag-data.bgs.ac.uk/GIN_V1/hapi'
-    dataset = 'wng/best-avail/PT1M/xyzf'
+    dataset = 'wng/best-avail/PT1M/xyzf' 
+    #iaga-code is the IAGA code for the INTERMAGNET observatory (WNG)
+    #publication-state is one of:
+    #reported for raw data from the sensor
+    #adjusted for data with provisional adjustments made
+    #quasi-def for data within 5nT of their final values
+    #definitive for final published data
+    #best-avail for the best available from the above data types (default)
+    #cadence is one of pt1m for minute data or pt1s for second data
+    #orientation is one of:
+    #native for the orientation of the data as supplied by the data provider
+    #xyzf for a Cartesian reference frame (default)
+    #hdzf for a Cylindrical reference frame
+    #diff for a Spherical reference frame
     parameters = 'Field_Vector'
     start = '2024-05-01T00:00:00Z'
     stop = '2024-11-30T00:00:00Z'
@@ -30,8 +43,8 @@ def wng_demo():
         vectors = np.array([item[1] for item in data])
 
         # Verzeichnisse für die CSV-Datei und Diagramme erstellen
-        csv_dir = 'x/analyseSQLpy/intermagnet/output'
-        plot_dir = '/x/analyseSQLpy/intermagnet/output'
+        csv_dir = '/Users/florianvonbargen/Desktop/analyseSQLpy/intermagnet/output'
+        plot_dir = '/Users/florianvonbargen/Desktop/analyseSQLpy/intermagnet/output'
         monthly_plot_dir = os.path.join(plot_dir, 'monthly')
         os.makedirs(csv_dir, exist_ok=True)
         os.makedirs(plot_dir, exist_ok=True)
