@@ -1,0 +1,841 @@
+CodeGeneration,Code,Generation,Name,Latitude,Longitude,Altitude,Earliest annual mean,Latest annual mean,Status,StatusCode,Responsible Institute(s),Notes
+AAA1,AAA,1,Alma Ata,43.176,76.951,1225,1963,,Open,2,http://ionos.kz/?q=en/node/22,
+AAE1,AAE,1,Addis Ababa,9.035,38.766,2441,1958,2013,Variometer,4,http://www.bcmt.fr/,2015 onwards - site disturbed
+ABG1,ABG,1,Alibag,18.64,72.87,6,1904,,Open,2,http://iigm.res.in,
+ABK1,ABK,1,Abisko,68.358,18.823,380,1921,,Open,2,http://www.sgu.se,
+ABN1,ABN,1,Abinger,51.183,-0.383,244,1925,1957,Closed,3,https://geomag.bgs.ac.uk,
+ACR1,ACR,1,Accra,5.63,-0.17, ,1963,1965,Uncertain,0,,
+ADA1,ADA,1,Adak,51.867,-176.65,,1964,1965,Closed,3,US Coast and Geodetic Survey,
+ADE1,ADE,1,Adelaide,-34.6,138.4,,1973,1973,Uncertain,0,,
+AED1,AED,1,Aedey,66.09,-22.65,,,,Uncertain,0,,
+AGN1,AGN,1,Agincourt,43.783,-79.267,,1899,1969,Closed,3,,
+AHM1,AHM,1,Ahmedabad,23.02,72.6,,1973,1973,Uncertain,0,,
+AIA1,AIA,1,Argentine Islands (Faraday)/Vernadsky,-65.246,-64.258,10,1957,,Open,2,http://www.uac.gov.ua,
+AIF1,AIF,1,Arctic Ice Flo,83.52,-166.95,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+ALE1,ALE,1,Alert,82.497,-62.353,60,1961,2004,Closed,3,http://www.geomag.nrcan.gc.ca,
+ALG1,ALG,1,Alger Island,80.367,56.1,,1905,1905,Closed,3,,
+ALH1,ALH,1,Allahabad,25.41,81.93,89,,,Open,2,http://iigm.res.in/,
+ALM1,ALM,1,Almeria,36.85,-2.467,,1955,1991,Closed,3,,
+ALU1,ALU,1,Aloushta,44.68,34.42,,1957,1961,Closed,3,,E only
+ALX1,ALX,1,Alexandrovka,54.8965,35.0145,,,,Provisional,1,http://www.msu.ru/en/,Request from arsmirnov95@gmail.com 7 Nov 2016
+AMD1,AMD,1,Amderma,69.465,61.415,,,,Closed,3,,"Data on microfilm at Kyoto WDC, possibly a variometer station"
+AMK1,AMK,1,Angmagssalik,65.617,-37.633,,1933,1933,Closed,3,,
+AML1,AML,1,Amberley,-43.15,172.717,65,1929,1977,Closed,3,,
+AMN1,AMN,1,Ambarnaya,65.8,33.8,,,,Uncertain,0,,
+AMS1,AMS,1,Amsterdam Island (Martin de Vivies),-37.8,77.57,48,1981,,Open,2,http://eost.unistra.fr/,
+AMT1,AMT,1,Amatsia,31.55,34.917,350,1976,2000,Closed,3,http://www.soi.gov.il/,
+AMU1,AMU,1,Anchorage,61.233,-149.867,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+AMZ1,AMZ,1,Amazon (Tefe),-3.3,-64.7,,,,Provisional,1,,Request received from Katia Pinheiro 18 Feb 2014
+ANC1,ANC,1,Ancon,-11.683,-77.15,49,1990,1995,Closed,3,,
+ANH1,ANH,1,Angra Do Heroismo,38.65,-27.217,,1957,1970,Closed,3,,
+ANK1,ANK,1,Ankara,39.883,32.767,905,1986,1993,Closed,3,,
+ANN1,ANN,1,Annamalainagar,11.367,79.683,0,1957,1993,Closed,3,,
+ANO1,ANO,1,Antipolo,14.6,121.167,,1910,1940,Closed,3,,
+APA1,APA,1,Apatity,67.55,33.33,,1973,1973,Uncertain,0,,
+API1,API,1,Apia,-13.807,-171.775,4,1905,,Open,2,http://www.gns.cri.nz,
+AQU1,AQU,1,L'Aquila,42.383,13.317,682,1960,2009,Closed,3,http://www.ingv.it,
+ARC1,ARC,1,Arctowski,-62.16,-58.478,16,1978,1995,Closed,3,,
+ARE1,ARE,1,Arequipa,-16.47,-71.48,,1964,1964,Closed,3,,Data held at Kyoto on microfilm
+ARK1,ARK,1,Arkhangelsk,64.583,40.5,,1985,1994,Closed,3,,
+ARR1,ARR,1,Andoya,69.3,16.02,,,,Uncertain,0,,
+ARS1,ARS,1,Arti,56.433,58.567,290,1973,,Open,2,,
+ASC1,ASC,1,Ascension Island,-7.949,-14.376,177,1993,,Open,2,https://geomag.bgs.ac.uk,
+ASH1,ASH,1,Ashkhabad (Vannovskaya),37.95,58.108,,1959,2006,Uncertain,0,,
+ASK1,ASK,1,Asuka Station,-71.53,24.14,,,,Closed,3,,Paper records at Kyoto
+ASO1,ASO,1,Aso,32.882,131.009,,1958,1958,Closed,3,,
+ASP1,ASP,1,Alice Springs,-23.762,133.883,557,1992,,Open,2,http://www.ga.gov.au/,
+ATH1,ATH,1,Athens,37.967,23.717,,1899,1908,Closed,3,,
+AUI1,AUI,1,Auckland Island,-50.867,166.083,,1875,1875,Closed,3,,
+AUT1,AUT,1,Au Tau,22.45,114.05,,1927,1939,Closed,3,,
+AVE1,AVE,1,Averroes,33.3,-7.417,230,1967,1994,Closed,3,,
+AVI1,AVI,1,Arctic Village,68.13,-145.57,,,,Uncertain,0,University of Alaska,variometer
+AWS1,AWS,1,Andrews A.F.B.,38.2,-77.37,,1972,1972,Uncertain,0,,
+BAC1,BAC,1,Barrackpore,22.767,88.367,,1904,1914,Closed,3,,
+BAG1,BAG,1,Baguio,16.4,120.633,,1967,1983,Closed,3,,
+BAH1,BAH,1,Barth,54.367,12.75,,1889,1903,Closed,3,,
+BAL1,BAL,1,Baldwin,38.783,-95.167,,1901,1909,Closed,3,US Coast and Geodetic Survey,
+BBG1,BBG,1,Barentsburg,78.63,16.38,,,,Closed,3,,Electric field E only
+BCL1,BCL,1,Baclieu,9.283,105.733,0,1988,1992,Closed,3,,
+BDE1,BDE,1,Big Delta,64,-145.733,380,1957,1958,Closed,3,US Coast and Geodetic Survey,
+BDV1,BDV,1,Budkov,49.067,14.02,496,1967,,Open,2,http://www.ig.cas.cz/,
+BEL1,BEL,1,Belsk,51.837,20.792,180,1960,,Open,2,http://www.igf.edu.pl/,
+BEU1,BEU,1,Beuthen,50.35,18.917,,1899,1911,Closed,3,,
+BEY1,BEY,1,Beliy Island,73.3,70,,,,Closed,3,,"data on microfilm at Kyoto, variometer?"
+BFE1,BFE,1,Brorfelde,55.625,11.672,80,1980,,Open,2,http://www.space.dtu.dk,Contributing to Kp index
+BFI1,BFI,1,Baffin Island (Bowdoin Harbour),64.4,-77.867,,1922,1922,Closed,3,,
+BFO1,BFO,1,Black Forest,48.331,8.325,641,2004,,Open,2,http://www.bfo.geophys.uni-stuttgart.de/,
+BGA1,BGA,1,Borga,-72.97,-3.8,,1975,1975,Uncertain,0,,
+BGH1,BGH,1,Baghdad,33.25,44.467,,,,Uncertain,0,,
+BGY1,BGY,1,Bar Gyora,31.723,35.088,750,1989,,Open,2,http://www.soi.gov.il/,
+BGZ1,BGZ,1,Baygazan,51.7599,87.4319,460,,,Provisional,1,,
+BIN1,BIN,1,Binza,-4.267,15.367,,1953,1973,Closed,3,,
+BJI1,BJI,1,Beijing,40.04,116.175,69,1957,1999,Closed,3,,
+BJN1,BJN,1,Bear Island 1 (Bjornoya),74.483,19.233,80,1933,1933,Closed,3,,
+BJN2,BJN,2,Bear Island 2 (Bjornoya),74.51,19.01,,1951,,Open,2,http://geo.phys.uit.no/,
+BKC1,BKC,1,Back,57.69,-94.23,,,,Uncertain,0,,
+BKK1,BKK,1,Bangkok,13.72,100.57,,,,Uncertain,0,,
+BLC1,BLC,1,Baker Lake,64.318,-96.012,30,1951,,Open,2,http://www.geomag.nrcan.gc.ca,
+BLT1,BLT,1,Beloit,39.477,-98.133,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+BMK1,BMK,1,Beuthen Mikilow,50.15,18.9,,1925,1932,Closed,3,,Annual means for D only
+BMT1,BMT,1,Beijing Ming Tombs,40.3,116.2,183,1991,,Open,2,http://english.cas.ac.cn/,
+BNA1,BNA,1,Bunia,1.53,30.18,,1959,1960,Uncertain,0,,
+BNG1,BNG,1,Bangui,4.333,18.566,395,1952,2010,Closed,3,http://www.bcmt.fr,
+BOC1,BOC,1,Bochum,51.49,7.232,,1893,1934,Closed,3,,Move to Langenberg ~1912
+BOC1,BOC,2,Bochum & Langenberg,51.367,7.1,,1893,1934,Closed,3,,
+BOD1,BOD,1,Bodo,67.3,14.417,,1932,1934,Closed,3,,
+BOP1,BOP,1,Bossekop 1,69.967,23.267,,1839,1839,Closed,3,,
+BOP2,BOP,2,Bossekop 2,69.967,23.25,,1883,1883,Closed,3,,
+BOP3,BOP,3,Bossekop 3,69.967,23.25,,1933,1933,Closed,3,,
+BOU1,BOU,1,Boulder,40.1375,-105.2372,1682,1964,,Open,2,http://geomag.usgs.gov,
+BOX1,BOX,1,Borok,58.07,38.23,115,1977,,Open,2,http://www.bcmt.fr,
+BRD1,BRD,1,Brandon,49.87,-99.974,380,,,Open,2,http://geomag.nrcan.gc.ca,"Started 2007, replacing Glenlea"
+BRE1,BRE,1,Breslau,51.117,17.033,,1852,1895,Closed,3,,
+BRN1,BRN,1,Barnaul,53.333,83.783,,1842,1873,Closed,3,,
+BRS1,BRS,1,Brisbane,-27.53,152.92,,,,Uncertain,0,,
+BRT1,BRT,1,Burlington,39.383,-102.267,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+BRW1,BRW,1,Barrow 1,71.3,-156.617,12,1933,1933,Closed,3,Carnegie Institution of Washington,
+BRW2,BRW,2,Barrow,71.3225,-156.6231,10,1949,,Open,2,http://geomag.usgs.gov,
+BSL1,BSL,1,Stennis (Bay St Louis),30.3507,-89.6359,8,1986,,Open,2,http://geomag.usgs.gov,
+BTI1,BTI,1,Barter Island,70.133,-143.983,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+BTV1,BTV,1,Batavia,-6.183,106.833,,1884,1944,Closed,3,,
+BUC1,BUC,1,Bucharest,44.417,26.1,,1898,1898,Closed,3,,
+BUP1,BUP,1,Budapest,47.5,19.033,,1875,1889,Closed,3,,
+BUZ1,BUZ,1,Budakeszi,47.517,18.9,,1949,1955,Closed,3,,
+BYH1,BYH,1,Hackney Wick 2 (Bushey Heath),51.633,-0.333,,1817,1822,Closed,3,,
+BYR1,BYR,1,Byrd Station 1,-79.983,-120,,1957,1961,Closed,3,US Coast and Geodetic Survey,
+BYR2,BYR,2,Byrd Station 2,-80.017,-119.517,,1962,1968,Closed,3,US Coast and Geodetic Survey,
+BZR1,BZR,1,Bouzareah,36.8,3.017,,1888,1950,Closed,3,,
+CAI1,CAI,1,Campbell Island,-52.5,169.2,,,,Uncertain,0,,
+CAO1,CAO,1,Castellaccio,44.43,8.933,,1933,1969,Closed,3,,
+CAX1,CAX,1,Carrollton,39.367,-93.533,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+CBB1,CBB,1,Cambridge Bay,69.123,-105.031,20,1972,,Open,2,http://www.geomag.nrcan.gc.ca,
+CBI1,CBI,1,Chichijima,27.096,142.185,155,1973,,Open,2,http://www.kakioka-jma.go.jp/en/,
+CCL1,CCL,1,Chiclayo,-6.8,-79.8,,1957,1960,Closed,3,,
+CCP1,CCP,1,Cebu,10.3,123.9,,1961,1963,Closed,3,,
+CCS1,CCS,1,Cape Chelyuskin,77.717,104.283,10,1935,2007,Uncertain,0,http://www.aari.nw.ru,
+CDE1,CDE,1,Cape Denison,-67,142.667,,1912,1931,Closed,3,,
+CDP1,CDP,1,Chengdu,31,103.7,653,1982,,Open,2,,
+CDS1,CDS,1,Camp Douglas,43.98,-90.27,,,,Uncertain,0,,Variometer station part of International Magnetospheric Study. http://www-ssc.igpp.ucla.edu/SPDS/geomag/
+CEV1,CEV,1,Cape Evans,-77.633,166.4,,1912,1958,Closed,3,,1912 and 1958 only
+CFI1,CFI,1,Chesterfield Inlet,63.333,-90.7,,1933,1933,Closed,3,,
+CGH1,CGH,1,Cape Of Good Hope,-33.933,18.483,,1841,1846,Closed,3,https://geomag.bgs.ac.uk,
+CHL1,CHL,1,Changli,39.7,119.1,,,,Closed,3,,Opened 1987
+CHP1,CHP,1,Cachoeira Paulista,-22.73,-45,,,,Uncertain,0,,
+CHR1,CHR,1,Christchurch,-43.533,172.617,,1902,1928,Closed,3,,
+CHT1,CHT,1,Chittagong,22.35,91.83,,,,Uncertain,0,,
+CIP1,CIP,1,Estacion magnetica Cipolletti,-38.941,-67.978,265,,,Provisional,1,Servicio Meteorologico Nacional - Argentina,"Request received 28 Jan 2020 from Maria Ines Gil mig@smn.gov.ar. F only since 2015, in future full observatory "
+CKA1,CKA,1,Cape Kamenniy,68.5,73.6,,1973,1976,Closed,3,,
+CKI1,CKI,1,Cocos (Keeling) Island,-12.187,96.834,,,,Open,2,http://www.ga.gov.au,
+CLA1,CLA,1,Colaba,18.893,72.815,,1846,1906,Closed,3,http://www.geomag.bgs.ac.uk,
+CLF1,CLF,1,Chambon-La-Foret,48.025,2.26,145,1936,,Open,2,http://www.bcmt.fr/,
+CLH1,CLH,1,Cheltenham,38.733,-76.833,,1901,1956,Closed,3,http://geomag.usgs.gov,
+CLI1,CLI,1,Climax,39.37,-106.18,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+CLL1,CLL,1,Leipzig (Collmberg),51.317,13,,1935,1935,Closed,3,,
+CLZ1,CLZ,1,Clausthal,51.8,10.333,,1845,1918,Closed,3,,
+CMB1,CMB,1,Chimbote,-9.1,-78.6,,1957,1959,Closed,3,,
+CMO1,CMO,1,College 1,64.85,-147.833,,1933,1946,Closed,3,http://geomag.usgs.gov,Operation 1934-40 uncertain
+CMO2,CMO,2,College 2,64.867,-147.833,,1948,1997,Closed,3,http://geomag.usgs.gov,
+CMO3,CMO,3,College 3,64.8742,-147.8597,197,1997,,Open,2,http://geomag.usgs.gov/,
+CNB1,CNB,1,Canberra,-35.315,149.363,859,1979,,Open,2,http://www.ga.gov.au,
+CNH1,CNH,1,Changchun 1,43.833,125.3,234,1957,1978,Closed,3,,
+CNH2,CNH,2,Changchun (Helong),43.827,125.299,,1979,,Closed,3,,
+CNH3,CNH,3,Changchun (Sangang),44.08,124.86,,2011,,Open,2,,Opened 2008
+COI1,COI,1,Coimbra (Alto da Baleia),40.222,-8.422,99,1866,,Open,2,http://www.astro.mat.uc.pt/novo/observatorio/site/index2.html,
+COP1,COP,1,Copenhagen,55.683,12.583,,1891,1908,Closed,3,,
+CPA1,CPA,1,Cha Pa,22.35,103.833,0,1955,1991,Closed,3,,
+CPD1,CPD,1,Capodimonte,40.867,14.25,,1882,1922,Closed,3,,
+CPI1,CPI,1,Capri,40.55,14.22,,1957,1957,Closed,3,,
+CPL1,CPL,1,Choutuppal,17.29,78.92,,2019,,Open,2,http://www.ngri.org.in/,
+CPS1,CPS,1,Cape Schmidt,68.92,-179.48,,,,Closed,3,,"data on microfilm at Kyoto, variometer?"
+CPS2,CPS,2,Cape Schmidt,68.878,180.632,10,,,Open,2,http://www.ikir.ru/en/About/index.html,
+CPY1,CPY,1,Cape Parry,70.17,-124.72,,,,Uncertain,0,,Variometer station part of International Magnetospheric Study. http://www-ssc.igpp.ucla.edu/SPDS/geomag/
+CRA1,CRA,1,Cracow,50.05,19.95,,1895,1936,Closed,3,,not continuous operation
+CRC1,CRC,1,Castle Rock,37.233,-122.133,,1970,1974,Closed,3,"University of California, Berkeley",
+CRP1,CRP,1,Chiripa 1,9.917,-83.95,1030,1979,1979,Closed,3,,
+CRP2,CRP,2,Chiripa,10.44,-84.911,,1984,,Uncertain,0,,"operation 1998-2007 uncertain, replaced by SEL in 2018"
+CSR1,CSR,1,Casper,42.833,-106.367,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+CSS1,CSS,1,Colorado Springs,38.5,-104.49,,1973,1973,Uncertain,0,,
+CSY1,CSY,1,Casey,-66.283,110.533,40,1978,,Open,2,"http://www.ga.gov.au
+http://www.antarctica.gov.au",
+CTA1,CTA,1,Charters Towers,-20.09,146.264,370,1984,,Open,2,http://www.ga.gov.au,
+CTH1,CTH,1,Cap Thordsen,78.467,15.7,,1883,1883,Closed,3,,
+CTO1,CTO,1,Cape Town,-33.95,18.467,,1932,1940,Closed,3,,
+CTS1,CTS,1,Castello Tesino,46.0475,11.65,1175,1965, ,Open,2,http://www.ingv.it,
+CTX1,CTX,1,Charcot,-69.367,139.033,,1957,1958,Closed,3,,
+CUA1,CUA,1,Cuajimalpa,19.367,-99.283,,1903,1912,Closed,3,,
+CUS1,CUS,1,Cuzco,-13.53,-71.97,,1965,1966,Closed,3,,
+CWE1,CWE,1,Cape Wellen (Uelen),66.167,-169.833,10,1933,1996,Closed,3,,operation 1944-1949 uncertain
+CYG1,CYG,1,Cheongyang-Gun,36.37,126.854,165,2014,,Open,2,http://web.kma.go.kr/eng/index.jsp,
+CZA1,CZA,1,Cape Zhelania,77,68.6,,,,Closed,3,,"data on microfilm at Kyoto, variometer?"
+CZT1,CZT,1,Port Alfred (Crozet),-46.433,51.867,155,1974,,Open,2,http://www.bcmt.fr,
+DAL1,DAL,1,Dallas,32.985,-96.752,,1964,1974,Closed,3,http://geomag.usgs.gov,
+DAR1,DAR,1,Darwin,-12.43,130.83,,1957,1959,Closed,3,,
+DAV1,DAV,1,Davao,7.05,125.567,,1968,1983,Closed,3,,
+DBN1,DBN,1,De Bilt,52.1,5.183,,1899,1938,Closed,3,,
+DDI1,DDI,1,Dehra Dun,30.317,78.05,,1903,1943,Closed,3,,
+DDU1,DDU,1,Dedu,48.6,126.1,,,,Closed,3,,Opened 1983
+DED1,DED,1,Deadhorse,70.355,-148.793,10,2011,,Open,2,http://geomag.usgs.gov,
+DEK1,DEK,1,Dekelia,38.1,23.767,,1935,1939,Closed,3,,
+DIK1,DIK,1,Dikson Island,73.543,80.562,15,1933,,Closed,3,,Not continuous operation
+DIS1,DIS,1,Discovery Bay,81.733,-64.733,,1876,1876,Closed,3,,
+DLN1,DLN,1,Dalian,39.1,121.5,,1990,2001,Closed,3,,Operation uncertain 1993-1997
+DLN2,DLN,2,Dalian,39.6,121.8,,,,Closed,3,,Opened 2011
+DLR1,DLR,1,Del Rio,29.49,-100.917,355,1982,2008,Closed,3,http://geomag.usgs.gov/,
+DLT1,DLT,1,Dalat 1,11.917,108.417,,1978,1992,Closed,3,,
+DLT2,DLT,2,Dalat,11.945,108.482,1583,2011,,Open,2,http://www.bcmt.fr/,
+DMC1,DMC,1,Dome C Concordia,-75.102,123.395,3233,,,Open,2,"http://www.bcmt.fr
+http://www.ingv.it",
+DMF1,DMF,1,Dome Fuji,-77.317,39.7,,1995,2003,Uncertain,0,,
+DNB1,DNB,1,Donnersberg,50.55,13.933,,1933,1934,Closed,3,,
+DOB1,DOB,1,Dombas Magnetic Station,62.083,9.1,,1916,1951,Closed,3,,
+DOB2,DOB,2,Dombas,62.073,9.117,660,1952,,Open,2,http://geo.phys.uit.no/,
+DOU1,DOU,1,Dourbes,50.098,4.602,225,1952,,Open,2,,
+DRS1,DRS,1,Dar Es Salaam,-6.816,39.316,,1896,1903,Closed,3,,
+DRV1,DRV,1,Dumont D'Urville,-66.665,140.007,30,1957,,Open,2,,
+DUB1,DUB,1,Dublin,53.35,-6.267,,1834,1850,Closed,3,,
+DUR1,DUR,1,Duronia,41.65,14.466,920,2010,,Open,2,http://www.ingv.it,
+DUR1,DUR,1,Durham,43.1,-70.83,,,,Uncertain,0,,
+DVS1,DVS,1,Davis,-68.583,77.967,0,1979,2000,Closed,3,"http://www.ga.gov.au
+http://www.antarctica.gov.au",
+DZN1,DZN,1,Daezeon,36.38,127.36,,,,Closed,3,,
+EAS1,EAS,1,El Abiod Sidi,32.9,0.55,,1948,1954,Closed,3,,
+EBR1,EBR,1,Ebre,40.821,0.493,46,1905,2011,Closed,3,http://www.obsebre.es/,
+EBR2,EBR,2,Ebre,40.957,0.333,532,2012,,Open,2,http://www.obsebre.es/,
+EDA1,EDA,1,Edea,3.779057,10.153333,35,,,Provisional,1,www.bcmt.fr and www.irgm-cameroon.org,"Opened April 2018, replacement of vector mag and training for absolute obs April 2019. Request for code from Benoit 30/4/2019"
+EGS1,EGS,1,Eights Station,-75.233,-77.167,,1963,1965,Closed,3,US Coast and Geodetic Survey,
+EIC1,EIC,1,Easter Island,-27.167,-109.417,,1958,1968,Closed,3,,
+EKP1,EKP,1,Eskimo Point,61.1,-94.07,,1973,1976,Uncertain,0,,
+ELI1,ELI,1,Elizabethville,-11.65,27.467,,1932,1957,Closed,3,,
+ELT1,ELT,1,Eilat,29.667,34.95,250,1998,,Open,2,,
+ENB1,ENB,1,Eielson A. F. B.,64.67,-147.08,,1966,1972,Closed,3,,
+EPN1,EPN,1,Espanola,35.983,-106.05,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+ESA1,ESA,1,Esashi,39.237,141.355,396,1993,,Closed,2,http://vldb.gsi.go.jp/sokuchi/geomag/index-e.html,Notification of closure from Seiki Asari 19-Dec-2023
+ESK1,ESK,1,Eskdalemuir,55.314,-3.206,245,1908,,Open,2,http://www.geomag.bgs.ac.uk,
+ETA1,ETA,1,Etah 1,78.3,-72.667,,1908,1908,Closed,3,,
+ETA2,ETA,2,Etah 2,78.317,-72.7,,1923,1925,Closed,3,,
+ETA3,ETA,3,Etah 3,78.317,-72.667,,1938,1941,Closed,3,,
+ETA4,ETA,4,Etah 4,78.317,-72.733,,1947,1947,Closed,3,,
+ETP1,ETP,1,East Port,44.9,-66.983,,1860,1864,Closed,3,United States Coast Survey,
+ETT1,ETT,1,Etaiyapuram,9.167,78.017,,1980,1998,Closed,3,,
+EUS1,EUS,1,Eusebio,-3.883,-38.433,,1975,1977,Closed,3,,
+EYR1,EYR,1,Eyrewell,-43.422,172.355,120,1978,,Open,2,http://www.gns.cri.nz,
+FAL1,FAL,1,Falmouth,50.15,-5.083,,1891,1912,Closed,3,https://geomag.bgs.ac.uk,
+FAN1,FAN,1,Fanning Island,3.9,-159.383,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+FCC1,FCC,1,Fort Churchill,58.759,-94.088,15,1957,,Open,2,http://www.geomag.nrcan.gc.ca,
+FCP1,FCP,1,Fort Chipewyan,58.8,-112,,,,Uncertain,0,,
+FCR1,FCR,1,Fort Conger,81.733,-64.733,,1883,1883,Closed,3,,
+FIH1,FIH,1,Fihaonana,-18.5715,47.187,1442,,,Provisional,1,request from Aude Chambodut (EOST),
+FLB1,FLB,1,Floeberg Beach,83.45,-61.367,,1876,1876,Closed,3,,
+FLE1,FLE,1,Flensburg,54.783,9.433,,1891,1903,Closed,3,,
+FLR1,FLR,1,Boca da Baleia Flores ,39.4,-31.2,350,,,Provisional,1,Joint venture IPMA/GFZ,Request received 5 Mar 2020
+FMC1,FMC,1,Fort McMurray,56.597763,-111.314922,,,,Provisional,1,Joint venture BGS/Halliburton,Request from Chris Turbitt 29 Aug 2014
+FMM1,FMM,1,Fort Mcmurray,56.7,-111.4,,1973,1973,Closed,3,,
+FRA1,FRA,1,Fort Rae 1,62.65,-115.733,,1883,1883,Closed,3,,
+FRA2,FRA,2,Fort Rae 2,62.65,-115.733,,1933,1933,Closed,3,,
+FRB1,FRB,1,Freiberg,50.917,13.35,,1890,1899,Closed,3,,
+FRD1,FRD,1,Fredericksburg,38.2047,-77.3729,69,1956,,Open,2,http://geomag.usgs.gov,
+FRL1,FRL,1,Fort Reliance,67.42,-109,,,,Uncertain,0,,
+FRN1,FRN,1,Fresno,37.0913,-119.719,331,1982,,Open,2,http://geomag.usgs.gov,
+FSM1,FSM,1,Fort Smith,58,-114,,1973,1973,Closed,3,,
+FSP1,FSP,1,Fort Simpson,61.75,-121.23,,1990,1994,Closed,3,,
+FSV1,FSV,1,Fort Severn,55.98,-87.65,,1977,1977,Uncertain,0,,
+FTN1,FTN,1,Freetown,8.46,-13.21,,1961,1967,Closed,3,,
+FUQ1,FUQ,1,Fuquene,5.47,-73.737,2543,1954,,Open,2,http://www.igac.gov.co,
+FUR1,FUR,1,Furstenfeldbruck,48.165,11.277,572,1939,,Open,2,http://www.geophysik.uni-muenchen.de/observatory/geomagnetism,
+FYU1,FYU,1,Fort Yukon,66.567,-145.267,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+GAN1,GAN,1,Gan International Airport,-0.695,73.154,0,2011,,Open,2,http://koblizek.ethz.ch,
+GAS1,GAS,1,Gauss Station,-66.033,89.633,,1902,1902,Closed,3,,
+GCK1,GCK,1,Grocka,44.633,20.767,231,1958,,Open,2,,
+GDH1,GDH,1,Godhavn 1,69.233,-53.517,,1926,1975,Closed,3,,annual mean also for 1903
+GDH2,GDH,2,Qeqertarsuaq (Godhavn 2),69.252,-53.533,,1976,,Open,2,http://www.space.dtu.dk,
+GEL1,GEL,1,Gelania,76.95,68.58,,,,Uncertain,0,,
+GHB1,GHB,1,Godthaab 1,64.183,-51.717,,1883,1883,Closed,3,,
+GHB2,GHB,2,Godthaab 2,64.2,-51.717,,1923,1925,Closed,3,,
+GHB3,GHB,3,Godthaab 3,64.217,-51.7,,1931,1931,Closed,3,,
+GHB4,GHB,4,Godthaab 4,64.2,-51.75,,1941,1941,Closed,3,,
+GIB1,GIB,1,Gibilmanna,37.983,14.017,,1954,1957,Closed,3,,
+GIM1,GIM,1,Gillam,56.4,-94.7,,,,Closed,3,,"data on microfilm at Kyoto, variometer?"
+GIR1,GIR,1,Girardville,49,-72.6,,1973,1973,Uncertain,0,,
+GIT1,GIT,1,Gilgit,35.927,74.297,,1967,1967,Uncertain,0,,
+GJO1,GJO,1,Gjoahavn,68.617,-95.883,,1903,1905,Closed,3,,
+GLK1,GLK,1,Gyulagarak,40.935,44.475,1470,,,Provisional,1,http://iges.am/,
+GLM1,GLM,1,Golmud,36.4,94.9,2802,1994,,Open,2,,
+GLN1,GLN,1,Glenlea,49.645,-97.12,,1982,1997,Closed,3,http://www.geomag.nrcan.gc.ca,
+GNA1,GNA,1,Gnangara,-31.783,115.95,60,1959,2012,Closed,3,http://www.ga.gov.au,
+GNG1,GNG,1,Gingin,-31.356,115.715,50,,,Open,2,http://www.ga.gov.au,
+GRM1,GRM,1,Grahamstown,-33.283,26.483,650,1974,1980,Closed,3,,
+GRR1,GRR,1,Gross Raum,54.833,20.5,,1935,1935,Closed,3,,
+GRW1,GRW,1,Greenwich,51.483,0,,1818,1925,Closed,3,https://geomag.bgs.ac.uk,
+GTT1,GTT,1,Gottingen,51.533,9.95,,1832,1867,Closed,3,,
+GTW1,GTW,1,Great Wall Station,-62.2,-59,30,1989,1989,Closed,3,,
+GUA1,GUA,1,Guam,13.5895,144.8694,140,1957,,Open,2,http://geomag.usgs.gov,
+GUI1,GUI,1,Guimar,28.321,-16.441,868.2,1993,,Open,2,,
+GUL1,GUL,1,Gulmarg,34.06,74.38,2700,,,Open,2,http://iigm.res.in/,
+GVD1,GVD,1,Gonzales Videla,-64.817,-62.85,,1961,1961,Closed,3,,
+GVN1,GVN,1,Georg Von Neumayer,-70.617,-8.367,40,1983,1989,Closed,3,,
+GWC1,GWC,1,Great Whale River,55.267,-77.783,,1966,1984,Closed,3,,
+GYX1,GYX,1,Guiyang,26.6,106.8,,1985,,Closed,3,,
+GZH1,GZH,1,Guangzhou - Zhaoqing,23.093,113.343,11,1958,1997,Closed,3,,
+GZH2,GZH,2,Zhaoqing (Guangzhou),22.97,112.45,14,2003,,Open,2,,
+HAD1,HAD,1,Hartland,50.995,-4.484,95,1957,,Open,2,https://geomag.bgs.ac.uk,
+HAM1,HAM,1,Hamburg,53.55,9.983,,1885,1896,Closed,3,,operation 1891-5 uncertain
+HAN1,HAN,1,Hankasalmi,62.3,26.65,,,,Closed,3,,"Paper records at Kyoto, variometer?"
+HBA1,HBA,1,Halley Bay,-75.517,-26.603,,1957,1980,Closed,3,https://www.bas.ac.uk,
+HBK1,HBK,1,Hartebeesthoek,-25.883,27.7,1555,1973,,Open,2,http://www.sansa.org.za/spacescience,
+HCR1,HCR,1,Herchmer,57.4,-94.1,,1973,1973,Uncertain,0,,
+HDF1,HDF,1,Hermsdorf,50.767,16.233,,1901,1929,Closed,3,,
+HEA1,HEA,1,Healy,63.85,-148.967,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+HER1,HER,1,Hermanus,-34.425,19.225,26,1941,,Open,2,http://www.sansa.org.za/spacescience,
+HHH1,HHH,1,Huhehaote,40.849,111.564,,,,Closed,3,,Opened 1981
+HII1,HII,1,Heard Island,-53.033,73.367,,1948,1954,Closed,3,,
+HIS1,HIS,1,Heiss Island (Druzhnaya),80.617,58.05,20,1959,1994,Closed,3,,
+HKC1,HKC,1,Hong Kong,22.367,114.217,,1884,1928,Closed,3,,
+HKW1,HKW,1,Hackney Wick,51.55,-0.033,,1813,1815,Closed,3,,
+HKW2,HKW,2,Hackney Wick (Bushey Heath),51.633,-0.333,,1817,1822,Closed,3,,
+HLL1,HLL,1,Hallett Station,-72.317,170.217,,1957,1962,Closed,3,,
+HLP1,HLP,1,Hel,54.6035,18.8107,1,1901,,Open,2,http://www.igf.edu.pl/,missing annual means before 1953
+HLS1,HLS,1,Helsinki,60.167,24.983,,1845,1909,Closed,3,,
+HLW1,HLW,1,Helwan,29.858,31.342,,1903,1959,Closed,3,,
+HMG1,HMG,1,Hamburg,53.55,9.983,,1885,1896,Closed,3,,
+HNA1,HNA,1,Hollandia,-2.572,140.513,,1957,1962,Closed,3,,
+HOB1,HOB,1,Hobarton (Van Diemen Island),-42.875,147.458,,,,Closed,3,,Scanned yearbooks in Edinburgh
+HON1,HON,1,Honolulu 1,21.317,-158.067,,1902,1947,Closed,3,http://geomag.usgs.gov,
+HON2,HON,2,Honolulu 2,21.32,-158.063,4,1947,1960,Closed,3,http://geomag.usgs.gov,
+HON3,HON,3,Honolulu 3,21.3166,-157.9996,4,1961,,Open,2,http://geomag.usgs.gov,
+HRB1,HRB,1,Hurbanovo,47.873,18.19,112,1893,,Open,2,http://www.geo.sav.sk/en/structure-of-the-institute/laboratories/geomagnetic-observatory/,
+HRI1,HRI,1,Hayriver,60.8,-115.8,,,,Uncertain,0,,
+HRN1,HRN,1,Hornsund,77,15.55,15,1978,,Open,2,http://hornsund.igf.edu.pl/,
+HST1,HST,1,Holsteinsborg 1,66.867,-53.267,,1853,1853,Closed,3,,
+HST2,HST,2,Holsteinsborg 2,66.933,-53.683,,1908,1908,Closed,3,,
+HST3,HST,3,Holsteinsborg 3,66.933,-53.783,,1912,1912,Closed,3,,
+HST4,HST,4,Holsteinsborg 4,66.933,-53.633,,1924,1925,Closed,3,,
+HST5,HST,5,Holsteinsborg 5,66.95,-53.65,,1965,1965,Closed,3,,
+HTY1,HTY,1,Hatizyo,33.073,139.825,220,1967,2008,Closed,3,,
+HUA1,HUA,1,Huancayo,-12.045,-75.34,3313,1922,,Open,2,http://www.igp.gob.pe,operation 1992-96 uncertain
+HUT1,HUT,1,Discovery Bay (Hut),-77.85,166.75,,1903,1903,Closed,3,,
+HVN1,HVN,1,Havana 1,23.133,-82.35,,1897,1898,Closed,3,,
+HVN2,HVN,2,Havana 2 ( Centro Geofisico),22.967,-82.15,,1964,1979,Closed,3,,
+HVN3,HVN,3,Havana 3 (Jbn),22.983,-82.317,,1980,1987,Closed,3,,
+HVN4,HVN,4,Havana 4 (Inst. Geofis. y Astron.),22.967,-82.15,,1988,1999,Uncertain,0,,operation 1995-97 uncertain
+HWK1,HWK,1,Hackney Wick 1,51.55,-0.033,,1813,1815,Closed,3,,
+HYB1,HYB,1,Hyderabad,17.413,78.555,500,1965,,Open,2,http://www.ngri.org.in/ and http://www.gfz-potsdam.de,
+HZC1,HZC,1,Hangzhou,30.3,120.1,,,,Closed,3,,
+IBD1,IBD,1,Ibadan,7.433,3.9,,1956,1975,Closed,3,,
+ICH1,ICH,1,Icheon,37.146,127.55,,2021,,Open,2,,Request for code received Aug 2015 from Dae-Young Lee
+IIF1,IIF,1,Ile Ife,7.383,3.933,,,,Closed,3,assistance from http://www.geomag.bgs.ac.uk,F and dD/dI
+ILN1,ILN,1,Inge Lehmann,77.917,-39.233,,1966,1967,Closed,3,,
+INK1,INK,1,Inuvik,68.25,-133.3,,,,Uncertain,0,,Variometer station part of International Magnetospheric Study. http://www-ssc.igpp.ucla.edu/SPDS/geomag/
+IPM1,IPM,1,Isla de Pascua (Easter Island),-27.171,-109.41,83,2010,,Open,2,http://www.bcmt.fr,
+IQA1,IQA,1,Iqaluit,63.753,-68.518,67,1995,,Open,2,http://www.geomag.nrcan.gc.ca,
+IRT1,IRT,1,Irkutsk (Patrony) 1,52.267,104.267,465,1887,1914,Closed,3,,
+IRT2,IRT,2,Irkutsk 2,52.167,104.45,465,1959,,Open,2,http://magnit.iszf.irk.ru/index.php,
+ISC1,ISC,1,Isachsen,78.8,-104,,,,Uncertain,0,University of Alaska,
+ISK1,ISK,1,Istanbul (Kandilli),41.063,29.062,130,1946,1997,Closed,3,http://www.koeri.boun.edu.tr/,
+ISL1,ISL,1,Island Lake,53.9,-94.7,,1976,1976,Closed,3,,
+ISP1,ISP,1,Islamabad,33.75,73.137,,2008,,Uncertain,0,,
+IVI1,IVI,1,Ivigtut 1,61.2,-48.267,,1863,1863,Closed,3,,
+IVI2,IVI,2,Ivigtut 2,61.2,-48.167,,1931,1943,Closed,3,,operation 1932-1942 uncertain
+IVI3,IVI,3,Ivigtut 3,61.2,-48.183,,1946,1946,Closed,3,,
+IVI4,IVI,4,Ivigtut 4,61.2,-48.167,,1960,1960,Closed,3,,
+IZN1,IZN,1,Iznik,40.5,29.733,256,2007,,Open,2,http://www.koeri.boun.edu.tr/,Operating since August 2005
+JAI1,JAI,1,Jaipur,26.87,75.82,437,1976,,Open,2,http://iigm.res.in/,not operational 1988-2002
+JAL1,JAL,1,Jaluit (Yaluit),5.917,169.65,,1938,1942,Closed,3,,
+JCO1,JCO,1,Jim Carrigan Observatory,70.356,-148.799,20,2004,,Open,2,https://geomag.bgs.ac.uk,
+JEJ,JEJ,1,Jeju,33.426,126.295,54,,,Provisional,1,https://spaceweather.rra.go.kr/,
+JIH1,JIH,1,Jinghai,38.9,116.9,,1984,,Closed,3,,
+JKI1,JKI,1,Jekman Island,76.433,95.133,,1939,1939,Closed,3,,
+JMI1,JMI,1,Jan Mayen 1,71,-8.467,,1883,1892,Closed,3,,operation 1884-1891 uncertain
+JMI2,JMI,2,Jan Mayen 2,70.983,-8.333,,1933,1933,Closed,3,,
+JOP1,JOP,1,Johnson Point,72.46,-118.3,,,,Uncertain,0,University of Alaska,Variometer station part of International Magnetospheric Study. http://www-ssc.igpp.ucla.edu/SPDS/geomag/
+JRV1,JRV,1,Jarvis Island,-0.383,-160.033,4,1957,1958,Closed,3,US Coast and Geodetic Survey,
+JSS1,JSS,1,Jassy,47.183,27.533,,1931,1971,Closed,3,,operation not continuous
+JUL1,JUL,1,Julianehaab 1,60.717,-46.033,,1933,1934,Closed,3,,
+JUL2,JUL,2,Julianehaab 2,60.717,-46.033,,1957,1965,Closed,3,,operation not continuous
+JYG1,JYG,1,Jiayuguan,39.8,98.2,,1993,,Closed,3,,
+JYP1,JYP,1,Jayapura ,-2.514,140.706,371,,,Provisional,1,"Badan Meteorologi, Klimatologi dan Geofisika (BMKG) Indonesia",Request received from Yosi Setiawan (BMKG) 04 Dec 2024
+KAK1,KAK,1,Kakioka,36.232,140.186,36,1913,,Open,2,http://www.kakioka-jma.go.jp/en/,
+KAM1,KAM,1,Kamennyi Mys,68.08,73.1,,,,Closed,3,,"Data on microfilm at Kyoto, variometer?"
+KAR1,KAR,1,Karmakuly,72.38,52.73,,,,Closed,3,,"Data on microfilm at Kyoto, variometer?"
+KAS1,KAS,1,Karsani,41.833,44.7,,1905,1934,Closed,3,,operation 1914-25 uncertain
+KAT1,KAT,1,Katuura,33.633,139.95,,1946,1953,Closed,3,,
+KDU1,KDU,1,Kakadu,-12.686,132.472,,1995,,Open,2,http://www.ga.gov.au,
+KEL1,KEL,1,Keles,41.417,69.2,,1936,1963,Closed,3,,
+KEM1,KEM,1,Kem,65,34.4,,1973,1973,Uncertain,0,,
+KEP1,KEP,1,King Edward Point (South Georgia),-54.282,-36.493,7,2011,,Open,2,https://geomag.bgs.ac.uk,
+KEW1,KEW,1,Kew,51.467,-0.317,,1842,1924,Closed,3,https://geomag.bgs.ac.uk,
+KFT1,KFT,1,Klagenfurt,46.617,14.3,,1891,1899,Closed,3,,
+KGD1,KGD,1,Bereznyaki (Karaganda),49.817,73.083,,1965,1988,Closed,3,,
+KGF1,KGF,1,Kinguafjord,66.6,-67.317,,1883,1883,Closed,3,,
+KGI1,KGI,1,Kerguelen 1,-49.915,70.2,,1875,1875,Closed,3,,
+KGI2,KGI,2,Kerguelen 2 (Observatory Bay),-49.417,69.883,,1902,1903,Closed,3,,
+KHB1,KHB,1,Khabarovsk,47.61,134.69,,,,Open,2,http://en.www.ikir.ru/,
+KHS1,KHS,1,Kharasavey,71.13,66.83,,1974,1980,Closed,3,,
+KIE1,KIE,1,Kiel,54.333,10.15,,1856,1890,Closed,3,,operation not continuous
+KIR1,KIR,1,Kiruna,67.8428,20.4201,395,1965,,Open,2,http://www.irf.se/,
+KIV1,KIV,1,Kiev,50.717,30.3,,1958,1963,Closed,3,,
+KIV2,KIV,2,Kiev (Dymer),50.717,30.3,100,1964,,Open,2,http://www.igph.kiev.ua/,
+KLD1,KLD,1,Kaliningrad,54.7,20.617,,1989,1992,Closed,3,,
+KLI1,KLI,1,Klimovskaya,60.856,39.519,145,2015,,Open,2,http://www.gcras.ru/eng/,
+KMH1,KMH,1,Keetmanshoop,-26.541,18.11,1065,2009,,Open,2,http://www.sansa.org.za/spacescience and http://www.gfz-potsdam.de,
+KND1,KND,1,Kandalaksha,67.133,32.433,,1933,1933,Closed,3,,
+KNS1,KNS,1,Kazan',55.785,49.134,,1892,1913,Closed,3,,operation not continuous
+KNT1,KNT,1,Kontagora,10.4,5.45,,1964,1965,Closed,3,,
+KNY1,KNY,1,Kanoya,31.424,130.88,107,1958,,Open,2,http://www.kakioka-jma.go.jp/en/,
+KNZ1,KNZ,1,Kanozan,35.256,139.956,342,1961,,Open,2,http://vldb.gsi.go.jp/sokuchi/geomag/index-e.html,
+KOD1,KOD,1,Kodaikanal,10.233,77.467,2323,1902,2004,Closed,3,,operation 1924-1949 uncertain
+KOR1,KOR,1,Koror,7.333,134.5,,1957,1966,Closed,3,US Coast and Geodetic Survey,operation not continuous
+KOT1,KOT,1,Kotzebue,66.883,-162.633,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+KOU1,KOU,1,Kourou,5.21,-52.731,10,1996,,Open,2,"http://www.bcmt.fr/
+http://www.cea-igp.ac.cn/english/",
+KPG1,KPG,1,Kupang,-10.1996,123.6702,240,2008,,Open,2,,
+KPT1,KPT,1,King Point,69.117,-138.133,,1906,1906,Closed,3,,
+KRC1,KRC,1,Karachi,24.95,67.14,35,1985,2006,Uncertain,0,,
+KRE1,KRE,1,Kremsmunster,48.05,14.133,,1891,1904,Closed,3,,
+KSA1,KSA,1,Ksara,33.823,35.88,,1930,1970,Closed,3,,
+KSH1,KSH,1,Kashi,39.5,76,1321,1987,,Closed,3,,Closed 2008
+KSH2,KSH,2,Kashi,39.5,75.8,,2008,,Open,2,,
+KTC1,KTC,1,Kuchino,55.767,37.967,,1926,1929,Closed,3,,
+KTG1,KTG,1,Kap Tobin,70.417,-21.967,,1959,1967,Closed,3,,operation 1960-66 uncertain
+KTS1,KTS,1,Korets,50.6,61.07,,1968,1968,Uncertain,0,,
+KUM1,KUM,1,Kumasi,6.7,-1.57,,1972,1972,Closed,3,,
+KUY1,KUY,1,Kuyper,-6.033,106.733,,1949,1962,Closed,3,,
+KVA1,KVA,1,Karavia,-11.633,27.417,,1958,1961,Closed,3,,
+KWJ1,KWJ,1,Kwajalein,9.05,167.2,,1973,1973,Uncertain,0,,
+KWT1,KWT,1,Key West,24.55,-81.8,,1860,1866,Closed,3,United States Coast Survey,
+KZA1,KZA,1,Kzil-Agach,43.85,78.73,,1974,1975,Closed,3,,
+KZN1,KZN,1,Kazan,55.783,49.133,,1892,1913,Closed,3,,operation not continuous
+KZN2,KZN,2,Kazan (Zaymishche Raifa),55.833,48.85,80,1914,1992,Closed,3,,
+KZN3,KZN,3,Kazan,55.91,48.79,60,,,Open,2,"http://kpfu.ru/eng and 
+http://www.gcras.ru/eng/",Operating since July 2016
+LAA1,LAA,1,Little Amercia 1,-78.583,-163.8,,1929,1929,Closed,3,American Geographical Society,
+LAA2,LAA,2,Little America 2,-78.567,-163.933,,1934,1934,Closed,3,American Geographical Society,
+LAA3,LAA,3,Little Amercia 3,-78.483,-163.85,,1940,1958,Closed,3,US Antarctic Service,
+LAA4,LAA,4,Little America 4,-78.433,-163.917,,1947,1947,Closed,3,United States Navy,operation uncertain 1941-57
+LAA5,LAA,5,Little Amercia 5,-78.167,-165.583,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+LAS1,LAS,1,Las Acacias,-35,-57.683,20,1961,,Closed,3,,1997 onwards F only
+LAU1,LAU,1,Lauder,-45.033,169.683,,1979,1979,Closed,3,,
+LDV1,LDV,1,Leadville,39.283,-106.283,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+LED1,LED,1,Leduc,53.3,-113.5,,,,Uncertain,0,,
+LEN1,LEN,1,Leningradskaya,-69.5,159.4,,1977,1979,Closed,3,,
+LER1,LER,1,Lerwick,60.138,-1.183,85,1923,,Open,2,https://geomag.bgs.ac.uk,
+LGR1,LGR,1,Logrono,42.45,-2.5,,1957,1976,Closed,3,,
+LIS1,LIS,1,Lisbon,38.717,-9.15,,1858,1900,Closed,3,,operation uncertain 1859-89
+LIV1,LIV,1,Livingston Island,-62.662,-60.395,19.4,1997,,Open,2,http://www.obsebre.es/,
+LKP1,LKP,1,Lukiapang,31.317,121.033,,1908,1933,Closed,3,,
+LMD1,LMD,1,La Maddalena,41.23,9.4,,,,Closed,3,,Operated 1958-64
+LMM1,LMM,1,Maputo (Lourenco Marques),-25.919,32.5833,10,1957,,Open,2,,
+LMP1,LMP,1,Lampedusa Island,35.517,12.545,,,,Provisional,1,http://www.ingv.it/,Request from D Di Mauro 12 May 2015
+LNN1,LNN,1,Leningrad (Voeikovo),59.95,30.7,70,1947,,Closed,3,,
+LNP1,LNP,1,Lunping,25,121.167,100,1965,2000,Closed,3,,
+LOB1,LOB,1,Loring A. F. B.,46.95,-67.88,,1966,1972,Closed,3,,
+LOC1,LOC,1,Lompoc,34.72,-120.55,,,,Uncertain,0,US Air Force Geophysics Observatory,Variometer data at http://spidr.ngdc.noaa.gov/spidr/
+LON1,LON,1,Lonjsko Polje,45.4081,16.6592,95,,,Open,2,http://www.pmf.unizg.hr/geof/en,
+LOS1,LOS,1,Los Angeles,34.05,-118.25,,1882,1889,Closed,3,US Coast and Geodetic Survey,
+LOV1,LOV,1,Lovo,59.344,17.824,25,1928,2004,Closed,3,http://www.sgu.se,
+LOZ1,LOZ,1,Lovozero,67.97,35.02,,,,Closed,3,,"Data held on microfilm at Kyoto, variometer?"
+LPB1,LPB,1,La Paz,-16.537,-68.097,,1974,1976,Closed,3,,
+LQA1,LQA,1,La Quiaca,-22.103,-65.605,3450,1920,1992,Uncertain,0,,
+LRM1,LRM,1,Learmonth,-22.222,114.101,4,1987,,Open,2,http://www.ga.gov.au,
+LRV1,LRV,1,Leirvogur,64.183,-21.7,5,1957,,Open,2,http://www.raunvis.hi.is/,
+LSA1,LSA,1,Lhasa,29.633,91.033,3658,1957,1999,Closed,3,,operation1975-82 uncertain
+LUA1,LUA,1,Luanda Capelo (St Paul de Loanda),-8.817,13.217,,1881,1919,Closed,3,,operation not continuous
+LUA2,LUA,2,Luanda Golf,-8.867,13.25,,1954,1956,Closed,3,,
+LUA3,LUA,3,Luanda Belas,-8.917,13.167,53,1957,1993,Closed,3,,
+LUB1,LUB,1,Lubeck,53.867,10.7,,1885,1893,Closed,3,,
+LUC1,LUC,1,Lucky Lake,51.15,-107.26,,,,Uncertain,0,,
+LVV1,LVV,1,Lvov,49.9,23.75,400,1952,,Open,2,,
+LWI1,LWI,1,Lwiro,-2.25,28.8,,1958,1970,Closed,3,,
+LYC1,LYC,1,Lycksele,64.612,18.748,270,2008,,Open,2,http://www.sgu.se,"in cooperation with IRF, Kiruna"
+LYH1,LYH,1,Longyao,37.4,114.7,,2010,,Open,2,,
+LYN1,LYN,1,Lynn Lake,56.85,-101.06,,1986,1986,Closed,3,,
+LZH1,LZH,1,Lanzhou,36.087,103.845,1560,1959,2016,Closed,3,"http://www.bcmt.fr/
+http://www.cea-igp.ac.cn/english/",Nearby metro line forced closure
+LZV1,LZV,1,Lazarev,-69.967,12.9,,1960,1960,Closed,3,,
+MAB1,MAB,1,Manhay,50.298,5.682,440,1932,,Open,2,,
+MAI1,MAI,1,Vladivostok (Maitun),43.25,132.333,,1936,1948,Closed,3,,operation uncertain 1937-40
+MAK1,MAK,1,Makerstoun,55.583,-2.517,,1841,1849,Closed,3,,
+MAN1,MAN,1,Manila,14.578,120.975,,1889,1904,Closed,3,,
+MAS1,MAS,1,Maisach,48.202,11.26,,1927,1935,Closed,3,,
+MAW1,MAW,1,Mawson,-67.604,62.879,12,1955,,Open,2,"http://www.ga.gov.au
+http://www.antarctica.gov.au",
+MBC1,MBC,1,Mould Bay,76.315,-119.362,40,1962,1997,Closed,3,,
+MBO1,MBO,1,Mbour,14.392,-16.958,7,1952,,Closed,3,http://www.bcmt.fr,closed 2020
+MCH1,MCH,1,Mengcheng,33.6,116.817,0,2011,,Open,2,"Institute of Geophysics, China Earthquake Administration",
+MCL1,MCL,1,Mt Clemens,42.6,-82.85,,,,Uncertain,0,US Air Force Geophysics Laboratory,variometer data from SPIDR (http://spidr.ngdc.noaa.gov/spidr/)
+MCM1,MCM,1,Mcmurdo,-77.85,166.7,,,,Closed,3,US Antarctic Program,Data held on microfilm at Kyoto
+MCP1,MCP,1,Monte Capellino,44.55,8.95,,1958,1962,Closed,3,,
+MCQ1,MCQ,1,Macquarie Island,-54.5,158.95,8,1911,,Open,2,"http://www.ga.gov.au
+http://www.antarctica.gov.au",operation not continuous before 1950
+MDD1,MDD,1,Madrid,40.417,-3.683,,1879,1901,Closed,3,,
+MDS1,MDS,1,Madras,13.067,80.25,,1851,1855,Closed,3,,
+MDY1,MDY,1,Midway 1,28.217,-177.383,,1964,1966,Closed,3,US Coast and Geodetic Survey,
+MEA1,MEA,1,Meanook,54.616,-113.347,700,1916,,Open,2,http://www.geomag.nrcan.gc.ca,
+MEL1,MEL,1,Melbourne,-37.833,144.983,,1893,1921,Closed,3,,
+MEV1,MEV,1,Melville A. F. B.,53.28,-60.53,,1966,1972,Closed,3,,
+MEX1,MEX,1,Mexico City,19.433,-99.117,,1879,1887,Closed,3,,
+MFP1,MFP,1,Moca,3.35,8.667,,1958,1971,Closed,3,,
+MGD1,MGD,1,Magadan (Stekolnyy),60.117,151.017,,1966,,Open,2,http://www.ikir.ru/en/About/index.html and http://www.gfz-potsdam.de,
+MGS1,MGS,1,Magallanes,-53.15,-70.9,,,,Uncertain,0,,
+MID1,MID,1,Midway,28.21,-177.38,3,2000,2002,Closed,3,http://geomag.usgs.gov/,
+MIN1,MIN,1,Minamitori Shima,24.283,153.967,,1941,1941,Closed,3,,
+MIO1,MIO,1,Mizuho,-70.7,44.333,,1970,1987,Uncertain,0,,
+MIR1,MIR,1,Mirny,-66.55,93.017,20,1956,,Closed,3,,
+MIU1,MIU,1,Miyazu,35.32,135.11,,1973,1973,Uncertain,0,,
+MIZ1,MIZ,1,Mizusawa,39.112,141.204,125,1969,,Open,2,http://vldb.gsi.go.jp/sokuchi/geomag/index-e.html,
+MJR1,MJR,1,Majuro,7.083,171.383,,1964,1966,Closed,3,US Coast and Geodetic Survey,
+MKL1,MKL,1,Malyye Karmakuly,72.383,52.717,,1883,1883,Closed,3,,
+MLT1,MLT,1,Misallat,29.515,30.892,120,1960,2003,Uncertain,0,,
+MMB1,MMB,1,Memambetsu,43.91,144.189,42,1952,,Open,2,http://www.kakioka-jma.go.jp/en/,
+MMH1,MMH,1,Mcmath-Hulbert,42.67,-83.3,,,,Uncertain,0,University of Michigan,variometer
+MMK1,MMK,1,Loparskaya (Murmansk),68.25,33.08,210,1958,1988,Closed,3,,Latterly a variometer station
+MNH1,MNH,1,Munich,48.147,11.608,,1841,1926,Closed,3,,
+MNK1,MNK,1,Pleshenitkzi (Minsk),54.5,27.883,196,1961,,Open,2,,
+MNN1,MNN,1,Minneapolis,44.93,-93.6,,,,Uncertain,0,University of Minnesota,variometer
+MOD1,MOD,1,Modi'im,31.933,34.983,,1975,1975,Closed,3,,
+MOG1,MOG,1,Mogadiscio,2.033,45.35,,1933,1933,Closed,3,,
+MOH1,MOH,1,Mo He,53.5,112.4,,,,Uncertain,0,,
+MOL1,MOL,1,Molodezhnaya,-67.667,45.85,0,1965,1998,Closed,3,,
+MOS1,MOS,1,Moscow (Krasnaya Pakhra),55.467,37.317,200,1930, ,Open,2,http://geomag.gcras.ru/,Not continuous operation in 1930s and 1940s
+MOS2,MOS,2,Moskva,55.478,37.311,192,,,Closed,3,http://izmiran.ru/?LANG=en and http://www.gcras.ru/eng/,
+MRI1,MRI,1,Mauritius (Royal Alfred),-20.093,57.553,,1892,1965,Closed,3,,
+MRM1,MRM,1,Murmansk,68.95,33.05,,1958,1960,Closed,3,,
+MRN1,MRN,1,Marion Island,-46.875,37.847,,1973,1980,Closed,3,,
+MSK1,MSK,1,Moskva,55.733,37.633,,1880,1888,Closed,3,,
+MSR1,MSR,1,Matochkin Shar,73.263,56.397,,1923,1953,Closed,3,,Not continuous operation
+MUB1,MUB,1,Murchison Bay,80.5,18.25,,1957,1959,Closed,3,,
+MUT1,MUT,1,Muntinlupa,14.375,121.015,62,1951,,Closed,3,,
+MWC1,MWC,1,Mt Wilson,34.14,-118.03,,1926,1958,Closed,3,Carnegie Institution of Washington,
+MWR1,MWR,1,Mount Weather,39.067,-77.883,,1908,1908,Closed,3,United States Weather Bureau,
+MZL1,MZL,1,Manzhouli,49.6,117.4,682,1984,,Open,2,,
+NAI1,NAI,1,Nairobi,-1.327,36.815,1670,1964,1980,Closed,3,,
+NAL1,NAL,1,New Alesund,78.917,11.933,12,1966,2002,Closed,3,,
+NAN1,NAN,1,Nanking,32.06,118.78,,,,Closed,3,,
+NAQ1,NAQ,1,Narsarsuaq,61.16,-45.44,4,1968,,Open,2,http://www.space.dtu.dk,
+NCE1,NCE,1,Nice,43.717,7.3,,1885,1901,Closed,3,,
+NCK1,NCK,1,Nagycenk,47.633,16.717,160,1961,,Open,2,,
+NDA1,NDA,1,Nida,66.6,73,,,,Closed,3,,data held on microfilm at Kyoto
+NER1,NER,1,Nerchinsk,51.317,119.617,,1841,1864,Closed,3,,
+NEW1,NEW,1,Newport,48.2649,-117.1231,770,1966,,Open,2,http://geomag.usgs.gov,
+NFW1,NFW,1,Neufahrwasser,54.417,18.65,,1891,1903,Closed,3,,
+NGK1,NGK,1,Niemegk,52.072,12.675,78,1932,,Open,2,http://www.gfz-potsdam.de,
+NGP1,NGP,1,Nagpur,21.14,79.04,334,1995,,Open,2,http://iigm.res.in/,
+NHO1,NHO,1,Norway House,53.98,-97.83,,,,Closed,3,,Data held on microfilm at Kyoto
+NKK1,NKK,1,Novokazalinsk,45.767,62.117,,1974,1993,Closed,3,,
+NMP1,NMP,1,Nampula 1,-15.083,39.25,,1982,1984,Closed,3,,
+NMP2,NMP,2,Nampula 2,-15.0886,39.2542,374,2007,,Uncertain,0,2020 vandalism reported,
+NMT1,NMT,1,Numto,63.5,71.4,,,,Closed,3,,Data held on microfilm at Kyoto
+NNT1,NNT,1,Nanortalik 1,60.133,-45.267,,1884,1885,Closed,3,,
+NNT2,NNT,2,Nanortalik 2,60.15,-45.25,,1931,1931,Closed,3,,
+NNT3,NNT,3,Nanortalik 3,60.133,-45.283,,1943,1943,Closed,3,,
+NNT4,NNT,4,Nanortalik 4,60.15,-45.233,,1960,1960,Closed,3,,
+NNV1,NNV,1,Nizhnedevitsk,51.517,38.367,,1935,1940,Closed,3,,
+NOK1,NOK,1,Norilsk,69.2,88,,1969,1975,Closed,3,,
+NOW1,NOW,1,Norman Wells,64.9,-125.5,,,,Uncertain,0,"University of California, Los Angeles",Variometer station part of International Magnetospheric Study. http://www-ssc.igpp.ucla.edu/SPDS/geomag/
+NPF1,NPF,1,North Pole 6,83.6,9.5,,1957,1959,Closed,3,,
+NPG1,NPG,1,North Pole 7,85.82,-91.87,,1957,1959,Closed,3,,
+NPH1,NPH,1,North Pole 8,77.32,-171.7,,1959,1962,Closed,3,,
+NPJ1,NPJ,1,North Pole 10,76.62,166.38,,1961,1962,Closed,3,,
+NPL1,NPL,1,North Pole 12,79.08,-172.78,,1963,1964,Closed,3,,
+NPM1,NPM,1,North Pole 13,81,165,,,,Closed,3,,Data held on microfilm at Kyoto
+NRD1,NRD,1,Nord,81.6,-16.76,,1966,1970,Closed,3,,
+NRW1,NRW,1,Northway,63.017,-141.8,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+NSM1,NSM,1,Nitzanim,31.733,34.6,,1963,1967,Closed,3,,
+NTS1,NTS,1,Nantes,47.25,-1.567,,1923,1958,Closed,3,,
+NUR1,NUR,1,Nurmijarvi,60.508,24.655,,1953,,Open,2,,
+NVL1,NVL,1,Novolazarevskaya,-70.767,11.817,460,1961,,Closed,3,,
+NVS1,NVS,1,Klyuchi (Novosibirsk),54.85,83.23,130,1967,,Open,2,,
+NWP1,NWP,1,North West Pacific,41.102,159.963,,2001,2002,Closed,3,,
+NWS1,NWS,1,Norway Station,-70.5,-2.533,,1960,1962,Closed,3,,
+NYI1,NYI,1,New Year Island,-54.65,-64.15,,1902,1916,Closed,3,,
+OAS1,OAS,1,Oasis,-66.3,100.717,,1957,1958,Closed,3,,
+ODA1,ODA,1,Odessa,46.433,30.767,,1896,1925,Closed,3,,
+ODE1,ODE,1,Odessa (Stepanovka),46.783,30.883,140,1936,2007,Closed,3,,
+ODE2,ODE,2,Odessa 2 (Stepanovka),46.7769167,30.9001111,60,,,Provisional,1,Institute of Geophysics NAS of Ukraine,2018: Awaiting data delivery to WDC or Intermagnet
+OKN1,OKN,1,Okinawa,24.75,125.33,,1977,1977,Uncertain,0,,
+ONW1,ONW,1,Onagawa,38.43,141.47,,,,Closed,3,,Data held on microfilm at Kyoto
+ORB1,ORB,1,Orange Bay (Cape Horn),-55.517,-68.083,,1883,1883,Closed,3,,
+ORC1,ORC,1,Observatorio Magnetico Orcadas,-60.737,-44.737,,1905,,Open,2,,not continuous operation
+OSL1,OSL,1,Oslo,59.917,10.717,,1843,1930,Closed,3,,
+OTM1,OTM,1,Otomari,46.65,142.767,,1920,1943,Closed,3,,
+OTT1,OTT,1,Ottawa,45.403,-75.552,75,1968,,Open,2,http://www.geomag.nrcan.gc.ca,
+OUL1,OUL,1,Oulujarvi,64.52,27.23,130,1993,,Closed,3,,
+PAB1,PAB,1,Paramaribo,5.817,-55.217,,1957,1974,Closed,3,,
+PAF1,PAF,1,Port Aux Francais,-49.35,70.26,15,1957,,Open,2,http://www.bcmt.fr,
+PAG1,PAG,1,Panagyurishte,42.515,24.177,556,1948,,Open,2,"http://www.geophys.bas.bg and 
+http://www.gfz-potsdam.de
+",
+PAI1,PAI,1,Palmyra Island,5.88,-162.18,,1957,1958,Closed,3,US Coast and Geodetic Survey,
+PAT1,PAT,1,Patrick,28.217,-80.617,,1954,1956,Closed,3,,
+PBK1,PBK,1,Pevek,70.083,170.9,,,,Uncertain,0,,
+PBQ1,PBQ,1,Poste-de-la-Baleine,55.277,-77.745,40,1985,2007,Closed,3,http://www.geomag.nrcan.gc.ca,
+PBR1,PBR,1,Port Blair,11.81,92.72,31,,,Provisional,1,http://iigm.res.in/,Added in response to email from Dr B.Veenadhari 8 Apr 2014
+PCU1,PCU,1,Price,39.6,-110.833,,1958,1958,Closed,3,US Coast and Geodetic Survey,
+PEA1,PEA,1,Princess Elisabeth Antarctica (Utsteinen Nunatak- Dronning Maud Land),-71.95,23.35,1420,,,Provisional,1,Institut Royal Météorologique,Added in response to email from Alexandre Gonsette 17 Jan 2023
+PEB1,PEB,1,Pelly Bay,68.5,-89.8,,1977,1977,Uncertain,0,,
+PEG1,PEG,1,Penteli,38.05,23.867,,1959,1986,Closed,3,,
+PEG2,PEG,2,Penteli 2,38.083,23.933,380,1987,,Open,2,,operation 1994-1998 uncertain
+PEK1,PEK,1,Peking,39.95,116.467,,1868,1883,Closed,3,,
+PER1,PER,1,Perpignan,42.7,2.883,,1885,1910,Closed,3,,
+PET1,PET,1,Petropavlovsk,52.9,158.433,,1969,1972,Closed,3,,Opened 1967
+PET2,PET,2,Paratunka (Petropavlovsk),52.971,158.248,50,1973,,Open,2,http://www.ikir.ru/en/About/index.html and http://www.gfz-potsdam.de,
+PFK1,PFK,1,Port Foulke,78.3,-73,,1861,1861,Closed,3,,
+PGC1,PGC,1,Philadelphia (Girard College),39.967,-75.183,,1840,1845,Closed,3,US Corps of Topographical Engineers,
+PHU1,PHU,1,Phu Thuy,21.03,105.959,5,1978,,Open,2,"http://www.bcmt.fr
+http://www.igp-vast.vn",
+PIA1,PIA,1,Piran,45.5,13.7,,2008,,Provisional,1,,Added Jan 2021 / working towards INTERMAGNET membership / rudi@artal.si
+PIF,PIF,1,Pituffik,76.536775,-68.824216,,,,Provisional,1,http://www.space.dtu.dk/,Request received from Anna Willer 16 Apr 2024
+PIL1,PIL,1,Pilar,-31.667,-63.881,336,1905,,Open,2,,
+PIO1,PIO,1,Pionerskaya,-69.733,95.5,,1957,1958,Closed,3,,
+PJA1,PJA,1,Port Jeanne D'Arc,-49.55,69.817,,1930,1962,Closed,3,,not continuous operation
+PLA1,PLA,1,Palau,7.333,134.483,,1926,1941,Closed,3,,
+PLR1,PLR,1,Pelabuhan Ratu,-6.98,106.54972,54,2007,,Open,2,,
+PLS1,PLS,1,Plaisance,-20.433,57.667,,1966,1976,Closed,3,,operation 1972-1975 uncertain
+PMG1,PMG,1,Port Moresby,-9.408,147.152,80,1957,1993,Closed,3,http://www.ga.gov.au/,
+PND1,PND,1,Pondicherry,12.02,79.85,36,1993,,Open,2,http://iigm.res.in/,
+PNL1,PNL,1,Pantanal,-16.7,-56.2,,,,Provisional,1,,Request received from Katia Pinheiro 18 Feb 2014
+PNN1,PNN,1,Penang 1,4.467,100.15,,1976,1976,Closed,3,,
+PNN2,PNN,2,Penang 2,5.35,100.3,,1979,1979,Closed,3,,
+POD1,POD,1,Podkamannaya Tunguska,61.6,90,,1969,1992,Closed,3,,
+POD2,POD,2,Bor (Podkamennaya Tunguska),61.58,90.03,33,,,Closed,3,http://www.gcras.ru/eng/,Inactive since August 2016
+POK1,POK,1,Poker Flat,65.13,-147.48,,,,Uncertain,0,University of Alaska,variometer
+POL1,POL,1,Pola,44.863,13.847,,1881,1922,Closed,3,,
+POT1,POT,1,Potsdam,52.383,13.0625,,1890,1907,Closed,3,,Operated in parallel with Seddin 1908-1931
+PPT1,PPT,1,Pamatai,-17.567,-149.574,357,1968,,Open,2,http://www.bcmt.fr/,
+PRA1,PRA,1,Prague,50.083,14.417,,1830,1926,Closed,3,,
+PRG1,PRG,1,Progress,-69.384,76.384,,2009,,Open,2,,
+PRU1,PRU,1,Pruhonice,49.983,14.55,,1946,1972,Closed,3,,
+PSM1,PSM,1,Parc St Maur,48.817,2.483,49,1883,1900,Closed,3,,
+PST1,PST,1,Port Stanley,-51.704,-57.893,135,1994,,Open,2,https://geomag.bgs.ac.uk,
+PTL1,PTL,1,Pitlekaya,67.083,-173.383,,1879,1879,Closed,3,,
+PTS1,PTS,1,Petsamo,69.533,31.25,,1933,1933,Closed,3,,
+PTU1,PTU,1,Plateau,-79.25,40.5,,1966,1968,Closed,3,National Science Foundation (USA),
+PTY1,PTY,1,Patacamaya,-17.25,-67.95,3789,1983,1995,Closed,3,,
+QGZ1,QGZ,1,Qiongzhong,19,109.8,,1982,,Open,2,,
+QIX1,QIX,1,Qianling,34.547,108.208,730,1984,,Open,2,,not continuous operation
+QSB1,QSB,1,Qsaybeh,33.871,35.644,525,2000,2007,Closed,3,,
+QUE1,QUE,1,Quetta,30.187,66.95,1737,1953,2004,Closed,3,,
+QZH1,QZH,1,Quanzhou,24.9,118.6,10,1982,,Closed,3,,
+QZH2,QZH,2,Quanzhou,25,118.5,,2009,,Open,2,,Opened 2006
+RAC1,RAC,1,Raciborz,50,18.2,,,,Uncertain,0,,
+RBD1,RBD,1,Roi Baudouin 1,-70.433,24.317,,1958,1959,Closed,3,,
+RBD2,RBD,2,Roi Baudouin 2,-70.433,24.3,,1964,1966,Closed,3,,
+RDJ1,RDJ,1,Rio De Janeiro,-22.9,-43.167,,1837,1910,Closed,3,,not continuous operation
+REG1,REG,1,Regensberg,47.483,8.45,,1931,1975,Closed,3,,
+RES1,RES,1,Resolute Bay,74.69,-94.895,30,1952,,Open,2,http://www.geomag.nrcan.gc.ca,
+REU1,REU,1,Reunion,-21.205876,55.576477,1580.39,,,Provisional,1,http://www.bcmt.fr/,requested by Benoit (heumez@ipgp.fr) 25-3-2022
+RFH1,RFH,1,Refuge Harbour,78.533,-72.383,,1924,1924,Closed,3,,
+RIT1,RIT,1,Rankin Inlet,62.8,-92.1,,,,Closed,3,,data held on microfilm at Kyoto
+RKT1,RKT,1,Rajkot,22.29,70.74,126,,,Open,2,http://iigm.res.in/,
+ROB1,ROB,1,Roburent,44.3,7.883,,1964,1973,Closed,3,,
+ROD1,ROD,1,Rostov On Don,47.22,39.68,,,,Uncertain,0,,
+ROK1,ROK,1,Rostock,54.1,12.15,,1890,1903,Closed,3,,operation uncertain 1896-1902
+RPC1,RPC,1,Rapid City,44.15,-103.1,,,,Uncertain,0,"University of California, Los Angeles",variometer
+RSV1,RSV,1,Rude Skov,55.85,12.45,48,1907,1980,Closed,3,,
+RYB1,RYB,1,Rybachy,69.9,31.9,,,,Uncertain,0,,
+SAB1,SAB,1,Sabhawala,30.362,77.796,498,1964,,Closed,3,,
+SAG1,SAG,1,Sagastyr,73.383,126.6,,1883,1883,Closed,3,,
+SAH1,SAH,1,Sachs Harbour,72,-125,,,,Uncertain,0,University of Alaska,variometer
+SAN1,SAN,1,Sanya,18.2,109.5,,,,Uncertain,0,,
+SAS1,SAS,1,Saskatoon,52.1,-106.6,,,,Uncertain,0,,
+SBA1,SBA,1,Scott Base,-77.85,166.763,16,1957,,Open,2,,
+SBL1,SBL,1,Sable Island,43.932,-60.009,5,1999,,Open,2,https://geomag.bgs.ac.uk,
+SCO1,SCO,1,Scoresby Sund 1 (Hekla Havn),70.467,-26.2,,1892,1892,Closed,3,,
+SCO2,SCO,2,Scoresby Sund 2,70.483,-21.967,,1933,1933,Closed,3,,
+SDN1,SDN,1,Sydney,-33.883,151.183,,1892,1892,Closed,3,,
+SED1,SED,1,Seddin,52.278,13.01,,1908,1931,Closed,3,,
+SEL1,SEL,1,Santa Elena,10.921,-85.612,288,,,Provisional,1,Instituto Costariccense de Electricidade,Operation started 24 Feb 2018. Info from John Riddick and Chris Turbitt
+SEO1,SEO,1,Seoul,37.58,127.05,,,,Uncertain,0,,
+SEY1,SEY,1,Seykha,70.1,72.5,,,,Closed,3,,Data held on microfilm at Kyoto
+SFS1,SFS,1,San Fernando,36.467,-6.2,,1880,1979,Closed,3,,
+SFS2,SFS,2,San Fernando 2,36.5,-6.117,,1991,2005,Closed,3,,
+SFS3,SFS,3,San Fernando 3,36.667,-5.945,111,2005,,Open,2,http://www.roa.es,
+SGE1,SGE,1,South Georgia (Moltke Harbour),-54.283,-36.483,,1883,1883,Closed,3,,
+SGE2,SGE,2,South Georgia (Grytviken),-54.283,-36.493,7,1975,1982,Closed,3,https://www.bas.ac.uk,
+SHB1,SHB,1,Shepherd Bay,68.75,-93.75,,1966,1966,Uncertain,0,,
+SHE1,SHE,1,St Helena,-15.961,-5.474,586,2010,,Open,2,http://www.gfz-potsdam.de,
+SHL1,SHL,1,Shillong,25.56,91.86,1613,1976,1995,Closed,3,http://iigm.res.in/,
+SHT1,SHT,1,Shatsk,53.98,41.85,,,,Closed,3,,Electric field E only
+SHU1,SHU,1,Shumagin,55.3472,-160.4644,84,2004,,Open,2,http://geomag.usgs.gov,
+SIL1,SIL,1,Silchar,24.68,92.76,63,1999,2005,Closed,3,http://iigm.res.in/,
+SIM1,SIM,1,Simferopol',44.833,34.067,,1959,1959,Closed,3,,
+SIN1,SIN,1,Singapore,1.283,103.85,,1840,1847,Closed,3,,
+SIT1,SIT,1,Sitka 1,57.05,-135.333,24,1902,1939,Closed,3,USGS,
+SIT2,SIT,2,Sitka 2,57.0576,-135.3273,24,1940,,Open,2,http://geomag.usgs.gov,
+SJB1,SJB,1,Sao Jose dos Campos,-23.2,-45.867,,1973,1975,Closed,3,,
+SJG1,SJG,1,San Juan 1,18.383,-66.117,,1926,1964,Closed,3,USGS,
+SJG2,SJG,2,San Juan 2,18.111,-66.1498,424,1965,,Open,2,http://geomag.usgs.gov,
+SJL1,SJL,1,San Jose Las Lajas,23.017,-82.65,,1964,1976,Closed,3,,
+SKT1,SKT,1,Sukkertoppen,65.417,-52.917,,1965,1965,Closed,3,,
+SLU1,SLU,1,Slutsk,59.683,30.483,,1878,1944,Closed,3,,Operation uncertain 1942-3
+SMA1,SMA,1,Santa Maria,36.96,-25.13,,,,Provisional,1,http://www.gfz-potsdam.de,IAGA2015 V-OBS minutes
+SMG1,SMG,1,Sao Miguel,37.767,-25.65,,1911,1977,Closed,3,,
+SNA1,SNA,1,Sanae 1,-70.3,-2.367,,1962,1970,Closed,3,,
+SNA2,SNA,2,Sanae 2,-70.317,-2.333,,1971,1978,Closed,3,,
+SNA3,SNA,3,Sanae 3,-70.317,-2.417,52,1979,1989,Closed,3,,
+SNT1,SNT,1,Santiago 1,-33.433,-70.633,,1850,1852,Closed,3,,
+SNT2,SNT,2,Santiago 2,-33.45,-70.7,,1899,1909,Closed,3,,
+SNV1,SNV,1,Sinji Vrh,45.899,13.94,,,,Provisional,1,http://www.viviss.si/lga/,Status update from Mojca Miklavec on 26 Jun 2015
+SOD1,SOD,1,Sodankyla 1,67.467,26.6,,1883,1883,Closed,3,,
+SOD2,SOD,2,Sodankyla 2,67.367,26.633,,1914,1944,Closed,3,,
+SOD3,SOD,3,Sodankyla 3,67.367,26.633,178,1946,,Open,2,,
+SOG1,SOG,1,Sogra,62.8,46.25,,,,Uncertain,0,,
+SOK1,SOK,1,Sop,14.4953,343.5437,10,,,Provisional,1,http://www.bcmt.fr/,Request recieived from Benoit Huemez 11 May 2020
+SON1,SON,1,Sonmiani,25.192,66.75,5,2010, ,Open,2,,
+SOR1,SOR,1,Soroa,22.78,-83,,,,Closed,3,,Electric field E only
+SPA1,SPA,1,South Pole (Amundsen Scott),-89.993,-13.322,,1959,1971,Closed,3,US Antarctic Program,
+SPB1,SPB,1,Spitzbergen,78.5,15.1,,,,Closed,3,,data in book at Kyoto
+SPE1,SPE,1,St. Petersburg,59.933,30.333,,1869,1877,Closed,3,,
+SPG1,SPG,1,St Petersburg (Krasnoe Lake),60.542,29.716,46,2015,,Open,2,http://www.gcras.ru/index_e.html,
+SPL1,SPL,1,Siple,-76,-84,,,,Uncertain,0,University of Stanford,variometer
+SPT1,SPT,1,San Pablo Toledo,39.547,-4.349,922,1981,,Open,2,http://www.ign.es/,
+SRE1,SRE,1,Srednikan,62.433,152.317,,1936,1966,Closed,3,,
+SRG1,SRG,1,Serang,-6.17132,106.051,192,,,Provisional,1,"Badan Meteorologi, Klimatologi dan Geofisika (BMKG) Indonesia",Request received from Yosi Setiawan (BMKG) 04 Dec 2024
+SRO1,SRO,1,Srobarova,47.8,18.3,,,,Uncertain,0,,
+SSH1,SSH,1,Sheshan (Zo-Se),31.1,121.183,100,1933,2006,Closed,3,,
+SSO1,SSO,1,Simosato,33.575,135.94,,1954,1977,Closed,3,,
+STF1,STF,1,Sdr Stromfjord (Kangerlussuaq),67.02,-50.72,,1972,1972,Uncertain,0,http://www.space.dtu.dk/,Variometer station without absolute measurements
+STH1,STH,1,St Helier,49.2,-2.083,,1898,1907,Closed,3,,
+STJ1,STJ,1,St John's,47.595,-52.677,100,1968,,Open,2,http://www.geomag.nrcan.gc.ca,
+STO1,STO,1,Stonyhurst,53.85,-2.467,,1865,1967,Closed,3,https://geomag.bgs.ac.uk,
+STT1,STT,1,Sao Teotonio ,37.5466,-8.7276,115,,,Provisional,1,IPMA/GFZ,Request received 5 Mar 2020
+SUA1,SUA,1,Surlari,44.68,26.253,84,1949,,Open,2,http://www.igr.ro/ and http://www.gfz-potsdam.de,
+SUB1,SUB,1,Sudbury,42.2,-71.28,,,,Uncertain,0,US Air Force Geophysics Laboratory,variometer data from SPIDR?
+SVD1,SVD,1,Vysokaya Dubrava,56.733,61.067,,1932,1976,Closed,3,,
+SVE1,SVE,1,Sverdlovsk (Yekaterinburg),56.833,60.633,,1841,1931,Closed,3,,Operation uncertain 1871-1886. Sometimes coded EKT.
+SVG1,SVG,1,Sveagruva,77.9,16.75,,1933,1933,Closed,3,,
+SWI1,SWI,1,Swider,52.117,21.25,,1921,1974,Closed,3,,
+SYD1,SYD,1,Sydney,-33.883,151.183,,1892,1892,Closed,3,,
+SYG1,SYG,1,Shaoyang,27.2,111.5,,,,Closed,3,,Opened 1983
+SYO1,SYO,1,Syowa Station,-69.007,39.584,0,1966, ,Open,2,http://www.nipr.ac.jp/english/,
+SZA1,SZA,1,Stettin-Zabelsdorf,53.45,14.567,,1892,1901,Closed,3,,
+TAA1,TAA,1,Taijan,36.3,117.1,,,,Closed,3,,Opened 1982
+TAA1,TAA,1,Terre Adelie,-66.67,140.02,,1957,1957,Uncertain,0,,
+TAC1,TAC,1,Tacubaya,19.4,-99.2,,1889,1902,Closed,3,,Continuous operation not certain
+TAH1,TAH,1,Tahiti,-17.55,-149.617,,1958,1972,Closed,3,,Operation 1960-1965 uncertain
+TAL1,TAL,1,Talara,-4.63,-81.3,,1957,1960,Uncertain,0,,
+TAM1,TAM,1,Tamanrasset,22.7925,5.532,1373,1932,,Open,2,http://www.bcmt.fr,
+TAN1,TAN,1,Antananarivo,-18.917,47.552,1375,1890,2007,Closed,3,http://www.bcmt.fr,
+TAP1,TAP,1,Taihoku,25.033,121.517,,1919,1940,Closed,3,,
+TAP2,TAP,2,Taipei,25.033,121.517,,1951,1967,Closed,3,,
+TAS1,TAS,1,Tashkent,41.333,69.3,,1883,1935,Closed,3,,operation not continuous
+TAY1,TAY,1,Taiyuan,37.7,112.5,,,,Closed,3,,Opened 1983
+TCM1,TCM,1,Tucuman,-26.8,-65.15,,,,Uncertain,0,,
+TCN1,TCN,1,Tate's Cairn,22.367,114.217,,1972,1978,Closed,3,,
+TDC1,TDC,1,Tristan da Cunha,-37.067,-12.315,42,2009,2018,Closed,3,www.gfz-potsdam.de,
+TDC2,TDC,2,Tristan da Cunha,-37.067,-12.316,41,2018,,Open,2,www.gfz-potsdam.de,
+TEH1,TEH,1,Tehran,35.733,51.383,,1960,1973,Closed,3,,
+TEL1,TEL,1,Tellnitz,50.733,13.967,,1933,1934,Closed,3,,
+TEN1,TEN,1,Santa Cruz de Tenerife (Las Mesas),28.483,-16.267,310,1959,1992,Closed,3,,
+TEO1,TEO,1,Teoloyucan,19.747,-99.182,2280,1914,2008,Uncertain,0,,
+TEV1,TEV,1,Tevriz,57.5,72.4,,,,Closed,3,,Data on microfilm at Kyoto
+TFS1,TFS,1,Dusheti (Tbilisi),42.092,44.705,980,1938,2003,Closed,3,,
+TGO1,TGO,1,Toungoo,18.933,96.45,,1905,1932,Closed,3,,
+THD1,THD,1,Thule 1 (Dundas),76.533,-68.9,,1933,1933,Closed,3,,
+THJ1,THJ,1,Tonghai,24,102.7,1820,1985,,Open,2,,continuous operation not certain
+THL1,THL,1,Qaanaaq (Thule),77.47,-69.227,57,1955,,Open,2,http://www.space.dtu.dk,
+THU1,THU,1,Thule 2 (Air Force Base),76.533,-69.05,,1947,1952,Closed,3,,
+THY1,THY,1,Tihany,46.9,17.8933,187,1955,,Open,2,,
+TIF1,TIF,1,Tiflis,41.717,44.8,,1879,1905,Closed,3,,Opened in 1844
+TIK1,TIK,1,Tiksi,71.583,129,40,1944,,Open,2,,Operation not continuous
+TIO1,TIO,1,Tiouine,30.927,-7.26,,,1993,Closed,3,,
+TIP1,TIP,1,Tiruchirapalli,10.8,78.7,,,,Closed,3,,Data on microfilm at Kyoto
+TIR1,TIR,1,Tirunelveli,8.67,77.81,34,1999,,Open,2,http://iigm.res.in/,
+TJO1,TJO,1,Tjornes,66.2,-17.12,,,,Uncertain,0,,
+TKH1,TKH,1,Tikhaya Bay,80.333,52.8,,1933,1958,Closed,3,,Operation uncertain 1947-1950
+TKT1,TKT,1,Yangi -Bazar (Tashkent),41.333,69.617,810,1964,2006,Uncertain,0,,
+TLK1,TLK,1,Talkeetna,63.3,-150.1,,,,Uncertain,0,,
+TLS1,TLS,1,Toulouse,43.617,1.467,,1882,1905,Closed,3,,
+TMB1,TMB,1,Tambey,71.5,71.8,,,,Closed,3,,data on microfilm at Kyoto
+TMK1,TMK,1,Tomsk,56.467,84.933,,1958,1969,Closed,3,,
+TMP1,TMP,1,Thompson,55.72,-97.88,,,,Closed,3,,Data on microfilm at Kyoto
+TNB1,TNB,1,Terra Nova Bay,-74.683,164.117,28,1987,,Closed,3,,
+TND1,TND,1,Tondano,1.29,124.95,704,2001,,Closed,3,,continuous operation uncertain
+TNG1,TNG,1,Tangerang,-6.167,106.633,14,1964,2003,Closed,3,,
+TOH1,TOH,1,Toyohara,46.967,142.75,,1932,1944,Closed,3,,
+TOK1,TOK,1,Tokyo,35.683,139.75,,1887,1912,Closed,3,,
+TOL1,TOL,1,Toledo,39.883,-4.05,,1947,1981,Closed,3,,
+TOO1,TOO,1,Toolangi,-37.533,145.467,,1922,1979,Closed,3,http://www.ga.gov.au/,
+TOR1,TOR,1,Toronto,43.667,-79.5,,1840,1898,Closed,3,,
+TPA1,TPA,1,Tampa,27.82,-82.5,,,,Uncertain,0,US Air Force Geophysics Laboratory,variometer data from http://www-ssc.igpp.ucla.edu/SPDS/geomag/html/gsinfo.html
+TPB1,TPB,1,Teplitz Bay,81.8,57.983,,1904,1904,Closed,3,,
+TRD1,TRD,1,Trivandrum 1,8.517,77,,1854,1869,Closed,3,,
+TRD2,TRD,2,Trivandrum 2,8.483,76.95,300,1957,1999,Closed,3,,
+TRO1,TRO,1,Tromso,69.663,18.948,105,1930,,Open,2,http://geo.phys.uit.no/,
+TRW1,TRW,1,Trelew,-43.267,-65.383,15,1957,,Open,2,,
+TSI1,TSI,1,Tsingtao (Qingdao),36.067,120.317,,1906,1936,Closed,3,,
+TSK1,TSK,1,Tasiusak,65.617,-37.55,,1899,1899,Closed,3,,
+TST1,TST,1,Tungsten,62,-128.15,,,,Uncertain,0,State University of New York,
+TSU1,TSU,1,Tsumeb,-19.202,17.584,1273,1964,,Open,2,http://www.sansa.org.za/spacescience,"operation 1990-91, 2009 uncertain"
+TSY1,TSY,1,Tianshui,34.5,105.9,,,,Closed,3,,Opened 1983
+TTB1,TTB,1,Tatuoca 1,-1.2,-48.517,,1933,1933,Closed,3,,
+TTB2,TTB,2,Tatuoca,-1.205,-48.513,10,1957,,Open,2,Observatorio Nacional / GFZ German Research Centre for Geosciences,
+TUC1,TUC,1,Tucson 1,32.25,-110.833,,1910,1995,Closed,3,http://geomag.usgs.gov,
+TUC2,TUC,2,Tucson 2,32.1745,-110.7337,946,1996,,Open,2,http://geomag.usgs.gov,
+TUL1,TUL,1,Tulsa,35.917,-95.783,328,1968,1989,Closed,3,Oklahoma Geophysical Observatory,continuous operation uncertain
+TUM1,TUM,1,Tumanny,69.14,35.82,,,,Uncertain,0,,
+TUN1,TUN,1,Tuntungan,3.517,98.567,86,1982,2003,Closed,3,,continuous operation uncertain
+TYN1,TYN,1,Toyohara New,46.969,142.751,,1932,1940,Closed,3,,
+UBA1,UBA,1,Ulan Bator,47.85,106.75,1615,1966,1977,Closed,3,,
+UCC1,UCC,1,Uccle,50.798,4.362,,1891,1947,Closed,3,,
+UGT1,UGT,1,Ugut,61,74,,,,Closed,3,,Data on microfilm at Kyoto
+UJJ1,UJJ,1,Ujjain,23.183,75.783,,1976,2003,Closed,3,,
+UKH1,UKH,1,Ukhta,60.5,74,,,,Closed,3,,Data on microfilm at Kyoto
+UMA1,UMA,1,Umba,66.7,34.5,,,,Uncertain,0,,
+UPS1,UPS,1,Uppsala (Fiby),59.903,17.353,50,1998,,Open,2,http://www.sgu.se,
+URC1,URC,1,Uranium City,59.6,-108.5,,,,Uncertain,0,,
+UTR1,UTR,1,Utrecht,52.083,5.117,,1891,1898,Closed,3,,
+VAL1,VAL,1,Valentia,51.933,-10.25,14,1899,,Open,2,,
+VAN1,VAN,1,Van Rensselaer,78.617,-70.667,,1854,1854,Closed,3,,
+VIC1,VIC,1,Victoria,48.52,-123.42,197,1956,,Open,2,http://www.geomag.nrcan.gc.ca,
+VLA1,VLA,1,Gornotayozhnaya (Vladivostok),43.683,132.167,300,1958,1997,Closed,3,,
+VLJ1,VLJ,1,Val Joyeux,48.821,2.014,,1901,1936,Closed,3,http://www.bcmt.fr,
+VNA1,VNA,1,Neumayer Station II (Georg von Neumayer),-70.65,-8.25,,1993,2008,Closed,3,,
+VNA2,VNA,2,Neumayer Station III,-70.683,-8.282,46,2009,,Open,2,AWI and GFZ,
+VOR1,VOR,1,Voroshilov (Ussuriysk),43.783,132.033,,1951,1957,Closed,3,,
+VOS1,VOS,1,Vostok,-78.45,106.867,3500,1958,,Open,2,,
+VQS1,VQS,1,Vieques (Puerto Rico),18.15,-65.45,20,1903,1924,Closed,3,USGS,
+VRE1,VRE,1,Villa Remedios,-14.77,-68.17,,,,Provisional,1,"http://www.fiumsa.edu.bo
+http://www.gfz-potsdam.de",
+VSK1,VSK,1,Visakhapatnam,17.74,83.33,20,1995,,Open,2,http://iigm.res.in/,
+VSS1,VSS,1,Vassouras,-22.4,-43.65,457,1915,,Open,2,,
+VYK1,VYK,1,Vykhodnoy,73.233,56.733,,1954,1955,Closed,3,,
+WAT1,WAT,1,Watheroo,-30.317,115.883,,1919,1958,Closed,3,http://www.ga.gov.au/,
+WDC1,WDC,1,Washington City,38.9,-77.033,,1841,1842,Closed,3,,
+WDC2,WDC,2,Washington 1,38.883,-77,,1867,1869,Closed,3,,
+WDC3,WDC,3,Washington 2,38.9,-77.05,,1888,1892,Closed,3,,
+WDC4,WDC,4,Washington New,38.917,-77.05,,1894,1894,Closed,3,,
+WES1,WES,1,Weston,42.385,-71.32,,1965,1968,Closed,3,US Air Force Base Cambridge Laboratory,
+WHN1,WHN,1,Wuhan,30.528,114.559,42,1959,,Open,2,,continuous operation uncertain
+WHS1,WHS,1,Whiteshell,49.75,-95.25,,1977,1980,Closed,3,,
+WIA1,WIA,1,Wien Auhof,48.2,16.233,,1929,1950,Closed,3,,
+WIC1,WIC,1,Wien Conrad,47.93,15.865,1088,2014,,Open,2,http://www.zamg.ac.at/cms/en/geophysics/conrad-observatory,IAGA2013 V-OBS minutes
+WIE1,WIE,1,Wien,48.25,16.367,,1892,1898,Closed,3,,
+WIK1,WIK,1,Wien Kobenzl,48.267,16.317,400,1955,2015,Closed,3,,
+WIL1,WIL,1,Wilkes,-66.25,110.583,,1957,1966,Closed,3,http://www.ga.gov.au/,
+WIT1,WIT,1,Witteveen,52.813,6.668,20,1938,1987,Closed,3,,
+WKE1,WKE,1,Wake Island,19.3,167.6,,,,Uncertain,0,,Variometer station part of International Magnetospheric Study. http://www-ssc.igpp.ucla.edu/SPDS/geomag/
+WLH1,WLH,1,Wilhelmshaven,53.533,8.15,,1884,1932,Closed,3,,
+WMQ1,WMQ,1,Urumqi (Wulumuchi),43.817,87.7,970,1978,2000,Closed,3,,Closed 2012
+WMQ2,WMQ,2,Urumqi (Wulumuchi),44.36,86.94,442,,,Open,2,,Opened 2013
+WNG1,WNG,1,Wingst,53.743,9.073,50,1939,2018,Closed,3,http://www.gfz-potsdam.de,
+WNG1,WNG,2,Wingst,53.725,9.053,66,2019,,Open,2,http://www.gfz-potsdam.de,
+WNP1,WNP,1,Winnipeg,49.63,-97.13,,1969,1975,Closed,3,,
+WRH1,WRH,1,Warnkenhagen,54,11.07,,1935,1935,Closed,3,,
+WSE1,WSE,1,White Sea,66.552,33.1,15,,,Provisional,1,"GC RAS (http://gcras.ru/eng), MSU Faculty of Biology (http://www.bio.msu.ru/)",Request from Roman Sidorov 9 Jan 2019
+WSW1,WSW,1,Warsaw,52.217,21.033,,1893,1893,Closed,3,,
+WUS1,WUS,1,Wustrow,54.35,12.4,,1891,1903,Closed,3,,
+XIC1,XIC,1,Xichang,27.8,27.8,,,,Closed,3,,Opened 1986
+YAK1,YAK,1,Yakutsk,61.96,129.66,100,1931,,Open,2,http://ikfia.ysn.ru/ and http://www.gfz-potsdam.de,
+YAU1,YAK,1,Yauca,-15.53,-74.67,,1957,1960,Closed,3,,
+YCB1,YCB,1,Yinchuan,38.5,106.3,,,,Closed,3,,Opened 1985
+YKC1,YKC,1,Yellowknife,62.48,-114.482,198,1975,,Open,2,http://www.geomag.nrcan.gc.ca,
+YNV1,YNV,1,Janow (Yanov),49.9,23.733,,1933,1934,Closed,3,,
+YON1,YON,1,Yonning,22.8,108.5,,,,Closed,3,,Opened 1983
+YSH1,YSH,1,Yuzhny Shar,69.77,61.68,,,,Closed,3,,Data on microfilm at Kyoto
+YSS1,YSS,1,Yuzhno-Sakhalinsk,46.95,142.717,70,1941,1990,Closed,3,,
+ZAR1,ZAR,1,Zaria,11.15,7.65,,1964,1965,Closed,3,,
+ZHS1,ZHS,1,Zhong Shan,-69.4,76.4,,,,Provisional,1,,
+ZIN1,ZIN,1,Zinsen,37.483,126.633,,1918,1944,Closed,3,,
+ZKW1,ZKW,1,Zi-Ka-Wei,31.217,121.433,,1875,1908,Closed,3,,
+ZUY1,ZUY,1,Zuy,52.467,104.033,,1915,1958,Closed,3,,
+ZZH1,ZZH,1,Zhengzhou,34.6,113.6,,,,Closed,3,,Opened 1984
