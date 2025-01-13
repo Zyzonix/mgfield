@@ -1,5 +1,6 @@
 #Copyright: 2019- R.S. Weigel, 2025 - F. von Bargen
 #as posted here: https://github.com/hapi-server/client-python
+
 import os
 import csv
 import numpy as np
@@ -11,6 +12,12 @@ import time
 import geopandas as gpd
 from shapely.geometry import Point
 from datetime import datetime, timedelta, timezone
+from geopy.geocoders import Nominatim
+
+def calculate_distance(lat1, lat2):
+    """Berechnet die Entfernung zwischen zwei Punkten auf der Erde nur auf der Latitude-Achse."""
+    distance = abs(lat2 - lat1)
+    return distance
 
 def load_valid_observatories(csv_file):
     """Lädt die Liste der Observatorien aus der CSV-Datei und gibt nur die mit Status 'Open' zurück."""
@@ -31,12 +38,23 @@ def get_date_range(option):
     today = datetime.now(timezone.utc)
     if option == '1':
         start = today - timedelta(days=7)
+        stop = today
     elif option == '2':
         start = today - timedelta(days=30)
+        stop = today
     else:
-        start = datetime.strptime(input("Bitte geben Sie das Startdatum (YYYY-MM-DD) ein: "), "%Y-%m-%d")
-    stop = today
+        start = datetime.strptime(input("Bitte geben Sie das Startdatum (YYYY-MM-DD) ein: "), "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        stop = datetime.strptime(input("Bitte geben Sie das Enddatum (YYYY-MM-DD) ein: "), "%Y-%m-%d").replace(tzinfo=timezone.utc)
     return start.strftime("%Y-%m-%dT00:00:00Z"), stop.strftime("%Y-%m-%dT00:00:00Z")
+
+def auto_select_stations(valid_observatories, reference_lat, max_distance):
+    """Automatisch alle offenen Stationen auswählen, die sich innerhalb einer bestimmten Entfernung auf der Latitude-Achse befinden."""
+    selected_stations = []
+    for code, details in valid_observatories.items():
+        distance = calculate_distance(reference_lat, details['Latitude'])
+        if distance <= max_distance:
+            selected_stations.append(code)
+    return selected_stations
 
 def main():
     try:
@@ -44,7 +62,7 @@ def main():
         csv_file = os.path.join(os.getcwd(), 'intermagnet/IAGAlist.csv')
         valid_observatories = load_valid_observatories(csv_file)
         
-        # Benutzereingaben
+        # Benutzereingaben für den Zeitraum
         print("Bitte wählen Sie den Zeitraum:")
         print("1. Letzte Woche")
         print("2. Letzter Monat")
@@ -52,28 +70,68 @@ def main():
         option = input("Ihre Auswahl (1/2/3): ")
         start, stop = get_date_range(option)
         
-        iaga_input = input("Bitte geben Sie die IAGA-Codes der Stationen ein (durch Kommas getrennt): ").upper()
+        # Abfrage für Intermagnet
+        include_intermagnet = input("Möchten Sie Intermagnet-Daten mit einbeziehen? (ja/nein): ").strip().lower()
+        if include_intermagnet == 'ja':
+            auto_select = input("Möchten Sie alle offenen Stationen auf der Latitude von BUE und mit einer Entfernung von maximal 3 automatisch auswählen? (ja/nein): ").strip().lower()
+            if auto_select == 'ja':
+                iaga_codes = auto_select_stations(valid_observatories, 53.650, 2)
+                print(f"Automatisch ausgewählte Stationen: {', '.join(iaga_codes)}")
+            else:
+                iaga_input = input("Bitte geben Sie die IAGA-Codes der Stationen ein (durch Kommas getrennt): ").upper()
+                iaga_codes = [code.strip() for code in iaga_input.split(',')]
+            
+            # Validierung der IAGA-Codes
+            for code in iaga_codes:
+                if code not in valid_observatories:
+                    print(f"\033[0;31mError:\033[0m Der IAGA-Code '{code}' ist ungültig oder die Station ist nicht 'Open'.")
+                    return
 
-        # Validierung der IAGA-Codes
-        iaga_codes = [code.strip() for code in iaga_input.split(',')]
-        for code in iaga_codes:
-            if code not in valid_observatories:
-                print(f"\033[0;31mError:\033[0m Der IAGA-Code '{code}' ist ungültig oder die Station ist nicht 'Open'.")
-                return
+            # Abfrage, ob die eigene Station inkludiert werden soll
+            include_own_station = input(
+                "Möchten Sie Ihre eigene Station (Latitude: 53.650, Longitude: 9.424) hinzufügen? (ja/nein): "
+            ).strip().lower()
+            if include_own_station == 'ja':
+                own_station_code = 'BUE'
+                valid_observatories[own_station_code] = {
+                    'Name': 'Eigene Station',
+                    'Latitude': 53.650,
+                    'Longitude': 9.424
+                }
+                # BUE wird nicht zu iaga_codes hinzugefügt, um nicht an HAPI weitergegeben zu werden
 
-        # Startzeit erfassen
-        start_time = time.time()
+            # Startzeit erfassen
+            start_time = time.time()
 
-        # Datenverarbeitung starten
-        combined_data = process_data(iaga_codes, start, stop, valid_observatories)
-        # Endzeit erfassen und verstrichene Zeit berechnen
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        print(f"\033[0;32mInfo:\033[0m Verarbeitung abgeschlossen. Verarbeitete Daten: {len(iaga_codes)} Station(en) in {elapsed_time:.2f} Sekunden.")
-        plot_observatory_locations(valid_observatories, iaga_codes)
-        save_combined_data_to_csv(combined_data, start, stop)
+            # Datenverarbeitung für Intermagnet starten
+            combined_data = process_data(iaga_codes, start, stop, valid_observatories)
+            
+            # Endzeit erfassen und verstrichene Zeit berechnen
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+
+            # Anzahl der Datenzeilen und Stationen ermitteln
+            num_rows = len(next(iter(combined_data.values()))[0]) if combined_data else 0
+            num_stations = len(combined_data)
+
+            print(f"\033[0;32mInfo:\033[0m Verarbeitung abgeschlossen. Verarbeitete Daten: {num_stations} Station(en) mit {num_rows} Datenzeilen in {elapsed_time:.2f} Sekunden.")
+            plot_observatory_locations(valid_observatories, iaga_codes)
+            save_combined_data_to_csv(combined_data, start, stop)
+        else:
+            print("Intermagnet-Daten werden nicht einbezogen.")
+        
     except Exception as e:
         print(f"\033[0;31mError:\033[0m {str(e)}")
+
+    # Berechne und gebe die Abstände zu BUE aus
+    bue_lat = 53.650
+    bue_lon = 9.424
+    for code in iaga_codes:
+        if code in valid_observatories and code != 'BUE':
+            obs_lat = valid_observatories[code]['Latitude']
+            obs_lon = valid_observatories[code]['Longitude']
+            distance = calculate_distance(bue_lat, obs_lat)
+            print(f"Abstand von {code} zu BUE: {distance:.2f} ")
 
 def process_data(iaga_codes, start, stop, valid_observatories):
     server = 'https://imag-data.bgs.ac.uk/GIN_V1/hapi'
@@ -120,8 +178,16 @@ def save_and_plot_magnitude(iaga_code, observatory_name, timestamps, magnitudes,
     plt.figure(figsize=(12, 6))
     plt.plot(timestamps, magnitudes, label=f'{observatory_name} ({iaga_code})', color='blue')
     plt.xlabel('Zeit')
+    def get_country_from_lat_lon(lat, lon):
+        geolocator = Nominatim(user_agent="geoapiExercises")
+        location = geolocator.reverse((lat, lon), language='en')
+        if location and 'country' in location.raw['address']:
+            return location.raw['address']['country']
+        return 'unbekannt'
+
+    country = get_country_from_lat_lon(observatory_name['Latitude'], observatory_name['Longitude'])
     plt.ylabel('Magnetfeldstärke (nT)')
-    plt.title(f'Magnetfeldbetrag für {observatory_name} ({iaga_code})')
+    plt.title(f'Magnetfeldbetrag für {observatory_name["Name"]} ({iaga_code}) in {country}') 
     plt.xticks(rotation=45)
     plt.grid(True)
     plt.tight_layout()
@@ -205,6 +271,12 @@ def plot_observatory_locations(observatories, iaga_codes):
             lon = observatories[code]['Longitude']
             locations.append((lon, lat, code))  # Nur ICAO-Kürzel verwenden
 
+    # Füge die eigene Station 'BUE' hinzu, falls sie nicht bereits enthalten ist
+    if 'BUE' not in iaga_codes:
+        lat = 53.650
+        lon = 9.424
+        locations.append((lon, lat, 'BUE'))
+
     if not locations:
         print("Keine gültigen Stationen gefunden.")
         return
@@ -224,25 +296,27 @@ def plot_observatory_locations(observatories, iaga_codes):
     world = gpd.read_file(natural_earth_file)
 
     # Berechne den Bereich der Karte
-    fig, ax = plt.subplots(figsize=(15, 10))
+    fig, ax = plt.subplots(figsize=(25, 10))
     if fig is None or ax is None:
         raise RuntimeError("Failed to create subplots.")
     min_lon, max_lon = gdf['Longitude'].min() - 5, gdf['Longitude'].max() + 5
     min_lat, max_lat = gdf['Latitude'].min() - 5, gdf['Latitude'].max() + 5
 
     # Plot erstellen
-    fig, ax = plt.subplots(figsize=(15, 10))
+    fig, ax = plt.subplots(figsize=(25, 10))
     world.plot(ax=ax, color='lightgrey')
 
     # Karte auf die Umgebung beschränken
     ax.set_xlim(min_lon, max_lon)
     ax.set_ylim(min_lat, max_lat)
-
-    gdf.plot(ax=ax, color='red', markersize=50)
+    # Plot der Observatorien
+    for x, y, label in zip(gdf['Longitude'], gdf['Latitude'], gdf['Code']):
+        gdf[gdf['Code'] == label].plot(ax=ax, color='blue', markersize=45)
 
     # Beschriftungen hinzufügen (nur ICAO-Kürzel)
     for x, y, label in zip(gdf['Longitude'], gdf['Latitude'], gdf['Code']):
-        ax.text(x, y, label, fontsize=12, ha='right')
+        ha = 'right'
+        ax.text(x, y, label, fontsize=12, ha=ha)
 
     plt.title('Standorte der Observatorien')
     plt.xlabel('Longitude')
