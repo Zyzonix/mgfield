@@ -1,6 +1,9 @@
-#Copyright: 2019- R.S. Weigel, 2025 - F. von Bargen
+#Copyright: 2021- R.S. Weigel, 2025 - F. von Bargen
 #as posted here: https://github.com/hapi-server/client-python
-
+#orcid: https://orcid.org/0000-0002-9521-5228
+#title: hapi-server/client-python: 
+#version: v0.2.1
+#date-released: 2021-10-06
 import os
 import csv
 import numpy as np
