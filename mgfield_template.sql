@@ -34,7 +34,6 @@ CREATE TABLE `mgfield` (
   `y_value` float NOT NULL,
   `z_value` float NOT NULL,
   `out_value` float NOT NULL,
-  `measurement_result` float NOT NULL,
   `measurement_duration` float NOT NULL,
   `start_avg` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -81,7 +80,8 @@ CREATE TABLE `sysstats` (
   `ram_cached` int(11) NOT NULL,
   `ram_free_wcache_perc` float NOT NULL,
   `ram_free_wocache_perc` float NOT NULL,
-  `cpu_thermal` float NOT NULL
+  `cpu_thermal` float NOT NULL,
+  `uptime` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

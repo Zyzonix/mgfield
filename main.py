@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
 #
 # written by ZyzonixDev
 # published by ZyzonixDevelopments
@@ -84,7 +85,7 @@ class mgfield():
             
 
     # prepare data storing for system statistics --> save it to dataArray; make it storeable later
-    def storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, cpuData, memData, netData, sensData):
+    def storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, cpuData, memData, netData, sensData, uptimeData):
         formattedTimestampUTC = mySQLHandler.formatDate(measurementTimeUTC)
         
         # build dataString for sqlCommand builder
@@ -93,6 +94,7 @@ class mgfield():
         for key in cpuData.keys(): sysDataString += "__" + str(cpuData[key])
         for key in memData.keys(): sysDataString += "__" + str(memData[key])
         for key in sensData.keys(): sysDataString += "__" + str(sensData[key])
+        for key in uptimeData.keys(): sysDataString += "__" + str(uptimeData[key])
 
         # netData table
         netDataString = str(measurementTimeLocal)
@@ -196,6 +198,7 @@ class mgfield():
         self.cpuStatsSource = getattr(systemMonitoring, "cpu")
         self.netStatsSource = getattr(systemMonitoring, "net")
         self.sensStatsSource = getattr(systemMonitoring, "internalTemperatureSensors")
+        self.uptimeStatsSource = getattr(systemMonitoring, "uptime")
 
 
     # will be started as thread, collects data and saves to global var
@@ -263,9 +266,10 @@ class mgfield():
         memData = self.memStatsSource()
         netData = self.netStatsSource(targets)
         sensData = self.sensStatsSource()
+        uptimeData = self.uptimeStatsSource()
         logging.write("[SysStats] collected system statistics successfully")
 
-        mgfield.storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, cpuData, memData, netData, sensData)
+        mgfield.storeSysStatsData(self, measurementTimeUTC, measurementTimeLocal, cpuData, memData, netData, sensData, uptimeData)
 
 
     # collects data from temperature sensor

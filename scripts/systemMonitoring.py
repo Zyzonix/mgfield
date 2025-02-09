@@ -113,3 +113,17 @@ class systemMonitoring():
         }
 
         return intTempSet
+    
+    # collect uptime in seconds
+    def uptime():
+        intUptimeSet = {}
+        try: 
+            with open('/proc/uptime', 'r') as f:
+                uptime = float(f.readline().split()[0])
+        except: 
+            uptime = 0
+        intUptimeSet = {
+            "uptime" : str(uptime)
+        }
+
+        return intUptimeSet
