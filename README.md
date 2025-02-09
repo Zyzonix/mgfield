@@ -95,7 +95,6 @@ Table | Value Name | Meaning/Use type
 ```mgfield```|```y_value```|Y-Value per measurement
 ```mgfield```|```z_value```|Z-Value per measurement
 ```mgfield```|```out_value```|OUT-Value per measurement
-```mgfield```|```measurement_result```|Calculated average value from the single measurement (calculated from x-,y-, and z-values)
 ```mgfield```|```measurement_duration```|Time delta of the single measurement
 ```netstats```|```hostname```|Local hostname from ```/etc/hosts```
 ```netstats```|```local_ip```|Local IP
@@ -120,6 +119,7 @@ Table | Value Name | Meaning/Use type
 ```sysstats```|```ram_free_wcache_perc```|Free RAM in % with cache
 ```sysstats```|```ram_free_wocache_perc```|Free RAM in % without cache
 ```sysstats```|```cpu_thermal```|Raspberry Pi's CPU Temperature
+```sysstats```|```uptime```|Uptime since last reboot in seconds
 ```temperature```|```temperature_value```|Current temperature in °C
 
 -----
