@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermagnet Data Scrape</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="message" class="text-center my-4">{{ message }}</h1>
+
+        <!-- Formular für Start- und Endzeit -->
+        <form method="POST" class="mb-4">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="station">Stationen:</label>
+                    <select class="form-control" id="station" name="station" multiple required>
+                        <option value="NGK">NGK</option>
+                        <option value="ESK">ESK</option>
+                        <option value="VAL">VAL</option>
+                        <option value="WNG">WNG</option>
+                        <option value="HLP">HLP</option>
+                        <option value="ARS">ARS</option>
+                        <!-- Weitere Optionen können hier hinzugefügt werden -->
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="custom_station">Benutzerdefinierte Station (drei Buchstaben):</label>
+                    <input type="text" class="form-control" id="custom_station" name="custom_station" pattern="[A-Za-z]{3}" title="Drei Buchstaben" placeholder="z.B. ABC">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="start">Startzeit:</label>
+                    <input type="datetime-local" class="form-control" id="start" name="start" value="{{ start or '2024-09-01T00:00' }}" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="stop">Endzeit:</label>
+                    <input type="datetime-local" class="form-control" id="stop" name="stop" value="{{ stop or '2024-10-01T00:00' }}" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Daten abrufen und plotten</button>
+        </form>
+
+        <div class="text-center my-4">
+            <button id="select-default" class="btn btn-secondary">Standardstationen auswählen</button>
+        </div>
+
+        <div id="progress-container" class="text-center my-4" style="display: none;">
+            <h2>Fortschritt: <span id="progress">0</span>%</h2>
+        </div>
+
+        {% if plot_url %}
+            <h2 class="text-center my-4">Plot für die Zeitspanne von {{ start|datetimeformat }} bis {{ stop|datetimeformat }}:</h2>
+            <!-- Einbetten des interaktiven Plots -->
+            <iframe src="{{ url_for('download_file', filename=plot_url) }}" width="100%" height="600" class="mb-4"></iframe>
+
+            <!-- Download-Link für den Plot -->
+            <div class="text-center">
+                <a href="{{ url_for('download_file', filename=plot_url) }}" class="btn btn-secondary" download>Plot herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if map_plot_url %}
+            <h2 class="text-center my-4">Weltkarte der ausgewählten Stationen:</h2>
+            <!-- Einbetten der interaktiven Weltkarte -->
+            <iframe src="{{ url_for('download_file', filename=map_plot_url) }}" width="100%" height="600" class="mb-4"></iframe>
+
+            <!-- Download-Link für die Weltkarte -->
+            <div class="text-center">
+                <a href="{{ url_for('download_file', filename=map_plot_url) }}" class="btn btn-secondary" download>Weltkarte herunterladen</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Florian von Bargen</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+        // Nachricht nach 5 Sekunden ausblenden
+        setTimeout(function() {
+            var messageElement = document.getElementById('message');
+            if (messageElement) {
+                messageElement.classList.add('fade-out');
+            }
+        }, 5000);
+
+        // WebSocket-Verbindung herstellen
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // Fortschritt anzeigen
+        socket.on('progress', function(data) {
+            var progressContainer = document.getElementById('progress-container');
+            var progressElement = document.getElementById('progress');
+            progressContainer.style.display = 'block';
+            progressElement.innerText = data.progress;
+        });
+
+        // Standardstationen auswählen
+        document.getElementById('select-default').addEventListener('click', function() {
+            var selectElement = document.getElementById('station');
+            var defaultStations = ['NGK', 'ESK', 'VAL', 'WNG', 'HLP', 'ARS'];
+            for (var i = 0; i < selectElement.options.length; i++) {
+                if (defaultStations.includes(selectElement.options[i].value)) {
+                    selectElement.options[i].selected = true;
+                } else {
+                    selectElement.options[i].selected = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
