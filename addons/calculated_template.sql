@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 13, 2024 at 02:07 PM
+-- Generation Time: Aug 11, 2024 at 05:25 PM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.18
 
@@ -24,12 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `database-calculated`
+-- Table structure for table `calculated_template`
 --
 
-CREATE TABLE `database-calculated` (
+CREATE TABLE `calculated_template` (
   `time_utc` datetime(3) NOT NULL,
   `time_local` datetime(3) NOT NULL,
+  `x_value` float NOT NULL,
+  `y_value` float NOT NULL,
+  `z_value` float NOT NULL,
+  `out_value` float NOT NULL,
+  `measurement_duration` float NOT NULL,
+  `start_avg` tinyint(1) NOT NULL,
   `measurement_result` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
