@@ -7,7 +7,7 @@
 #
 # date created  | 10-08-2024 12:25:28
 # 
-# file          | addons/calculateAverage.py
+# file          | addons/calculateData.py
 # project       | mgfield
 # version       | 1.0.0
 #
@@ -15,8 +15,9 @@
 # source databases to calculate avg from
 # sourcedatabase must have the format from mgfield_template.sql
 # key = database/station, value = list of [<multiplicator>, <value-to-add>], boths are floats
+# will be left emtpy in our usecase or removed in a further patch
 SOURCES = {
-    "station" : [0, 0]
+    "station" : [1, 0]
 }
 
 # switch to enable import from earlier mgfiel versions
@@ -295,7 +296,7 @@ class calculateData():
                         calculatedList.append(calculatedLine)
 
                 if calculatedList:
-                    logging.write("Calculated successfully " + str(len(calculatedList)) + " lines, storing to database...")
+                    logging.write("Calculated successfully (" + str(counter) + "/" + str(len(valueList)) + ") lines, storing to database...")
                     changedDB = mySQLHandler.changeDB(self, TARGETDATABASE)
                     if not changedDB:
                         return
